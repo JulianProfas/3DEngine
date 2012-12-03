@@ -9,11 +9,11 @@
 class Logger
 {
 public:
-	Logger(std::string logFile);
-	~Logger();
 	static Logger* GetInstance();
 	void Write(std::string message);
 private:
+	Logger(std::string logFile);
+	~Logger();
 	static Logger* instance;
 	std::ofstream logFile;
 };

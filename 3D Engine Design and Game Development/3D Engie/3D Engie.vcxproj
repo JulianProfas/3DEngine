@@ -61,7 +61,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Kernel.h" />
     <ClInclude Include="Logger.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="RendererDX9.h" />
+    <ClInclude Include="Window.h" />
+    <ClInclude Include="WindowManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Logger.cpp" />
