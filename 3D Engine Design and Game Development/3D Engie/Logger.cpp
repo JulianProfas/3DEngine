@@ -39,6 +39,10 @@ Logger* Logger::GetInstance()
 */
 void Logger::Write(std::string message)
 {
-	std::cout << message << std::endl;
-	logFile << message << std::endl;
+	char newDate[9]; 
+	char newTime[9];
+	_strdate(newDate);
+	_strtime(newTime);
+	std::cout << "<" << newDate << "> <" << newTime << "> " << message << std::endl;
+	logFile << "<" << newDate << "> <" << newTime << "> " << message << std::endl;
 }

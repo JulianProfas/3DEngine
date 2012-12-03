@@ -3,7 +3,10 @@
 int main()
 {
 
-	Logger::GetInstance();
+	Logger::GetInstance()->Write("billy bob");
+
+	system("PAUSE");
 
 	return 0;
+
 };
