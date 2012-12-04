@@ -4,12 +4,12 @@
 class WindowManager
 {
 public:
-	WindowMager();
+	WindowManager();
     ~WindowManager();
-	CreateWindow();
-	RemoveWindow();
+	void CreateWindow();
+	void RemoveWindow();
 private:
 	List* windows;
-}
+};
 
 #endif
