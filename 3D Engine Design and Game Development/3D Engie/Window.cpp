@@ -23,13 +23,13 @@ WNDCLASSEX wc =
 {
     sizeof( WNDCLASSEX ), CS_CLASSDC, MsgProc, 0L, 0L,
     GetModuleHandle( NULL ), NULL, NULL, NULL, NULL,
-    "D3D Tutorial", NULL
+    "ENGIE", NULL
 };
 
-Window::Window(int x, int y, int height, int width, std::string title)
+Window::Window(std::string title, int x, int y, int height, int width)
 {
 	RegisterClassEx( &wc );
-	hwnd = CreateWindow( "D3D Tutorial", title.c_str(),
+	hwnd = CreateWindow( "ENGIE", title.c_str(),
                               WS_OVERLAPPEDWINDOW, x, y, width, height,
                               NULL, NULL, wc.hInstance, NULL );
 	Logger::GetInstance()->Write("Window aangemaakt");
