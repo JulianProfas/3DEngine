@@ -11,7 +11,7 @@ public:
 	~Kernel();
 private:
 	WindowManager* windowManager;
-	Renderer* renderer;	
+	
 };
 
 #endif
