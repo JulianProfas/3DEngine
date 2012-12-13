@@ -1,19 +1,22 @@
 #ifndef RENDERERDX9_H
 #define RENDERERDX9_H
+#include <Windows.h>
+#include <mmsystem.h>
+#include <d3dx9.h>
+#include <strsafe.h>
+//#include "renderer.h"
 
-#include "renderer.h"
-
-class rendererDX9 : public renderer
+class RendererDX9// : public Renderer
 {
 public:
-	rendererDX9();
-	~rendererDX9();
-	bool InitD3D(HWND hwnd);
-	void BeginScene();
+	RendererDX9();
+	HRESULT InitD3D(HWND hwnd);
+	/*void BeginScene();
 	void ClearScene();
 	void EndScene();
 	void PresentScene();
-	void DrawPrimitive();
+	void DrawPrimitive();*/
+	void Render();
 private:
 
 };

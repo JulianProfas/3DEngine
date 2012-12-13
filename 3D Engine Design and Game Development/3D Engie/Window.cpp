@@ -1,17 +1,19 @@
 #include "Window.h"
 #include "Logger.h"
+#include "RendererDX9.h"
 
 LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 {
+	RendererDX9* Rend = new RendererDX9();	
+	Rend->InitD3D(hWnd);
     switch( msg )
     {
         case WM_DESTROY:
-            
             PostQuitMessage( 0 );
             return 0;
 
         case WM_PAINT:
-            
+            Rend->Render();
             ValidateRect( hWnd, NULL );
             return 0;
     }
@@ -35,6 +37,10 @@ Window::Window(std::string title, int x, int y, int height, int width)
 	Logger::GetInstance()->Write("Window aangemaakt");
 }
 
+HWND Window::getWindow()
+{
+	return hwnd;
+}
 
 void Window::Show(int showWindow)
 {
