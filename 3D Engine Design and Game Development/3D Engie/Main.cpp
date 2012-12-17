@@ -1,14 +1,13 @@
 #include "Logger.h"
-#include "Window.h"
-#include "WindowManager.h"
-#include "RendererDX9.h"
+#include "Kernel.h"
 
 int main()
 {
-	WindowManager* wm = new WindowManager();
-	wm->AddWindow("Window test", 250, 150, 400, 400);
-	wm->GetWindow("Window test")->Show(SW_NORMAL);
-	
+	Kernel* kernel = new Kernel();
+	kernel->GetWindowManager()->AddWindow("Window 1", 50, 50, 200, 200);
+	kernel->GetWindowManager()->AddWindow("Window 2", 250, 50, 200, 200);
+	kernel->Start();
+
 
 	return 0;
 };

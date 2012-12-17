@@ -54,3 +54,11 @@ Window* WindowManager::GetWindow(std::string title)
 {
 	return windows->find(title)->second;
 }
+
+/*
+
+*/
+WindowMap* WindowManager::GetWindowMap()
+{
+	return windows;
+}

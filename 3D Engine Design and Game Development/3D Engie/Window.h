@@ -4,6 +4,8 @@
 #include <windows.h>
 #include <string>
 
+extern WNDCLASSEX wc;
+
 class Window
 {
 public:

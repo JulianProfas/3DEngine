@@ -15,6 +15,7 @@ public:
 	void AddWindow(std::string title, int x, int y, int width, int height);
 	void RemoveWindow(std::string title);
 	void ClearWindowMap();
+	WindowMap* GetWindowMap();
 	Window* GetWindow(std::string title);
 private:
 	WindowMap* windows;
