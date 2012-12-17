@@ -4,6 +4,13 @@
 class Model
 {
 public:
-	Model();
+	Model(LPD3DXMESH argMesh, std::string argName);
 	~Model();
+	void* GetMesh();
+	void SetMesh(void* argMesh);
+	std::string GetName();
+	void SetName(std::string argName);
+private:
+	LPD3DXMESH mesh;
+	std::string name;
 };
