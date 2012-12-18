@@ -4,9 +4,8 @@
 class Renderer
 {
 public:
-	Renderer();
 	~Renderer();
-	virtual bool InitD3D(HWND hwnd) = 0;
+	virtual bool InitDevice(HWND hwnd) = 0;
 	virtual void BeginScene() = 0;
 	virtual void ClearScene() = 0;
 	virtual void EndScene() = 0;

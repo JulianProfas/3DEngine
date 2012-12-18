@@ -14,11 +14,12 @@ public:
 	~Kernel();
 	void Start();
 	WindowManager* GetWindowManager();
+	//LRESULT CALLBACK MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
 private:
 	WindowManager* windowManager;
 	Renderer* renderer;
 	void CleanUp();
-	//LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+	
 };
 
 #endif

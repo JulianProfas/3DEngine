@@ -4,10 +4,10 @@ LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 {
     switch( msg )
     {
-        case WM_CLOSE:
-			DestroyWindow(hWnd);
-            return 0;
-
+		
+		case WM_DESTROY:
+			PostQuitMessage(0);
+			return 0;
         case WM_PAINT:
             ValidateRect( hWnd, NULL );
             return 0;
@@ -18,10 +18,11 @@ LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 
 WNDCLASSEX wc =
 {
-    sizeof( WNDCLASSEX ), CS_CLASSDC, MsgProc, 0L, 0L,
+	sizeof( WNDCLASSEX ), CS_CLASSDC, MsgProc, 0L, 0L,
 	GetModuleHandle( NULL ), NULL, NULL, NULL, NULL,
     "ENGIE", NULL
 };
+
 /*
 
 */
@@ -61,12 +62,17 @@ void Kernel::Start()
 	}
 
 	MSG msg;
-    while(GetMessage(&msg, NULL, 0, 0))
+	ZeroMemory( &msg, sizeof( msg ) );
+	while(msg.message != WM_QUIT)
     {
-		std::cout << this->GetWindowManager()->GetWindowMap()->size() << std::endl;
+		//std::cout << this->GetWindowManager()->GetWindowMap()->size() << std::endl;
 		
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
+		if( PeekMessage( &msg, NULL, 0U, 0U, PM_REMOVE ) )
+		{
+			TranslateMessage( &msg );
+			DispatchMessage( &msg );
+		}
+		
     }
 
 }

@@ -62,3 +62,20 @@ WindowMap* WindowManager::GetWindowMap()
 {
 	return windows;
 }
+
+/*
+
+*/
+void WindowManager::RemoveWindow(HWND hwnd)
+{
+	WindowMap::iterator it = windows->begin();
+	bool found = false;
+	while(found == false)
+	{
+		Window* temp = it->second;
+		if(hwnd == temp->getWindow())
+		{
+			windows->erase(it);
+		}
+	} 
+}
