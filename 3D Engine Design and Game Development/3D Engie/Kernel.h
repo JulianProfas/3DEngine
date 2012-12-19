@@ -2,6 +2,7 @@
 #define ENGIE_KERNEL_H
 
 #include "WindowManager.h"
+#include "InputManager.h"
 #include "Renderer.h"
 #include "RendererDX9.h"
 #include "Logger.h"
@@ -17,6 +18,7 @@ public:
 	//LRESULT CALLBACK MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
 private:
 	WindowManager* windowManager;
+	InputManager* inputManager;
 	Renderer* renderer;
 	void CleanUp();
 	

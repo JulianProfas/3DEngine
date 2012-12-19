@@ -31,6 +31,8 @@ Kernel::Kernel()
 	RegisterClassEx( &wc );
 	Kernel::windowManager = new WindowManager();
 	//Kernel::renderer = new RendererDX9();
+	Kernel::inputManager = new InputManager();
+	
 }
 
 /*
@@ -58,7 +60,9 @@ void Kernel::Start()
 	while(it != this->windowManager->GetWindowMap()->end())
 	{
 		it->second->Show(SW_SHOW);
+		inputManager->AddKeyboardInput(it->second->getWindow());
 		it++;
+		
 	}
 
 	MSG msg;
@@ -66,7 +70,8 @@ void Kernel::Start()
 	while(msg.message != WM_QUIT)
     {
 		//std::cout << this->GetWindowManager()->GetWindowMap()->size() << std::endl;
-		
+		inputManager->CheckStates();
+
 		if( PeekMessage( &msg, NULL, 0U, 0U, PM_REMOVE ) )
 		{
 			TranslateMessage( &msg );
@@ -74,6 +79,7 @@ void Kernel::Start()
 		}
 		
     }
+	
 
 }
 
