@@ -9,7 +9,7 @@ public:
 	std::string GetName();
 	void* getTexture();
 	void setTexture(void* texture);
-	Texture* loadTexture();
+	//Texture* loadTexture();
 	
 private:
 	LPDIRECT3DTEXTURE9 loadedTexture;

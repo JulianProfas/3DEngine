@@ -4,6 +4,7 @@
 #include <mmsystem.h>
 #include <d3dx9.h>
 #include <strsafe.h>
+#include "Model.h"
 //#include "renderer.h"
 
 class RendererDX9// : public Renderer
@@ -16,9 +17,12 @@ public:
 	void EndScene();
 	void PresentScene();
 	void DrawPrimitive();*/
-	void Render();
+	LPDIRECT3DDEVICE9 GetDevice();
+	void Render(Model* m);
 private:
-
+	void CleanUp();
+	LPDIRECT3D9         g_pD3D; // Used to create the D3DDevice
+	LPDIRECT3DDEVICE9   g_pd3dDevice; // Our rendering device
 };
 
 #endif

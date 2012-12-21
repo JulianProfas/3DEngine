@@ -1,11 +1,9 @@
 #include "RendererDX9.h"
 
-LPDIRECT3D9         g_pD3D = NULL; // Used to create the D3DDevice
-LPDIRECT3DDEVICE9   g_pd3dDevice = NULL; // Our rendering device
-
 RendererDX9::RendererDX9()
 {
-
+	this->g_pD3D = NULL; 
+	this->g_pd3dDevice = NULL;
 }
 
 HRESULT RendererDX9::InitD3D(HWND hWnd)
@@ -28,6 +26,11 @@ HRESULT RendererDX9::InitD3D(HWND hWnd)
     }
 
     // Device state would normally be set here
+	// Turn on the zbuffer
+    g_pd3dDevice->SetRenderState( D3DRS_ZENABLE, TRUE );
+
+    // Turn on ambient lighting 
+    g_pd3dDevice->SetRenderState( D3DRS_AMBIENT, 0xffffffff );
 
     return S_OK;
 }
@@ -36,7 +39,7 @@ HRESULT RendererDX9::InitD3D(HWND hWnd)
 // Name: Cleanup()
 // Desc: Releases all previously initialized objects
 //-----------------------------------------------------------------------------
-VOID Cleanup()
+VOID RendererDX9::CleanUp()
 {
     if( g_pd3dDevice != NULL )
         g_pd3dDevice->Release();
@@ -52,7 +55,7 @@ VOID Cleanup()
 // Name: Render()
 // Desc: Draws the scene
 //-----------------------------------------------------------------------------
-VOID RendererDX9::Render()
+VOID RendererDX9::Render(Model* m)
 {
     if( NULL == g_pd3dDevice )
         return;
@@ -64,6 +67,14 @@ VOID RendererDX9::Render()
     if( SUCCEEDED( g_pd3dDevice->BeginScene() ) )
     {
         // Rendering of scene objects can happen here
+		for( DWORD i = 0; i < m->GetNumMaterials(); i++ )
+        {
+            // Set the material and texture for this subset
+			g_pd3dDevice->SetMaterial( &m->GetMaterials()[i] );
+
+            // Draw the mesh subset
+			m->GetMesh()->DrawSubset( i );
+        }
 
         // End the scene
         g_pd3dDevice->EndScene();
@@ -71,4 +82,12 @@ VOID RendererDX9::Render()
 
     // Present the backbuffer contents to the display
     g_pd3dDevice->Present( NULL, NULL, NULL, NULL );
+}
+
+/*
+
+*/
+LPDIRECT3DDEVICE9 RendererDX9::GetDevice()
+{
+	return this->g_pd3dDevice;
 }

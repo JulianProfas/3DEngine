@@ -41,8 +41,8 @@ void Logger::Write(std::string message)
 {
 	char newDate[9]; 
 	char newTime[9];
-	_strdate(newDate);
-	_strtime(newTime);
+	_strdate_s(newDate);
+	_strtime_s(newTime);
 	std::cout << "<" << newDate << "> <" << newTime << "> " << message << std::endl;
 	logFile << "<" << newDate << "> <" << newTime << "> " << message << std::endl;
 }
