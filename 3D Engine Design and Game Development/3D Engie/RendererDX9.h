@@ -5,6 +5,7 @@
 #include <d3dx9.h>
 #include <strsafe.h>
 #include "Model.h"
+#include "Texture.h"
 //#include "renderer.h"
 
 class RendererDX9// : public Renderer
@@ -18,7 +19,7 @@ public:
 	void PresentScene();
 	void DrawPrimitive();*/
 	LPDIRECT3DDEVICE9 GetDevice();
-	void Render(Model* m);
+	void Render(Model* m, Texture* t);
 private:
 	void CleanUp();
 	LPDIRECT3D9         g_pD3D; // Used to create the D3DDevice

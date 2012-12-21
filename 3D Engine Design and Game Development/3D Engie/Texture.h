@@ -1,17 +1,23 @@
+#ifndef ENGIE_TEXTURE_H
+#define ENGIE_TEXTURE_H
+
 #include <string>
 #include <d3dx9.h>
+#include "Logger.h"
 
 class Texture
 {
 public:
-	Texture(std::string& name, LPDIRECT3DTEXTURE9 texture);
+	Texture(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string name);
 	~Texture();
 	std::string GetName();
-	void* getTexture();
+	LPDIRECT3DTEXTURE9* getTexture();
 	void setTexture(void* texture);
-	//Texture* loadTexture();
 	
 private:
-	LPDIRECT3DTEXTURE9 loadedTexture;
+	LPDIRECT3DTEXTURE9* loadedTexture;
 	std::string name;
+	void loadTexture(LPDIRECT3DDEVICE9 g_pd3dDevice);
 };
+
+#endif

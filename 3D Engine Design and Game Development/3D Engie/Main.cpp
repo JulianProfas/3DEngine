@@ -3,6 +3,7 @@
 #include "Kernel.h"
 #include "RendererDX9.h"
 #include "Model.h"
+#include "Texture.h"
 #include "Window.h"
 
 int main()
@@ -21,11 +22,11 @@ int main()
 	rdx9->InitD3D(w->getWindow());
 	w->Show(SW_NORMAL);
 	Model* m = new Model(rdx9->GetDevice(), "awdk");
-	
+	Texture* t = new Texture(rdx9->GetDevice(), "hallohallo");
 
 	while(true)
 	{
-		rdx9->Render(m);
+		rdx9->Render(m, t);
 	}
 	
 	return 0;

@@ -55,7 +55,7 @@ VOID RendererDX9::CleanUp()
 // Name: Render()
 // Desc: Draws the scene
 //-----------------------------------------------------------------------------
-VOID RendererDX9::Render(Model* m)
+VOID RendererDX9::Render(Model* m, Texture* t)
 {
     if( NULL == g_pd3dDevice )
         return;
@@ -71,7 +71,7 @@ VOID RendererDX9::Render(Model* m)
         {
             // Set the material and texture for this subset
 			g_pd3dDevice->SetMaterial( &m->GetMaterials()[i] );
-
+			g_pd3dDevice->SetTexture(0, t->getTexture()[i]);
             // Draw the mesh subset
 			m->GetMesh()->DrawSubset( i );
         }
