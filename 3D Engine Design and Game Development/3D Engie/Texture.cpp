@@ -27,3 +27,6 @@ void Texture::setTexture(void* texture)
 {
 	loadedTexture = (LPDIRECT3DTEXTURE9)texture;
 }
+
+Texture* Texture::loadTexture()
+{

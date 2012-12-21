@@ -1,5 +1,5 @@
 #include <string>
-#include <list>
+#include <set>
 #include "Model.h"
 #include "Texture.h"
 
@@ -15,6 +15,6 @@ public:
 private:
 	std::string modelPath;
 	std::string texturePath;
-	std::list<Model*> modelList;
-	std::list<Texture*> textureList;
+	std::set<Model*> modelList;
+	std::set<Texture*> textureList;
 };
