@@ -1,5 +1,5 @@
 #include <string>
-#include <set>
+#include <map>
 #include <d3dx9.h>
 #include "Model.h"
 #include "Texture.h"
@@ -8,16 +8,12 @@
 class ResourcesManager
 {
 public:
-	ResourcesManager(std::string texturePath, std::string modelPath, LPDIRECT3DDEVICE9 device);
+	ResourcesManager(LPDIRECT3DDEVICE9 g_pd3dDevice);
 	~ResourcesManager();
-	void LoadModel(std::string name);
-	void LoadTexture(std::string name, LPDIRECT3DDEVICE9 device);
-	void SetModelPath(std::string argModelPath);
-	void SetTexturePath(std::string argTexturePath);
+	Model& LoadModel(std::string filePath);
+	Texture& LoadTexture(std::string filePath);
 private:
-	std::string modelPath;
-	std::string texturePath;
-	std::set<Model*> modelList;
-	std::set<Texture*> textureList;
+	std::map<std::string, Model*> modelMap ;
+	std::map<std::string, Texture*> textureMap;
 	LPDIRECT3DDEVICE9 device;
 };

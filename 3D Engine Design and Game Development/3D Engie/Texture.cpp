@@ -1,12 +1,12 @@
 #include "Texture.h"
 
 
-Texture::Texture(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string argName)
+Texture::Texture(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string pathName)
 {
-	name = argName;
+	name = pathName;
 	loadedTexture = new LPDIRECT3DTEXTURE9;
 	//loadedTexture = NULL;
-	loadTexture(g_pd3dDevice);
+	loadTexture(g_pd3dDevice, pathName);
 }
 
 
@@ -26,11 +26,13 @@ LPDIRECT3DTEXTURE9* Texture::getTexture()
 }
 
 
-void Texture::loadTexture(LPDIRECT3DDEVICE9 g_pd3dDevice)
+void Texture::loadTexture(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string filePath)
 {
+	LPCSTR path = filePath.c_str();
+
 	if(FAILED( D3DXCreateTextureFromFileA( 
 	   g_pd3dDevice,
-       "tiger.bmp",
+       path,
        loadedTexture)))
 	{
 		// Failed loading texture

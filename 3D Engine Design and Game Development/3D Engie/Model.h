@@ -23,7 +23,7 @@ private:
 	std::string* pathName;
 	DWORD numMaterials;
 	D3DMATERIAL9* materials;
-	void LoadMesh(LPDIRECT3DDEVICE9 g_pd3dDevice);
+	void LoadMesh(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string filePath);
 };
 
 #endif

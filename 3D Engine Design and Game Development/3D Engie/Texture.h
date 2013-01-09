@@ -8,7 +8,7 @@
 class Texture
 {
 public:
-	Texture(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string name);
+	Texture(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string pathName);
 	~Texture();
 	std::string GetName();
 	LPDIRECT3DTEXTURE9* getTexture();
@@ -17,7 +17,7 @@ public:
 private:
 	LPDIRECT3DTEXTURE9* loadedTexture;
 	std::string name;
-	void loadTexture(LPDIRECT3DDEVICE9 g_pd3dDevice);
+	void loadTexture(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string filePath);
 };
 
 #endif

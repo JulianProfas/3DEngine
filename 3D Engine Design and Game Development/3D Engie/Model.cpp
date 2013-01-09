@@ -9,7 +9,7 @@ Model::Model(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string pathName)
 	this->mesh = NULL;
 	this->materials = NULL;
 	this->numMaterials = 0L;
-	this->LoadMesh(g_pd3dDevice);
+	this->LoadMesh(g_pd3dDevice, pathName);
 	
 }
 
@@ -56,13 +56,14 @@ DWORD Model::GetNumMaterials()
 /*
 
 */
-void Model::LoadMesh(LPDIRECT3DDEVICE9 g_pd3dDevice)
+void Model::LoadMesh(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string filePath)
 {
 	LPD3DXBUFFER pD3DXMtrlBuffer = NULL;
+	LPCSTR path = filePath.c_str();
 
 	// Load the mesh from the specified file
 	if (FAILED(D3DXLoadMeshFromX(
-		"tiger.x",
+		path,
 		D3DXMESH_SYSTEMMEM,
 		g_pd3dDevice,
 		NULL,

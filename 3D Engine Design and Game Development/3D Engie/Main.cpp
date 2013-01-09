@@ -4,6 +4,7 @@
 #include "RendererDX9.h"
 #include "Model.h"
 #include "Texture.h"
+#include "ResourcesManager.h"
 #include "Window.h"
 
 int main()
@@ -21,8 +22,12 @@ int main()
 	RendererDX9* rdx9 = new RendererDX9();
 	rdx9->InitD3D(w->getWindow());
 	w->Show(SW_NORMAL);
-	Model* m = new Model(rdx9->GetDevice(), "awdk");
-	Texture* t = new Texture(rdx9->GetDevice(), "hallohallo");
+	//Model* m = new Model(rdx9->GetDevice(), "tiger.x");
+	ResourcesManager* r = new ResourcesManager(rdx9->GetDevice());
+	Model* m = &r->LoadModel("tiger.x");
+	Model* me = &r->LoadModel("tiger.x");
+	Texture* t = &r->LoadTexture("tiger.bmp");
+	Texture* te = &r->LoadTexture("tiger.bmp");
 
 	while(true)
 	{
