@@ -69,6 +69,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BMPloader.h" />
+    <ClInclude Include="camera.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Kernel.h" />
     <ClInclude Include="KeyboardInput.h" />
@@ -84,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BMPloader.cpp" />
+    <ClCompile Include="camera.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Kernel.cpp" />
     <ClCompile Include="KeyboardInput.cpp" />

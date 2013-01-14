@@ -7,10 +7,13 @@
 #include "ResourcesManager.h"
 #include "Terrain.h"
 #include "Window.h"
+#include "camera.h"
 
 int main()
 {
-	
+	float currTime  = (float)timeGetTime();
+	float timeDelta = (currTime - lastTime)*0.001f;
+	static float lastTime = (float)timeGetTime();
 	Kernel* kernel = new Kernel();
 	/*
 	kernel->GetWindowManager()->AddWindow("Window 1", 50, 50, 200, 200);
@@ -29,9 +32,54 @@ int main()
 	Texture* t = &r->LoadTexture("tiger.bmp");
 	Texture* te = &r->LoadTexture("tiger.bmp");
 	Terrain* terrain = new Terrain("heightmap.bmp", "lava.jpg", rdx9, r);
+	Camera TheCamera(Camera::LANDOBJECT);
 
 	while(true)
-	{	
+	{
+		//hier
+		if( ::GetAsyncKeyState('W') & 0x8000f )
+			TheCamera.walk(4.0f * timeDelta);
+
+		if( ::GetAsyncKeyState('S') & 0x8000f )
+			TheCamera.walk(-4.0f * timeDelta);
+
+		if( ::GetAsyncKeyState('A') & 0x8000f )
+			TheCamera.strafe(-4.0f * timeDelta);
+
+		if( ::GetAsyncKeyState('D') & 0x8000f )
+			TheCamera.strafe(4.0f * timeDelta);
+
+		if( ::GetAsyncKeyState('R') & 0x8000f )
+			TheCamera.fly(4.0f * timeDelta);
+
+		if( ::GetAsyncKeyState('F') & 0x8000f )
+			TheCamera.fly(-4.0f * timeDelta);
+
+		if( ::GetAsyncKeyState(VK_UP) & 0x8000f )
+			TheCamera.pitch(1.0f * timeDelta);
+
+		if( ::GetAsyncKeyState(VK_DOWN) & 0x8000f )
+			TheCamera.pitch(-1.0f * timeDelta);
+
+		if( ::GetAsyncKeyState(VK_LEFT) & 0x8000f )
+			TheCamera.yaw(-1.0f * timeDelta);
+			
+		if( ::GetAsyncKeyState(VK_RIGHT) & 0x8000f )
+			TheCamera.yaw(1.0f * timeDelta);
+
+		if( ::GetAsyncKeyState('N') & 0x8000f )
+			TheCamera.roll(1.0f * timeDelta);
+
+		if( ::GetAsyncKeyState('M') & 0x8000f )
+			TheCamera.roll(-1.0f * timeDelta);
+
+		// Update the view matrix representing the cameras 
+        // new position/orientation.
+		D3DXMATRIX V;
+		TheCamera.getViewMatrix(&V);
+		//rdx9->SetTransform(D3DTS_VIEW, &V);
+		//hier
+
 		rdx9->ClearScene();
 		if(rdx9->BeginScene())
 		{
