@@ -1,3 +1,7 @@
+#ifndef ENGIE_RESOURCEMANAGER_H
+#define ENGIE_RESOURCEMANAGER_H
+
+
 #include <string>
 #include <map>
 #include <d3dx9.h>
@@ -17,3 +21,5 @@ private:
 	std::map<std::string, Texture*> textureMap;
 	LPDIRECT3DDEVICE9 device;
 };
+
+#endif

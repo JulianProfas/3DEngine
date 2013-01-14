@@ -1,24 +1,41 @@
 #ifndef RENDERERDX9_H
 #define RENDERERDX9_H
+
 #include <Windows.h>
 #include <mmsystem.h>
 #include <d3dx9.h>
-#include <strsafe.h>
+
 #include "Model.h"
 #include "Texture.h"
-//#include "renderer.h"
+#include "Renderer.h"
 
-class RendererDX9// : public Renderer
+#define D3DFVF_CUSTOMVERTEX (D3DFVF_XYZ|D3DFVF_TEX1)
+
+class RendererDX9 : public Renderer
 {
 public:
 	RendererDX9();
-	HRESULT InitD3D(HWND hwnd);
-	/*void BeginScene();
-	void ClearScene();
-	void EndScene();
-	void PresentScene();
-	void DrawPrimitive();*/
-	LPDIRECT3DDEVICE9 GetDevice();
+	~RendererDX9();	
+	HRESULT	InitDevice(HWND hWnd, int width, int height);
+	void	SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ);
+	void	SetupViewMatrix();
+	void	SetupProjectionMatrix();
+	void	ClearScene();
+	bool	BeginScene();
+	void	EndScene();
+	void	PresentScene();
+	LPDIRECT3DVERTEXBUFFER9		CreateVertexBuffer(ENGIE_VERTEX Vertices[], int NumberofVertices);
+	void	SetStreamSource(LPDIRECT3DVERTEXBUFFER9 buffer, unsigned int Stride);
+	void	SetFvF(DWORD fvf);
+	void	DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, unsigned int StartVertex, unsigned int NumberOfPrimitives);
+	void	DrawSubset(LPD3DXMESH leakMesh, DWORD i);
+	void	SetMaterial(D3DMATERIAL9* MeshMaterial);
+	void	SetTexture(LPDIRECT3DTEXTURE9 Texture);
+	void	ToggleWireframe();
+	void	EnableTextureFiltering(bool enable);
+	void	Zenable(bool enable);
+	void*	GetDevice();
+
 	void Render(Model* m, Texture* t);
 private:
 	void CleanUp();
