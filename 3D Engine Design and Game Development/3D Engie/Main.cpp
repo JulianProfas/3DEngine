@@ -11,9 +11,10 @@
 
 int main()
 {
-	float currTime  = (float)timeGetTime();
-	float timeDelta = (currTime - lastTime)*0.001f;
+	/*float currTime  = (float)timeGetTime();
 	static float lastTime = (float)timeGetTime();
+	float timeDelta = (currTime - lastTime)*0.001f;
+	*/
 	Kernel* kernel = new Kernel();
 	/*
 	kernel->GetWindowManager()->AddWindow("Window 1", 50, 50, 200, 200);
@@ -36,7 +37,7 @@ int main()
 
 	while(true)
 	{
-		//hier
+		/*//hier
 		if( ::GetAsyncKeyState('W') & 0x8000f )
 			TheCamera.walk(4.0f * timeDelta);
 
@@ -72,7 +73,7 @@ int main()
 
 		if( ::GetAsyncKeyState('M') & 0x8000f )
 			TheCamera.roll(-1.0f * timeDelta);
-
+*/
 		// Update the view matrix representing the cameras 
         // new position/orientation.
 		D3DXMATRIX V;

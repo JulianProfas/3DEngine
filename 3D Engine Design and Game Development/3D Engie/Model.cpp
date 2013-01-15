@@ -60,9 +60,10 @@ void Model::LoadMesh(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string filePath)
 {
 	LPD3DXBUFFER pD3DXMtrlBuffer = NULL;
 	LPCSTR path = filePath.c_str();
+	HRESULT res;
 
 	// Load the mesh from the specified file
-	if (FAILED(D3DXLoadMeshFromX(
+	res = D3DXLoadMeshFromX(
 		path,
 		D3DXMESH_SYSTEMMEM,
 		g_pd3dDevice,
@@ -70,24 +71,35 @@ void Model::LoadMesh(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string filePath)
 		&pD3DXMtrlBuffer,
 		NULL,
 		&this->numMaterials,
-		&this->mesh)))
+		&this->mesh);
+
+	std::string error = DXGetErrorString(res);
+
+	if(error.compare("D3DXFERR_PARSEERROR"))
 	{
-		// Failed loading model
-		Logger::GetInstance()->Write("Failed loading model");
-    }
+		if(FAILED(res))
+		{
+			// Failed loading model
+			Logger::GetInstance()->Write("Failed loading model");
+		}
+		else
+		{
+			D3DXMATERIAL* d3dxMaterials = (D3DXMATERIAL*)pD3DXMtrlBuffer->GetBufferPointer();
+		
+			this->materials = new D3DMATERIAL9[this->numMaterials];		
+		
+			for (DWORD i = 0; i < this->numMaterials; i++)
+			{
+				this->materials[i] = d3dxMaterials[i].MatD3D;
+				this->materials[i].Ambient = this->materials[i].Diffuse;
+			}
+
+			pD3DXMtrlBuffer->Release();
+			Logger::GetInstance()->Write("Successful loaded model");
+		}
+	}
 	else
 	{
-		D3DXMATERIAL* d3dxMaterials = (D3DXMATERIAL*)pD3DXMtrlBuffer->GetBufferPointer();
-		
-		this->materials = new D3DMATERIAL9[this->numMaterials];		
-		
-		for (DWORD i = 0; i < this->numMaterials; i++)
-		{
-			this->materials[i] = d3dxMaterials[i].MatD3D;
-			this->materials[i].Ambient = this->materials[i].Diffuse;
-		}
-
-		pD3DXMtrlBuffer->Release();
-		Logger::GetInstance()->Write("Successful loaded model");
+		Logger::GetInstance()->Write("Model from another DX version");
 	}
 }

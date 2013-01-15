@@ -8,6 +8,7 @@
 #include <strsafe.h>
 #include <Windows.h>
 #include <mmsystem.h>
+#include <dxerr.h>
 
 class Model
 {
