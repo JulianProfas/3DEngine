@@ -6,10 +6,10 @@
 Model::Model(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string pathName)
 {
 	this->pathName = &pathName;
-	this->mesh = NULL;
-	this->materials = NULL;
-	this->numMaterials = 0L;
-	this->LoadMesh(g_pd3dDevice, pathName);
+	mesh = NULL;
+	materials = NULL;
+	numMaterials = 0L;
+	LoadMesh(g_pd3dDevice, pathName);
 	
 }
 

@@ -8,6 +8,7 @@
 #include "Terrain.h"
 #include "Window.h"
 #include "camera.h"
+#include "EntityModel.h"
 
 int main()
 {
@@ -28,10 +29,14 @@ int main()
 	rdx9->InitDevice(w->getWindow(), 1024, 768);
 	w->Show(SW_NORMAL);
 	ResourcesManager* r = new ResourcesManager((LPDIRECT3DDEVICE9)rdx9->GetDevice());
+	EntityModel* e = new EntityModel(10, 5, 0, 0, 0, 0, 10, 10, 10, "tiger.x", "tiger.bmp");
+	EntityModel* en = new EntityModel(-10, 5, 0, 0, 0, 0, 10, 10, 10, "tiger.x", "tiger.bmp");
+	/*
 	Model* m = &r->LoadModel("tiger.x");
 	Model* me = &r->LoadModel("tiger.x");
 	Texture* t = &r->LoadTexture("tiger.bmp");
 	Texture* te = &r->LoadTexture("tiger.bmp");
+	*/
 	Terrain* terrain = new Terrain("heightmap.bmp", "lava.jpg", rdx9, r);
 	Camera TheCamera(Camera::LANDOBJECT);
 
@@ -87,6 +92,10 @@ int main()
 			rdx9->SetupProjectionMatrix();
 			rdx9->SetupViewMatrix();
 
+			e->renderEntityModel(r, rdx9);
+			en->renderEntityModel(r, rdx9);
+
+			/*
 			//set model 1 to its position using the world matrix
 			rdx9->SetupWorldMatrix(10, 5, 0, 0, 0, 0, 10, 10, 10);
 			// Render model 1
@@ -109,6 +118,7 @@ int main()
 				// Draw the mesh subset
 				rdx9->DrawSubset(m->GetMesh(), i);
 			}
+			*/
 
 			//Render terrain
 			rdx9->SetupWorldMatrix(-128, -10, -128, 0, 0, 0, 1, 1, 1);
