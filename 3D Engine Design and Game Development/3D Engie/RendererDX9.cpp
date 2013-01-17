@@ -153,6 +153,7 @@ void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float 
 	D3DXMatrixTranslation(&matWorldTrans, x, y, z);
 
 	D3DXMatrixMultiply(&matWorld, &matWorldScale, &matWorldTrans);
+	D3DXMatrixMultiply(&matWorld, &matWorldRot, &matWorld);
 
 	//Multiply the modelmatrix + the CameraMatrix then set the transformation
     g_pd3dDevice->SetTransform(D3DTS_WORLD, &matWorld );

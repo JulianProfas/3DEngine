@@ -10,15 +10,15 @@
 class EntityModel : public Entity
 {
 public:
-	EntityModel(float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string mPath, std::string tPath);
+	EntityModel(float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string mPath, std::string tPath, ResourcesManager* resMan);
 	~EntityModel();
-	void renderEntityModel(ResourcesManager* r, RendererDX9* rdx9);
+	void renderEntityModel(RendererDX9* rdx9);
 private:
 	float scaleX;
 	float scaleY;
 	float scaleZ;
-	std::string modelPath;
-	std::string texturePath;
+	Model* m;
+	Texture* t;
 };
 
 #endif

@@ -29,8 +29,8 @@ int main()
 	rdx9->InitDevice(w->getWindow(), 1024, 768);
 	w->Show(SW_NORMAL);
 	ResourcesManager* r = new ResourcesManager((LPDIRECT3DDEVICE9)rdx9->GetDevice());
-	EntityModel* e = new EntityModel(10, 5, 0, 0, 0, 0, 10, 10, 10, "tiger.x", "tiger.bmp");
-	EntityModel* en = new EntityModel(-10, 5, 0, 0, 0, 0, 10, 10, 10, "tiger.x", "tiger.bmp");
+	EntityModel* e = new EntityModel(-20, 5, 0, 4.725, 0, 0, 15, 15, 15, "tiger.x", "tiger.bmp", r);
+	EntityModel* en = new EntityModel(20, 5, 0, 1.725, 0, 0, 10, 10, 10, "tiger.x", "tiger.bmp", r);
 	/*
 	Model* m = &r->LoadModel("tiger.x");
 	Model* me = &r->LoadModel("tiger.x");
@@ -92,8 +92,8 @@ int main()
 			rdx9->SetupProjectionMatrix();
 			rdx9->SetupViewMatrix();
 
-			e->renderEntityModel(r, rdx9);
-			en->renderEntityModel(r, rdx9);
+			e->renderEntityModel(rdx9);
+			en->renderEntityModel(rdx9);
 
 			/*
 			//set model 1 to its position using the world matrix

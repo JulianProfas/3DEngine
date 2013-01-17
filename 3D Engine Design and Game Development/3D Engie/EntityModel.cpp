@@ -1,23 +1,21 @@
 #include "EntityModel.h"
 
-EntityModel::EntityModel(float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string mPath, std::string tPath)
+EntityModel::EntityModel(float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string mPath, std::string tPath, ResourcesManager* resMan)
 	: Entity(posX, posY, posZ, rotX, rotY, rotZ)
 {
 	scaleX = scaX;
 	scaleY = scaY;
 	scaleZ = scaZ;
-	modelPath = mPath;
-	texturePath = tPath;
+	m = &resMan->LoadModel(mPath);
+	t = &resMan->LoadTexture(tPath);
 }
 
 EntityModel::~EntityModel()
 {
 }
 
-void EntityModel::renderEntityModel(ResourcesManager* r, RendererDX9* rdx9)
+void EntityModel::renderEntityModel(RendererDX9* rdx9)
 {
-	Model* m = &r->LoadModel(modelPath);
-	Texture* t = &r->LoadTexture(texturePath);
 	rdx9->SetupWorldMatrix(positionX, positionY, positionZ, rotationX, rotationY, rotationZ, scaleX, scaleY, scaleZ);
 	for( DWORD i = 0; i < m->GetNumMaterials(); i++)
 	{
