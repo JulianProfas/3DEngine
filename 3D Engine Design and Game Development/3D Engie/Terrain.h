@@ -17,13 +17,13 @@ public:
 	LPDIRECT3DVERTEXBUFFER9 GetVertexBuffer();
 	int GetNumberOfVertices();
 	Texture* GetTexture();
+	void RenderTerrain(Renderer* r);
 private:	
 	void FillVertices(Renderer* renderer);
 	BMPloader* m_BMPLoader;
-
-	ENGIE_VERTEX* vertices;
+	ENGIE_VERTEX* terrainVertices;
 	int numberOfVertices;
-	Texture* texture;
+	Texture* terrainTexture;
 	LPDIRECT3DVERTEXBUFFER9 VB;
 };
 

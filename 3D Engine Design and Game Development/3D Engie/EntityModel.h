@@ -7,7 +7,7 @@
 #include "Model.h"
 #include "Texture.h"
 
-class EntityModel : public Entity
+class EntityModel : protected Entity
 {
 public:
 	EntityModel(float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string mPath, std::string tPath, ResourcesManager* resMan);

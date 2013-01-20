@@ -80,6 +80,7 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="RendererDX9.h" />
     <ClInclude Include="ResourcesManager.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Window.h" />
@@ -98,6 +99,7 @@
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="RendererDX9.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Window.cpp" />

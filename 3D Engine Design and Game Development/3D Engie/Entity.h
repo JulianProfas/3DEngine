@@ -10,17 +10,17 @@ class Entity
 public:
 	Entity(float posX, float posY, float posZ, float rotX, float rotY, float rotZ);
 	~Entity();
+	
+	float GetPositionX();
+	float GetPositionY();
+	float GetPositionZ();
+protected:
 	float positionX;
 	float positionY;
 	float positionZ;
 	float rotationX;
 	float rotationY;
 	float rotationZ;
-	float GetPositionX();
-	float GetPositionY();
-	float GetPositionZ();
-private:
-	
 };
 
 #endif

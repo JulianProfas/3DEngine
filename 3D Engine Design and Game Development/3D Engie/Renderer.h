@@ -22,12 +22,11 @@ public:
 	virtual void	ClearScene() = 0;
 	virtual bool	BeginScene() = 0;
 	virtual void	EndScene() = 0;
-	virtual void	PresentScene() = 0;
+	virtual void	PresentScene(HWND hWnd) = 0;
 	virtual void	SetStreamSource(LPDIRECT3DVERTEXBUFFER9 buffer, unsigned int Stride) = 0;
 	virtual void	DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, unsigned int StartVertex, unsigned int NumberOfPrimitives) = 0;
 	virtual LPDIRECT3DVERTEXBUFFER9		CreateVertexBuffer(ENGIE_VERTEX Vertices[], int NumberofVertices) = 0;
 	virtual void	DrawSubset(LPD3DXMESH leakMesh, DWORD i) = 0;
-	virtual void	SetMaterial(D3DMATERIAL9* MeshMaterial) = 0;
 	virtual void	SetTexture(LPDIRECT3DTEXTURE9 Texture) = 0;	
 	virtual void*	GetDevice() = 0;	
 private:

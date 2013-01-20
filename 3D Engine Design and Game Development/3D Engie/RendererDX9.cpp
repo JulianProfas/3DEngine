@@ -42,10 +42,7 @@ HRESULT RendererDX9::InitDevice(HWND hWnd, int width, int height)
     return S_OK;
 }
 
-//-----------------------------------------------------------------------------
-// Name: Cleanup()
-// Desc: Releases all previously initialized objects
-//-----------------------------------------------------------------------------
+
 VOID RendererDX9::CleanUp()
 {
     if( g_pd3dDevice != NULL )
@@ -82,20 +79,12 @@ void RendererDX9::EndScene()
      g_pd3dDevice->EndScene();
 }
 
-void RendererDX9::PresentScene()
+/*
+	Present the backbuffer contents to the display
+*/
+void RendererDX9::PresentScene(HWND hWnd)
 {
-    // Present the backbuffer contents to the display
-    g_pd3dDevice->Present( NULL, NULL, NULL, NULL );
-}
-
-
-//-----------------------------------------------------------------------------
-// Name: Render()
-// Desc: Draws the scene
-//-----------------------------------------------------------------------------
-VOID RendererDX9::Render(Model* m, Texture* t)
-{
-    
+    g_pd3dDevice->Present( NULL, NULL, hWnd, NULL );
 }
 
 void* RendererDX9::GetDevice()
@@ -103,43 +92,6 @@ void* RendererDX9::GetDevice()
 	return this->g_pd3dDevice;
 }
 
-/*!
- * \brief
- * Set where a object should be rendered in the world
- * 
- * \param x
- * Location on X-axis
- * 
- * \param y
- * Location on Y-axis
- * 
- * \param z
- * Location on Z-Axis
- * 
- * \param rotX
- * Rotation on X-Axis
- * 
- * \param rotY
- * Rotation on Y-Axis
- * 
- * \param rotZ
- * Rotation on Z-Axis
- * 
- * \param scaleX
- * Scaling on X-Axis
- * 
- * \param scaleY
- * Scaling on Y-Axis
- * 
- * \param scaleZ
- * Scaling on Z-axis
- * 
- * \param camera
- * Pointer to the camera
- * 
- * Setup the location, scaling and rotation of an object, then multiply it with the matrix of the camera.
- * 
- */
 void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ)
 {
 	//The Matrix variables
@@ -188,7 +140,7 @@ void RendererDX9::DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, unsigned int Sta
 
 LPDIRECT3DVERTEXBUFFER9 RendererDX9::CreateVertexBuffer(ENGIE_VERTEX Vertices[], int NumberofVertices)
 {
-	int tail = 0;
+	
 	LPDIRECT3DVERTEXBUFFER9 VB = 0;
 	
 	g_pd3dDevice->CreateVertexBuffer( NumberofVertices * sizeof(ENGIE_VERTEX) ,
