@@ -20,22 +20,22 @@ WindowManager::~WindowManager()
 }
 
 /*
-	Add a window to the windowMap.
+	Add a window to the WindowMap.
 */
 void WindowManager::AddWindow(std::string title, int x, int y, int width, int height)
 {
 	Window* w = new Window(title, x, y, width, height);
 	Logger::GetInstance()->Write("Window " + title + " aangemaakt");
-	windows->insert(std::pair<std::string, Window*>(title, w));
+	this->windows->insert(std::pair<std::string, Window*>(title, w));
 	Logger::GetInstance()->Write("Window " + title + " toegevoegd aan WindowsMap");
 }
 
 /*
-	Remove an element from the container: the destructor is called from the removed element. 
+	Remove a window from the WindowMap: the destructor is called from the removed window. 
 */
 void WindowManager::RemoveWindow(std::string title)
 {
-	windows->erase(title);
+	this->windows->erase(title);
 }
 
 /*	
@@ -44,11 +44,11 @@ void WindowManager::RemoveWindow(std::string title)
 */
 void WindowManager::ClearWindowMap()
 {
-	windows->clear();
+	this->windows->clear();
 }
 
 /*
-	Get the window by title.
+	Returns a window by title
 */
 Window* WindowManager::GetWindow(std::string title)
 {
@@ -56,7 +56,7 @@ Window* WindowManager::GetWindow(std::string title)
 }
 
 /*
-
+	Returns the WindowMap
 */
 WindowMap* WindowManager::GetWindowMap()
 {
