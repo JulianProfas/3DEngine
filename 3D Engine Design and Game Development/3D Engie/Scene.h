@@ -11,20 +11,23 @@
 #include <fstream>
 #include <iostream>
 
+typedef std::list<EntityModel> EntityList;
+
 class Scene
 {
 public:
 	Scene();
 	~Scene();
 	void LoadScene(std::string sceneName);
-	void RenderScene();
+	void RenderScene(HWND hWnd);
 private:
 	Terrain* sceneTerrain;
 	Renderer* sceneRenderer;
-	std::list<EntityModel> sceneEntitys;
+	EntityList* sceneEntitys;
 	//EntityCamera sceneCamera;
 	//SkyBox sceneSky;
-	std::string sceneName;
+	std::string* sceneName;
+	ResourcesManager* resourceManager;
 };
 
 #endif

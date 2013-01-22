@@ -23,25 +23,36 @@ void Scene::LoadScene(std::string sceneName)
 			std::string line;
 			std::getline(fileStream, line);
 
-			if(line.compare("Camera") != 0)
+			if(line.compare("Camera") == 0) // 0 means that the two strings match
 			{
 				//maak camera aan
 			}
-			else if(line.compare("Sky") != 0)
+			else if(line.compare("Sky") == 0)
 			{
 				//maak sky aan
 			}
-			else if(line.compare("Terrain") != 0)
+			else if(line.compare("Terrain:") == 0)
 			{
-				//maak terrain aan
+				std::string heightMap;
+				std::string terrainTexture;
+
+				fileStream >> heightMap >> terrainTexture;
+
+				this->sceneTerrain = new Terrain(heightMap, terrainTexture, this->sceneRenderer, this->resourceManager);
 			}
-			else if(line.compare("Entity") != 0)
+			else if(line.compare("Entity:") == 0)
 			{
-				//maak entity aan
+				float posX, posY, posZ, rotX, rotY, rotZ, scaX, scaY, scaZ;
+				std::string modelPath;
+				std::string texturePath;
+
+				fileStream >> posX >> posY >> posZ >> rotX >> rotY >> rotZ >> scaX >> scaY >> scaZ >> modelPath >> texturePath;
+				
+				EntityModel* e = new EntityModel(posX, posY, posZ, rotX, rotY, rotZ, scaX, scaY, scaZ, modelPath, texturePath, this->resourceManager);
+				this->sceneEntitys->insert(e);
 			}
-			std::cout << line << std::endl;
 		}
-		
+		Logger::GetInstance()->Write("Scene " + sceneName + " loaded");
 	}
 	else
 	{
@@ -49,7 +60,23 @@ void Scene::LoadScene(std::string sceneName)
 	}
 }
 
-void Scene::RenderScene()
+/*
+	Renders the scene to the window
+*/
+void Scene::RenderScene(HWND hWnd)
 {
+	this->sceneRenderer->ClearScene();
+	this->sceneRenderer->BeginScene();
+
+	// render sky
+
+	// render terrain
+	this->sceneTerrain->RenderTerrain(this->sceneRenderer);
+
+	// render entitys
+	for(EntityList::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
+	{
+		//i->renderEntityModel(this->sceneRenderer);
+	}
 
 }
