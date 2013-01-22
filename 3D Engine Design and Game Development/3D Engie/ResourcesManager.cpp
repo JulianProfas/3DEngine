@@ -1,14 +1,21 @@
 #include "ResourcesManager.h"
 
+//Constructor
 ResourcesManager::ResourcesManager(LPDIRECT3DDEVICE9 g_pd3dDevice)
 {
 	device = g_pd3dDevice;
 }
 
+//Destructor
 ResourcesManager::~ResourcesManager()
 {
 }
 
+/*
+
+
+
+*/
 Model& ResourcesManager::LoadModel(std::string filePath)
 {
 	std::map<std::string, Model*>::iterator it;
