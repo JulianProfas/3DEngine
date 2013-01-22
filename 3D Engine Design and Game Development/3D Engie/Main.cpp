@@ -8,6 +8,7 @@
 #include "Terrain.h"
 #include "Window.h"
 #include "camera.h"
+#include "Scene.h"
 #include "EntityModel.h"
 
 int main()
@@ -26,22 +27,24 @@ int main()
 	Window* w = new Window("Gay", 50, 50, 200, 200);
 	Window* w2 = new Window("Lord", 250, 50, 200, 200);
 	
-	RendererDX9* rdx9 = new RendererDX9();
+	Renderer* rdx9 = new RendererDX9();
 	rdx9->InitDevice(w->getWindow(), 200, 200);
 	w->Show(SW_NORMAL);
 	rdx9->InitDevice(w2->getWindow(), 200, 200);
 	w2->Show(SW_NORMAL);
 	ResourcesManager* r = new ResourcesManager((LPDIRECT3DDEVICE9)rdx9->GetDevice());
-	EntityModel* e = new EntityModel(-20, 5, 0, 4.725, 0, 0, 15, 15, 15, "tiger.x", "tiger.bmp", r);
-	EntityModel* en = new EntityModel(20, 5, 0, 1.725, 0, 0, 10, 10, 10, "tiger.x", "tiger.bmp", r);
+	//EntityModel* e = new EntityModel(-20, 5, 0, 4.725, 0, 0, 15, 15, 15, "tiger.x", "tiger.bmp", r);
+	//EntityModel* en = new EntityModel(20, 5, 0, 1.725, 0, 0, 10, 10, 10, "tiger.x", "tiger.bmp", r);
 	/*
 	Model* m = &r->LoadModel("tiger.x");
 	Model* me = &r->LoadModel("tiger.x");
 	Texture* t = &r->LoadTexture("tiger.bmp");
 	Texture* te = &r->LoadTexture("tiger.bmp");
 	*/
-	Terrain* terrain = new Terrain("heightmap.bmp", "lava.jpg", rdx9, r);
+	//Terrain* terrain = new Terrain("heightmap.bmp", "lava.jpg", rdx9, r);
 	Camera TheCamera(Camera::LANDOBJECT);
+
+	Scene* scene = new Scene(rdx9, r, "scenetest.txt");
 
 	while(true)
 	{
@@ -88,7 +91,7 @@ int main()
 		TheCamera.getViewMatrix(&V);
 		//rdx9->SetTransform(D3DTS_VIEW, &V);
 		//hier
-
+		/*
 		rdx9->ClearScene();
 		if(rdx9->BeginScene())
 		{
@@ -98,7 +101,7 @@ int main()
 			e->renderEntityModel(rdx9);
 			en->renderEntityModel(rdx9);
 
-			/*
+			
 			//set model 1 to its position using the world matrix
 			rdx9->SetupWorldMatrix(10, 5, 0, 0, 0, 0, 10, 10, 10);
 			// Render model 1
@@ -129,13 +132,16 @@ int main()
 			rdx9->SetStreamSource(terrain->GetVertexBuffer(), sizeof(ENGIE_VERTEX));
 			rdx9->SetTexture(*terrain->GetTexture()->getTexture());
 			rdx9->DrawPrimitive(D3DPT_TRIANGLELIST, 0, terrain->GetNumberOfVertices()/3);
-			*/
+			
 			terrain->RenderTerrain(rdx9);
 			rdx9->EndScene();
 
 			rdx9->PresentScene(w->getWindow());
 			rdx9->PresentScene(w2->getWindow());
 		}
+		*/
+
+		scene->RenderScene(w->getWindow());
 	}
 	
 	return 0;

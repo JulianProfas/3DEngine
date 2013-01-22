@@ -23,9 +23,9 @@ SceneManager::~SceneManager()
 */
 void SceneManager::AddScene(std::string sceneName)
 {
-	Scene* s = new Scene();
+	//Scene* s = new Scene();
 	Logger::GetInstance()->Write("Scene " + sceneName + " aangemaakt");
-	this->scenes->insert(std::pair<std::string, Scene*>(sceneName, s));
+	//this->scenes->insert(std::pair<std::string, Scene*>(sceneName, s));
 	Logger::GetInstance()->Write("Scene " + sceneName + " toegevoegd aan SceneMap");
 }
 

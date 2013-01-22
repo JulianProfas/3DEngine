@@ -1,8 +1,11 @@
 #include "Scene.h"
 
-Scene::Scene()
+Scene::Scene(Renderer* r, ResourcesManager* rm, std::string sceneName)
 {
-
+	this->sceneRenderer  = r;
+	this->resourceManager = rm;
+	this->sceneEntitys = new std::list<EntityModel>();
+	this->LoadScene(sceneName);
 }
 
 Scene::~Scene()
@@ -49,7 +52,7 @@ void Scene::LoadScene(std::string sceneName)
 				fileStream >> posX >> posY >> posZ >> rotX >> rotY >> rotZ >> scaX >> scaY >> scaZ >> modelPath >> texturePath;
 				
 				EntityModel* e = new EntityModel(posX, posY, posZ, rotX, rotY, rotZ, scaX, scaY, scaZ, modelPath, texturePath, this->resourceManager);
-				this->sceneEntitys->insert(e);
+				this->sceneEntitys->push_back(*e);
 			}
 		}
 		Logger::GetInstance()->Write("Scene " + sceneName + " loaded");
@@ -67,6 +70,8 @@ void Scene::RenderScene(HWND hWnd)
 {
 	this->sceneRenderer->ClearScene();
 	this->sceneRenderer->BeginScene();
+	this->sceneRenderer->SetupProjectionMatrix();
+	this->sceneRenderer->SetupViewMatrix();
 
 	// render sky
 
@@ -76,7 +81,10 @@ void Scene::RenderScene(HWND hWnd)
 	// render entitys
 	for(EntityList::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
 	{
-		//i->renderEntityModel(this->sceneRenderer);
+		i->renderEntityModel(this->sceneRenderer);
 	}
+
+	this->sceneRenderer->EndScene();
+	this->sceneRenderer->PresentScene(hWnd);
 
 }

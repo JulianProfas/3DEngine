@@ -1,0 +1,5 @@
+Terrain:
+heightmap.bmp lava.jpg
+
+Entity:
+-20 5 0 4.725 0 0 15 15 15 tiger.x tiger.bmp

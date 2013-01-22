@@ -1,13 +1,13 @@
-<01/22/13> <12:45:44> start logging
-<01/22/13> <12:45:44> WindowManager aangemaakt
-<01/22/13> <12:45:45> Window aangemaakt
-<01/22/13> <12:45:45> Window aangemaakt
-<01/22/13> <12:45:45> Showing window 
-<01/22/13> <12:45:45> Showing window 
-<01/22/13> <12:45:45> Successful loaded model
-<01/22/13> <12:45:45> Model al ingeladen
-<01/22/13> <12:45:45> Texture al ingeladen
-<01/22/13> <12:45:45> Height data loaded
-<01/22/13> <12:45:45> Created terrain vertices
-<01/22/13> <12:45:45> Created terrain vertexbuffer
-<01/22/13> <12:45:45> Succesfully created terrain
+<01/22/13> <14:23:27> start logging
+<01/22/13> <14:23:27> WindowManager aangemaakt
+<01/22/13> <14:23:27> Window aangemaakt
+<01/22/13> <14:23:27> Window aangemaakt
+<01/22/13> <14:23:27> Showing window 
+<01/22/13> <14:23:27> Showing window 
+<01/22/13> <14:23:27> Loading scene scenetest.txt
+<01/22/13> <14:23:28> Height data loaded
+<01/22/13> <14:23:28> Created terrain vertices
+<01/22/13> <14:23:28> Created terrain vertexbuffer
+<01/22/13> <14:23:28> Succesfully created terrain
+<01/22/13> <14:23:28> Successful loaded model
+<01/22/13> <14:23:28> Scene scenetest.txt loaded

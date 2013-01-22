@@ -5,6 +5,7 @@
 #include "Terrain.h"
 #include "Renderer.h"
 #include "EntityModel.h"
+#include "ResourcesManager.h"
 #include <list>
 //#include "SkyBox.h"
 //#include "EntityCamera.h"
@@ -16,7 +17,7 @@ typedef std::list<EntityModel> EntityList;
 class Scene
 {
 public:
-	Scene();
+	Scene(Renderer* r, ResourcesManager* rm, std::string sceneName);
 	~Scene();
 	void LoadScene(std::string sceneName);
 	void RenderScene(HWND hWnd);
