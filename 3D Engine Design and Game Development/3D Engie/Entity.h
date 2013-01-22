@@ -11,9 +11,18 @@ public:
 	Entity(float posX, float posY, float posZ, float rotX, float rotY, float rotZ);
 	~Entity();
 	
+	void SetPositionX(float x);
 	float GetPositionX();
+	void SetPositionY(float y);
 	float GetPositionY();
+	void SetPositionZ(float z);
 	float GetPositionZ();
+	void SetRotationX(float x);
+	float GetRotationX();
+	void SetRotationY(float y);
+	float GetRotationY();
+	void SetRotationZ(float z);
+	float GetRotationZ();
 protected:
 	float positionX;
 	float positionY;

@@ -27,3 +27,32 @@ void EntityModel::renderEntityModel(RendererDX9* rdx9)
 	}
 }
 
+void EntityModel::SetScaleX(float x)
+{
+	scaleX = x;
+}
+
+float EntityModel::GetScaleX()
+{
+	return scaleX;
+}
+
+void EntityModel::SetScaleY(float y)
+{
+	scaleY = y;
+}
+
+float EntityModel::GetScaleY()
+{
+	return scaleY;
+}
+
+void EntityModel::SetScaleZ(float z)
+{
+	scaleY = z;
+}
+
+float EntityModel::GetScaleZ()
+{
+	return scaleZ;
+}

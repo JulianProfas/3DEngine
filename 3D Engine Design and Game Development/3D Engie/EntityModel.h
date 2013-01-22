@@ -13,6 +13,12 @@ public:
 	EntityModel(float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string mPath, std::string tPath, ResourcesManager* resMan);
 	~EntityModel();
 	void renderEntityModel(RendererDX9* rdx9);
+	void SetScaleX(float x);
+	float GetScaleX();
+	void SetScaleY(float y);
+	float GetScaleY();
+	void SetScaleZ(float z);
+	float GetScaleZ();
 private:
 	float scaleX;
 	float scaleY;
