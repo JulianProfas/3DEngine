@@ -27,11 +27,13 @@ void Scene::LoadScene(std::string sceneName)
 			std::string line;
 			std::getline(fileStream, line);
 
-			if(line.compare("Camera") == 0) // 0 means that the two strings match
+			if(line.compare("Camera:") == 0) // 0 means that the two strings match
 			{
-				//maak camera aan
+				float posX, posY, posZ, laX, laY, laZ;
+				fileStream >> posX >> posY >> posZ >> laX >> laY >> laZ;
+				this->sceneCamera = new EntityCamera(posX, posY, posZ, laX, laY, laZ);
 			}
-			else if(line.compare("Sky") == 0)
+			else if(line.compare("Sky:") == 0)
 			{
 				//maak sky aan
 			}
@@ -72,7 +74,8 @@ void Scene::RenderScene(HWND hWnd)
 	this->sceneRenderer->ClearScene();
 	this->sceneRenderer->BeginScene();
 	this->sceneRenderer->SetupProjectionMatrix();
-	this->sceneRenderer->SetupViewMatrix();
+	//this->sceneRenderer->SetupViewMatrix();
+	this->sceneCamera->SetCamera(sceneRenderer);
 
 	// render sky
 

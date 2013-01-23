@@ -1,8 +1,11 @@
 #include "EntityModel.h"
 
 EntityModel::EntityModel(float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string mPath, std::string tPath, ResourcesManager* resMan)
-	: Entity(posX, posY, posZ, rotX, rotY, rotZ)
+	: Entity(posX, posY, posZ)
 {
+	rotationX = rotX;
+	rotationY = rotY;
+	rotationZ = rotZ;
 	scaleX = scaX;
 	scaleY = scaY;
 	scaleZ = scaZ;

@@ -1,3 +1,6 @@
+Camera:
+0 25 -128 0 0 0
+
 Terrain:
 heightmap.bmp dirt.jpg
 

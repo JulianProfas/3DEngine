@@ -8,7 +8,7 @@
 #include "Model.h"
 #include "Texture.h"
 
-class EntityModel : protected Entity
+class EntityModel : public Entity
 {
 public:
 	EntityModel(float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string mPath, std::string tPath, ResourcesManager* resMan);
@@ -21,6 +21,9 @@ public:
 	void SetScaleZ(float z);
 	float GetScaleZ();
 private:
+	float rotationX;
+	float rotationY;
+	float rotationZ;
 	float scaleX;
 	float scaleY;
 	float scaleZ;

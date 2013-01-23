@@ -1,13 +1,10 @@
 #include "Entity.h"
 
-Entity::Entity(float posX, float posY, float posZ, float rotX, float rotY, float rotZ)
+Entity::Entity(float posX, float posY, float posZ)
 {
 	positionX = posX;
 	positionY = posY;
 	positionZ = posZ;
-	rotationX = rotX;
-	rotationY = rotY;
-	rotationZ = rotZ;
 }
 
 Entity::~Entity()
@@ -42,34 +39,4 @@ void Entity::SetPositionZ(float z)
 float Entity::GetPositionZ()
 {
 	return positionZ;
-}
-
-void Entity::SetRotationX(float x)
-{
-	rotationX = x;
-}
-
-float Entity::GetRotationX()
-{
-	return rotationX;
-}
-
-void Entity::SetRotationY(float y)
-{
-	rotationY = y;
-}
-
-float Entity::GetRotationY()
-{
-	return rotationY;
-}
-
-void Entity::SetRotationZ(float z)
-{
-	rotationZ = z;
-}
-
-float Entity::GetRotationZ()
-{
-	return rotationZ;
 }
