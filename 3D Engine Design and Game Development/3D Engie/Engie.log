@@ -1,13 +1,31 @@
-<01/22/13> <14:23:27> start logging
-<01/22/13> <14:23:27> WindowManager aangemaakt
-<01/22/13> <14:23:27> Window aangemaakt
-<01/22/13> <14:23:27> Window aangemaakt
-<01/22/13> <14:23:27> Showing window 
-<01/22/13> <14:23:27> Showing window 
-<01/22/13> <14:23:27> Loading scene scenetest.txt
-<01/22/13> <14:23:28> Height data loaded
-<01/22/13> <14:23:28> Created terrain vertices
-<01/22/13> <14:23:28> Created terrain vertexbuffer
-<01/22/13> <14:23:28> Succesfully created terrain
-<01/22/13> <14:23:28> Successful loaded model
-<01/22/13> <14:23:28> Scene scenetest.txt loaded
+<01/23/13> <12:21:32> start logging
+<01/23/13> <12:21:32> WindowManager aangemaakt
+<01/23/13> <12:21:32> Window aangemaakt
+<01/23/13> <12:21:32> Window Window 1 aangemaakt
+<01/23/13> <12:21:32> Window Window 1 toegevoegd aan WindowsMap
+<01/23/13> <12:21:32> SceneManager aangemaakt
+<01/23/13> <12:21:32> Window aangemaakt
+<01/23/13> <12:21:32> Window Window 2 aangemaakt
+<01/23/13> <12:21:32> Window Window 2 toegevoegd aan WindowsMap
+<01/23/13> <12:21:32> SceneManager aangemaakt
+<01/23/13> <12:21:32> Loading scene scenetest.txt
+<01/23/13> <12:21:32> Height data loaded
+<01/23/13> <12:21:33> Created terrain vertices
+<01/23/13> <12:21:33> Created terrain vertexbuffer
+<01/23/13> <12:21:33> Succesfully created terrain
+<01/23/13> <12:21:33> Successful loaded model
+<01/23/13> <12:21:33> Scene scenetest.txt loaded
+<01/23/13> <12:21:33> Scene scenetest.txt aangemaakt
+<01/23/13> <12:21:33> Scene scenetest.txt toegevoegd aan SceneMap
+<01/23/13> <12:21:33> Loading scene scenetest2.txt
+<01/23/13> <12:21:33> Height data loaded
+<01/23/13> <12:21:33> Created terrain vertices
+<01/23/13> <12:21:33> Created terrain vertexbuffer
+<01/23/13> <12:21:33> Succesfully created terrain
+<01/23/13> <12:21:33> Model al ingeladen
+<01/23/13> <12:21:33> Texture al ingeladen
+<01/23/13> <12:21:33> Scene scenetest2.txt loaded
+<01/23/13> <12:21:33> Scene scenetest2.txt aangemaakt
+<01/23/13> <12:21:33> Scene scenetest2.txt toegevoegd aan SceneMap
+<01/23/13> <12:21:33> Showing window 
+<01/23/13> <12:21:33> Showing window 

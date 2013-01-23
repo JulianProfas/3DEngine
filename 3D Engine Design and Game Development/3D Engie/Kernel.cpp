@@ -8,9 +8,6 @@ LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			return 0;
-        case WM_PAINT:
-            ValidateRect( hWnd, NULL );
-            return 0;
     }
 
     return DefWindowProc( hWnd, msg, wParam, lParam );
@@ -29,8 +26,9 @@ WNDCLASSEX wc =
 Kernel::Kernel()
 {
 	RegisterClassEx( &wc );
-	Kernel::windowManager = new WindowManager();
-	//Kernel::renderer = new RendererDX9();
+	this->windowManager = new WindowManager();
+	this->renderer = new RendererDX9();
+	this->renderMap = new RenderMap();
 	//Kernel::inputManager = new InputManager();
 	
 }
@@ -48,7 +46,7 @@ Kernel::~Kernel()
 */
 WindowManager* Kernel::GetWindowManager()
 {
-	return windowManager;
+	return this->windowManager;
 }
 
 /*
@@ -56,26 +54,37 @@ WindowManager* Kernel::GetWindowManager()
 */
 void Kernel::Start()
 {
-	WindowMap::iterator it = this->windowManager->GetWindowMap()->begin();
-	while(it != this->windowManager->GetWindowMap()->end())
+	RenderMap::iterator it = this->renderMap->begin();
+	while(it != this->renderMap->end())
 	{
-		it->second->Show(SW_SHOW);
+		Window* w = it->first;
+		w->Show(SW_SHOW);
 		//inputManager->AddKeyboardInput(it->second->getWindow());
-		it++;
-		
+		++it;
 	}
 
 	MSG msg;
-	ZeroMemory( &msg, sizeof( msg ) );
+	ZeroMemory(&msg, sizeof(msg));
 	while(msg.message != WM_QUIT)
     {
-		//std::cout << this->GetWindowManager()->GetWindowMap()->size() << std::endl;
 		//inputManager->CheckStates();
 
-		if( PeekMessage( &msg, NULL, 0U, 0U, PM_REMOVE ) )
+		if(PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
 		{
-			TranslateMessage( &msg );
-			DispatchMessage( &msg );
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+		else
+		{
+			
+			it = renderMap->begin();
+			while(it != this->renderMap->end())
+			{
+				it->second->RenderScene(it->first->getWindow());
+				++it;
+			}
+			
+			
 		}
 		
     }
@@ -88,14 +97,44 @@ void Kernel::Start()
 */
 void Kernel::CleanUp()
 {
+	this->renderMap->clear();
+
 	if(windowManager != NULL)
 	{
 		delete windowManager;
 	}
+	if(sceneManager != NULL)
+	{
+		delete sceneManager;
+	}
+	if(resourceManager != NULL)
+	{
+		delete resourceManager;
+	}
+	
 }
 
+void Kernel::LinkSceneToWindow(Scene* scene, Window* window)
+{
+	this->renderMap->insert(std::pair<Window*, Scene*>(window, scene));
+}
 
+SceneManager* Kernel::GetSceneManager()
+{
+	return this->sceneManager;
+}
 
+Renderer* Kernel::GetRenderer()
+{
+	return this->renderer;
+}
 
+void Kernel::AddWindow(std::string title, int x, int y, int width, int height)
+{
+	this->GetWindowManager()->AddWindow(title, x, y, width, height);
 
+	this->renderer->InitDevice(this->GetWindowManager()->GetWindow(title)->getWindow(), width, height);
 
+	this->resourceManager = new ResourcesManager((LPDIRECT3DDEVICE9)this->renderer->GetDevice());
+	this->sceneManager = new SceneManager(this->resourceManager, this->renderer);
+}

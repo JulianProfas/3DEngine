@@ -4,6 +4,7 @@ Scene::Scene(Renderer* r, ResourcesManager* rm, std::string sceneName)
 {
 	this->sceneRenderer  = r;
 	this->resourceManager = rm;
+	this->sceneName = sceneName;
 	this->sceneEntitys = new std::list<EntityModel>();
 	this->LoadScene(sceneName);
 }

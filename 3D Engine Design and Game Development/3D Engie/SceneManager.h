@@ -11,7 +11,7 @@ typedef std::map<std::string, Scene*> SceneMap;
 class SceneManager
 {
 public:
-	SceneManager();
+	SceneManager(ResourcesManager* resourceManager, Renderer* renderer);
 	~SceneManager();
 	void AddScene(std::string sceneName);
 	void RemoveScene(std::string sceneName);
@@ -20,6 +20,8 @@ public:
 	Scene* GetScene(std::string sceneName);
 private:
 	SceneMap* scenes;
+	ResourcesManager* resourceManager;
+	Renderer* renderer;
 };
 
 #endif

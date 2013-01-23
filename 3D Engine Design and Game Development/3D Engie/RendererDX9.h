@@ -26,7 +26,7 @@ public:
 	void SetStreamSource(LPDIRECT3DVERTEXBUFFER9 buffer, unsigned int Stride);
 	void SetFvF(DWORD fvf);
 	void DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, unsigned int StartVertex, unsigned int NumberOfPrimitives);
-	void DrawSubset(LPD3DXMESH leakMesh, DWORD i);
+	void DrawSubset(LPD3DXMESH mesh, DWORD i);
 	void SetMaterial(D3DMATERIAL9 *MeshMaterial);
 	void SetTexture(LPDIRECT3DTEXTURE9 Texture);
 	void Zenable(bool enable);

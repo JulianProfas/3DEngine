@@ -27,7 +27,7 @@ private:
 	EntityList* sceneEntitys;
 	//EntityCamera sceneCamera;
 	//SkyBox sceneSky;
-	std::string* sceneName;
+	std::string sceneName;
 	ResourcesManager* resourceManager;
 };
 

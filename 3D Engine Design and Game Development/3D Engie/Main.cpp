@@ -13,34 +13,35 @@
 
 int main()
 {
-	/*float currTime  = (float)timeGetTime();
-	static float lastTime = (float)timeGetTime();
-	float timeDelta = (currTime - lastTime)*0.001f;
-	*/
+
 	Kernel* kernel = new Kernel();
-	/*
-	kernel->GetWindowManager()->AddWindow("Window 1", 50, 50, 200, 200);
-	kernel->GetWindowManager()->AddWindow("Window 2", 250, 50, 200, 200);
+	kernel->AddWindow("Window 1", 50, 50, 400, 400);
+	kernel->AddWindow("Window 2", 550, 50, 400, 400);
+	kernel->GetSceneManager()->AddScene("scenetest.txt");
+	kernel->GetSceneManager()->AddScene("scenetest2.txt");
+	kernel->LinkSceneToWindow(kernel->GetSceneManager()->GetScene("scenetest.txt"), kernel->GetWindowManager()->GetWindow("Window 1"));
+	kernel->LinkSceneToWindow(kernel->GetSceneManager()->GetScene("scenetest2.txt"), kernel->GetWindowManager()->GetWindow("Window 2"));
 	kernel->Start();
-	*/
-	
-	Window* w = new Window("Gay", 50, 50, 200, 200);
-	Window* w2 = new Window("Lord", 250, 50, 200, 200);
+
+
+	/*
+	Window* w = new Window("Gay", 50, 50, 500, 500);
+	//Window* w2 = new Window("Lord", 250, 50, 200, 200);
 	
 	Renderer* rdx9 = new RendererDX9();
-	rdx9->InitDevice(w->getWindow(), 200, 200);
+	rdx9->InitDevice(w->getWindow(), 500, 500);
 	w->Show(SW_NORMAL);
-	rdx9->InitDevice(w2->getWindow(), 200, 200);
-	w2->Show(SW_NORMAL);
+	//rdx9->InitDevice(w2->getWindow(), 200, 200);
+	//w2->Show(SW_NORMAL);
 	ResourcesManager* r = new ResourcesManager((LPDIRECT3DDEVICE9)rdx9->GetDevice());
 	//EntityModel* e = new EntityModel(-20, 5, 0, 4.725, 0, 0, 15, 15, 15, "tiger.x", "tiger.bmp", r);
 	//EntityModel* en = new EntityModel(20, 5, 0, 1.725, 0, 0, 10, 10, 10, "tiger.x", "tiger.bmp", r);
-	/*
+	
 	Model* m = &r->LoadModel("tiger.x");
 	Model* me = &r->LoadModel("tiger.x");
 	Texture* t = &r->LoadTexture("tiger.bmp");
 	Texture* te = &r->LoadTexture("tiger.bmp");
-	*/
+	
 	//Terrain* terrain = new Terrain("heightmap.bmp", "lava.jpg", rdx9, r);
 	Camera TheCamera(Camera::LANDOBJECT);
 
@@ -48,7 +49,7 @@ int main()
 
 	while(true)
 	{
-		/*//hier
+		//hier
 		if( ::GetAsyncKeyState('W') & 0x8000f )
 			TheCamera.walk(4.0f * timeDelta);
 
@@ -84,14 +85,14 @@ int main()
 
 		if( ::GetAsyncKeyState('M') & 0x8000f )
 			TheCamera.roll(-1.0f * timeDelta);
-*/
+
 		// Update the view matrix representing the cameras 
         // new position/orientation.
 		D3DXMATRIX V;
 		TheCamera.getViewMatrix(&V);
 		//rdx9->SetTransform(D3DTS_VIEW, &V);
 		//hier
-		/*
+		
 		rdx9->ClearScene();
 		if(rdx9->BeginScene())
 		{
@@ -139,10 +140,10 @@ int main()
 			rdx9->PresentScene(w->getWindow());
 			rdx9->PresentScene(w2->getWindow());
 		}
-		*/
+		
 
 		scene->RenderScene(w->getWindow());
 	}
-	
+	*/
 	return 0;
 };

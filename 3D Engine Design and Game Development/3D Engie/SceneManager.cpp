@@ -3,9 +3,11 @@
 /*
 	Constructor
 */
-SceneManager::SceneManager()
+SceneManager::SceneManager(ResourcesManager* resourceManager, Renderer* renderer)
 {
 	this->scenes = new SceneMap();
+	this->resourceManager = resourceManager;
+	this->renderer = renderer;
 	Logger::GetInstance()->Write("SceneManager aangemaakt");
 }
 
@@ -23,9 +25,9 @@ SceneManager::~SceneManager()
 */
 void SceneManager::AddScene(std::string sceneName)
 {
-	//Scene* s = new Scene();
+	Scene* s = new Scene(this->renderer, this->resourceManager, sceneName);
 	Logger::GetInstance()->Write("Scene " + sceneName + " aangemaakt");
-	//this->scenes->insert(std::pair<std::string, Scene*>(sceneName, s));
+	this->scenes->insert(std::pair<std::string, Scene*>(sceneName, s));
 	Logger::GetInstance()->Write("Scene " + sceneName + " toegevoegd aan SceneMap");
 }
 
