@@ -28,7 +28,7 @@ public:
 	//LRESULT CALLBACK MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
 private:
 	WindowManager* windowManager;
-	//InputManager* inputManager;
+	InputManager* inputManager;
 	Renderer* renderer;
 	ResourcesManager* resourceManager;
 	SceneManager* sceneManager;

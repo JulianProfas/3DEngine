@@ -29,7 +29,7 @@ Kernel::Kernel()
 	this->windowManager = new WindowManager();
 	this->renderer = new RendererDX9();
 	this->renderMap = new RenderMap();
-	//Kernel::inputManager = new InputManager();
+	Kernel::inputManager = new InputManager();
 	
 }
 
@@ -59,7 +59,9 @@ void Kernel::Start()
 	{
 		Window* w = it->first;
 		w->Show(SW_SHOW);
-		//inputManager->AddKeyboardInput(it->second->getWindow());
+		HWND hwnd = w->getWindow();
+		inputManager->AddKeyboardInput(hwnd);
+		inputManager->AddMouseInput(hwnd);
 		++it;
 	}
 
@@ -67,7 +69,7 @@ void Kernel::Start()
 	ZeroMemory(&msg, sizeof(msg));
 	while(msg.message != WM_QUIT)
     {
-		//inputManager->CheckStates();
+		inputManager->CheckStates();
 
 		if(PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
 		{
