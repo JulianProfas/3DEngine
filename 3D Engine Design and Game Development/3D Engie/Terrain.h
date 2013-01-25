@@ -18,8 +18,15 @@ public:
 	int GetNumberOfVertices();
 	Texture* GetTexture();
 	void RenderTerrain(Renderer* r);
+	void SetPositionX(float x);
+	void SetPositionY(float y);
+	void SetPositionZ(float z);
+	void Move(int d, float unit);
 private:	
 	void FillVertices(Renderer* renderer);
+	float posX;
+	float posY;
+	float posZ;
 	BMPloader* m_BMPLoader;
 	ENGIE_VERTEX* terrainVertices;
 	int numberOfVertices;

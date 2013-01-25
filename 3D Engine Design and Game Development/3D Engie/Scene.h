@@ -17,11 +17,15 @@ typedef std::list<EntityModel> EntityList;
 class Scene
 {
 public:
+	//enum Direction{FORWARD, BACKWARD, LEFTWARD, RIGHTWARD, UPWARD, DOWNWARD};
 	Scene(Renderer* r, ResourcesManager* rm, std::string sceneName);
 	~Scene();
 	void LoadScene(std::string sceneName);
 	void RenderScene(HWND hWnd);
+	void Move(int d, float z);
+
 private:
+
 	Terrain* sceneTerrain;
 	Renderer* sceneRenderer;
 	EntityList* sceneEntitys;

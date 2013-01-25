@@ -92,3 +92,8 @@ void Scene::RenderScene(HWND hWnd)
 	this->sceneRenderer->PresentScene(hWnd);
 
 }
+
+void Scene::Move(int d, float z)
+{
+	this->sceneTerrain->Move(d, z);
+}

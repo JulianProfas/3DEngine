@@ -1,36 +1,18 @@
-<01/23/13> <19:16:51> start logging
-<01/23/13> <19:16:51> WindowManager aangemaakt
-<01/23/13> <19:16:51> InputManager aangemaakt
-<01/23/13> <19:16:51> Window aangemaakt
-<01/23/13> <19:16:51> Window Window 1 aangemaakt
-<01/23/13> <19:16:51> Window Window 1 toegevoegd aan WindowsMap
-<01/23/13> <19:16:51> SceneManager aangemaakt
-<01/23/13> <19:16:51> Window aangemaakt
-<01/23/13> <19:16:51> Window Window 2 aangemaakt
-<01/23/13> <19:16:51> Window Window 2 toegevoegd aan WindowsMap
-<01/23/13> <19:16:51> SceneManager aangemaakt
-<01/23/13> <19:16:51> Loading scene scenetest.txt
-<01/23/13> <19:16:51> Height data loaded
-<01/23/13> <19:16:51> Created terrain vertices
-<01/23/13> <19:16:51> Created terrain vertexbuffer
-<01/23/13> <19:16:51> Succesfully created terrain
-<01/23/13> <19:16:51> Successful loaded model
-<01/23/13> <19:16:51> Scene scenetest.txt loaded
-<01/23/13> <19:16:51> Scene scenetest.txt aangemaakt
-<01/23/13> <19:16:51> Scene scenetest.txt toegevoegd aan SceneMap
-<01/23/13> <19:16:51> Loading scene scenetest2.txt
-<01/23/13> <19:16:51> Height data loaded
-<01/23/13> <19:16:51> Created terrain vertices
-<01/23/13> <19:16:51> Created terrain vertexbuffer
-<01/23/13> <19:16:51> Succesfully created terrain
-<01/23/13> <19:16:51> Model al ingeladen
-<01/23/13> <19:16:51> Texture al ingeladen
-<01/23/13> <19:16:51> Scene scenetest2.txt loaded
-<01/23/13> <19:16:51> Scene scenetest2.txt aangemaakt
-<01/23/13> <19:16:51> Scene scenetest2.txt toegevoegd aan SceneMap
-<01/23/13> <19:16:51> Showing window 
-<01/23/13> <19:16:51> KeyboardInput aangemaakt
-<01/23/13> <19:16:51> MouseInput aangemaakt
-<01/23/13> <19:16:51> Showing window 
-<01/23/13> <19:16:51> KeyboardInput aangemaakt
-<01/23/13> <19:16:51> MouseInput aangemaakt
+<01/25/13> <14:55:06> start logging
+<01/25/13> <14:55:06> WindowManager aangemaakt
+<01/25/13> <14:55:06> InputManager aangemaakt
+<01/25/13> <14:55:06> Window aangemaakt
+<01/25/13> <14:55:06> Window Window 1 aangemaakt
+<01/25/13> <14:55:06> Window Window 1 toegevoegd aan WindowsMap
+<01/25/13> <14:55:06> SceneManager aangemaakt
+<01/25/13> <14:55:06> Loading scene scenetest.txt
+<01/25/13> <14:55:07> Height data loaded
+<01/25/13> <14:55:07> Created terrain vertices
+<01/25/13> <14:55:07> Created terrain vertexbuffer
+<01/25/13> <14:55:07> Succesfully created terrain
+<01/25/13> <14:55:07> Successful loaded model
+<01/25/13> <14:55:07> Scene scenetest.txt loaded
+<01/25/13> <14:55:07> Scene scenetest.txt aangemaakt
+<01/25/13> <14:55:07> Scene scenetest.txt toegevoegd aan SceneMap
+<01/25/13> <14:55:07> Showing window 
+<01/25/13> <14:55:07> KeyboardInput aangemaakt

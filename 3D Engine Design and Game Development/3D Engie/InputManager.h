@@ -1,6 +1,9 @@
+
 #include "KeyboardInput.h"
 #include "MouseInput.h"
 
+#include "Scene.h"
+ 
 class InputManager
 {
 public:
@@ -9,7 +12,7 @@ public:
 	void AddKeyboardInput(HWND hwnd);
 	void AddMouseInput(HWND hwnd);
 	void Release();
-	void CheckStates();
+	void CheckStates(Scene* s);
 
 private:
 	KeyboardInput* keyboardInput;

@@ -14,7 +14,7 @@ EntityCamera::~EntityCamera()
 
 void EntityCamera::SetCamera(Renderer* rd)
 {
-	//static_cast<RendererDX9*>(rd)->SetupViewMatrix(positionX, positionY, positionZ, lookAtX, lookAtY, lookAtZ);
+	static_cast<RendererDX9*>(rd)->SetupViewMatrix(positionX, positionY, positionZ, lookAtX, lookAtY, lookAtZ);
 }
 
 void EntityCamera::SetLookAtX(float x)

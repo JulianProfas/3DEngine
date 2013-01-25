@@ -147,22 +147,30 @@ bool KeyboardInput::DoAcquire()
 	}
 }
 
-void KeyboardInput::CheckKeyPressed()
+void KeyboardInput::CheckKeyPressed(Scene* s)
 {
 	if(ProcessKBInput(DIK_UPARROW))
 	{
-		std::cout<<"Up key pressed"<<std::endl;
+		s->Move(0, 1);
 	}
 	if(ProcessKBInput(DIK_RIGHT))
 	{
-		std::cout<<"Right key pressed"<<std::endl;
+		s->Move(3, 1);
 	}
 	if(ProcessKBInput(DIK_LEFT))
 	{
-		std::cout<<"Left key pressed"<<std::endl;
+		s->Move(2, 1);
 	}
 	if(ProcessKBInput(DIK_DOWN))
 	{
-		std::cout<<"Down key pressed"<<std::endl;
+		s->Move(1, 1);
+	}
+	if(ProcessKBInput(DIK_B))
+	{
+		s->Move(4, 20);
+	}
+	if(ProcessKBInput(DIK_N))
+	{
+		s->Move(5, 20);
 	}
 }

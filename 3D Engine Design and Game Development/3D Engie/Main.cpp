@@ -16,11 +16,11 @@ int main()
 
 	Kernel* kernel = new Kernel();
 	kernel->AddWindow("Window 1", 50, 50, 400, 400);
-	kernel->AddWindow("Window 2", 550, 50, 400, 400);
+	//kernel->AddWindow("Window 2", 550, 50, 400, 400);
 	kernel->GetSceneManager()->AddScene("scenetest.txt");
-	kernel->GetSceneManager()->AddScene("scenetest2.txt");
+	//kernel->GetSceneManager()->AddScene("scenetest2.txt");
 	kernel->LinkSceneToWindow(kernel->GetSceneManager()->GetScene("scenetest.txt"), kernel->GetWindowManager()->GetWindow("Window 1"));
-	kernel->LinkSceneToWindow(kernel->GetSceneManager()->GetScene("scenetest2.txt"), kernel->GetWindowManager()->GetWindow("Window 2"));
+	//kernel->LinkSceneToWindow(kernel->GetSceneManager()->GetScene("scenetest2.txt"), kernel->GetWindowManager()->GetWindow("Window 2"));
 	kernel->Start();
 
 

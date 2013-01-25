@@ -33,7 +33,7 @@ void InputManager::AddKeyboardInput(HWND hwnd)
 */
 void InputManager::AddMouseInput(HWND hwnd)
 {
-	mouseInput = new MouseInput(hwnd);
+	//mouseInput = new MouseInput(hwnd);
 	Logger::GetInstance()->Write("MouseInput aangemaakt");
 }
 
@@ -47,8 +47,8 @@ void InputManager::Release()
 	Logger::GetInstance()->Write("Input has been safely released");
 }
 
-void InputManager::CheckStates()
+void InputManager::CheckStates(Scene* s)
 {
-	keyboardInput->CheckKeyPressed();
-	mouseInput->GetMouseInput();
+	keyboardInput->CheckKeyPressed(s);
+	//mouseInput->GetMouseInput();
 }

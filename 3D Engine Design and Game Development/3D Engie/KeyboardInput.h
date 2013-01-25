@@ -1,6 +1,7 @@
 #include "windows.h"
 #define DIRECTINPUT_VERSION 0x0800
 #include <dinput.h>
+#include "Scene.h"
 
 class KeyboardInput
 {
@@ -12,7 +13,7 @@ public:
 	void SaveReleaseDevice();
 	bool ProcessKBInput(byte argKeyIsPressed);
 	bool DoAcquire();
-	void CheckKeyPressed();
+	void CheckKeyPressed(Scene* s);
 private:
 	LPDIRECTINPUT8 dInput;		
 	LPDIRECTINPUTDEVICE8 dDevice;	

@@ -2,6 +2,9 @@
 
 Terrain::Terrain(std::string terrainFileName, std::string texturefilename, Renderer* renderer, ResourcesManager* resourceManager)
 {
+	this->posX = -128;
+	this->posY = -10;
+	this->posZ = -128;
 	m_BMPLoader = new BMPloader();
 	m_BMPLoader->LoadHeightMap(terrainFileName);
 
@@ -111,8 +114,51 @@ void Terrain::FillVertices(Renderer* renderer)
 */
 void Terrain::RenderTerrain(Renderer* r)
 {
-	r->SetupWorldMatrix(-128, -10, -128, 0, 0, 0, 1, 1, 1);
+	r->SetupWorldMatrix(posX, posY, posZ, 0, 0, 0, 1, 1, 1);
 	r->SetStreamSource(VB, sizeof(ENGIE_VERTEX));
 	r->SetTexture(*this->terrainTexture->getTexture());
 	r->DrawPrimitive(D3DPT_TRIANGLELIST, 0, this->numberOfVertices/3);
+}
+
+void Terrain::SetPositionX(float x)
+{
+	this->posX = x;
+}
+
+void Terrain::SetPositionY(float y)
+{
+	this->posY = y;
+}
+
+void Terrain::SetPositionZ(float z)
+{
+	this->posZ = z;
+}
+
+void Terrain::Move(int d, float unit)
+{
+	if(d == 0)
+	{
+		this->posZ -= unit;
+	}
+	else if(d == 1)
+	{
+		this->posZ += unit;
+	}
+	else if(d == 2)
+	{
+		this->posX += unit;
+	}
+	else if(d == 3)
+	{
+		this->posX -= unit;
+	}
+	else if(d == 4)
+	{
+		this->posY -= unit;
+	}
+	else if(d == 5)
+	{
+		this->posY += unit;
+	}
 }
