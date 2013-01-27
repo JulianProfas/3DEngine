@@ -14,7 +14,7 @@ public:
 	Terrain(std::string terrainFileName, std::string texturefilename, Renderer* renderer, ResourcesManager* resourceManager);
 	~Terrain();
 
-	LPDIRECT3DVERTEXBUFFER9 GetVertexBuffer();
+	int GetVertexBufferIndex();
 	int GetNumberOfVertices();
 	Texture* GetTexture();
 	void RenderTerrain(Renderer* r);
@@ -31,7 +31,7 @@ private:
 	ENGIE_VERTEX* terrainVertices;
 	int numberOfVertices;
 	Texture* terrainTexture;
-	LPDIRECT3DVERTEXBUFFER9 VB;
+	int vertexBufferIndex;
 };
 
 #endif

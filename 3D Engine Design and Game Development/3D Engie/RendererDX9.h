@@ -6,8 +6,11 @@
 #include "Model.h"
 #include "Texture.h"
 #include "Renderer.h"
+#include <map>
 
-#define D3DFVF_CUSTOMVERTEX (D3DFVF_XYZ|D3DFVF_TEX1)
+
+
+typedef std::map<int, LPDIRECT3DVERTEXBUFFER9> VertexBufferMap;
 
 class RendererDX9 : public Renderer
 {
@@ -22,8 +25,8 @@ public:
 	bool BeginScene();
 	void EndScene();
 	void PresentScene(HWND hWnd);
-	LPDIRECT3DVERTEXBUFFER9		CreateVertexBuffer(ENGIE_VERTEX Vertices[], int NumberofVertices);
-	void SetStreamSource(LPDIRECT3DVERTEXBUFFER9 buffer, unsigned int Stride);
+	int	 CreateVertexBuffer(ENGIE_VERTEX Vertices[], int NumberofVertices);
+	void SetStreamSource(int buffer, unsigned int Stride);
 	void SetFvF(DWORD fvf);
 	void DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, unsigned int StartVertex, unsigned int NumberOfPrimitives);
 	void DrawSubset(LPD3DXMESH mesh, DWORD i);
@@ -33,8 +36,10 @@ public:
 	void* GetDevice();
 private:
 	void CleanUp();
+	VertexBufferMap VBM;
 	LPDIRECT3D9         g_pD3D; // Used to create the D3DDevice
 	LPDIRECT3DDEVICE9   g_pd3dDevice; // Our rendering device
+	int mapIndex;
 };
 
 #endif

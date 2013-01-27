@@ -33,9 +33,21 @@ void Scene::LoadScene(std::string sceneName)
 				fileStream >> posX >> posY >> posZ >> laX >> laY >> laZ;
 				this->sceneCamera = new EntityCamera(posX, posY, posZ, laX, laY, laZ);
 			}
-			else if(line.compare("Sky:") == 0)
+			else if(line.compare("SkyBox:") == 0)
 			{
-				//maak sky aan
+				std::string front, back, left, right, top, bottom;
+				fileStream >> front >> back >> left >> right >> top >> bottom;
+				std::vector<Texture*> textures;
+				std::vector<Texture*>::iterator its; 
+				its = textures.begin();
+				its = textures.insert(its, &this->resourceManager->LoadTexture(front));
+				its = textures.insert(its, &this->resourceManager->LoadTexture(back));
+				its = textures.insert(its, &this->resourceManager->LoadTexture(left));
+				its = textures.insert(its, &this->resourceManager->LoadTexture(right));
+				its = textures.insert(its, &this->resourceManager->LoadTexture(top));
+				its = textures.insert(its, &this->resourceManager->LoadTexture(bottom));
+	
+				this->sceneSky = new SkyBox(this->sceneRenderer, textures);
 			}
 			else if(line.compare("Terrain:") == 0)
 			{
@@ -75,18 +87,21 @@ void Scene::RenderScene(HWND hWnd)
 	this->sceneRenderer->BeginScene();
 	this->sceneRenderer->SetupProjectionMatrix();
 	//this->sceneRenderer->SetupViewMatrix();
-	this->sceneCamera->SetCamera(sceneRenderer);
+	this->sceneCamera->SetCamera(this->sceneRenderer);
 
 	// render sky
+	this->sceneRenderer->Zenable(false);
+	this->sceneSky->Render(this->sceneRenderer, this->sceneCamera);
 
 	// render terrain
+	this->sceneRenderer->Zenable(true);
 	this->sceneTerrain->RenderTerrain(this->sceneRenderer);
 
 	// render entitys
-	for(EntityList::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
-	{
-		i->renderEntityModel(this->sceneRenderer);
-	}
+	//for(EntityList::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
+	//{
+	//	i->renderEntityModel(this->sceneRenderer);
+	//}
 
 	this->sceneRenderer->EndScene();
 	this->sceneRenderer->PresentScene(hWnd);

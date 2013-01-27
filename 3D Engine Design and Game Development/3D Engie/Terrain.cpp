@@ -20,9 +20,9 @@ Terrain::~Terrain()
 
 }
 
-LPDIRECT3DVERTEXBUFFER9 Terrain::GetVertexBuffer()
+int Terrain::GetVertexBufferIndex()
 {
-	return VB;
+	return this->vertexBufferIndex;
 }
 
 int Terrain::GetNumberOfVertices()
@@ -104,7 +104,7 @@ void Terrain::FillVertices(Renderer* renderer)
 	}	
 	Logger::GetInstance()->Write("Created terrain vertices");
 
-	VB = renderer->CreateVertexBuffer(this->terrainVertices, this->numberOfVertices);
+	this->vertexBufferIndex = renderer->CreateVertexBuffer(this->terrainVertices, this->numberOfVertices);
 	
 	Logger::GetInstance()->Write("Created terrain vertexbuffer");
 }
@@ -115,7 +115,8 @@ void Terrain::FillVertices(Renderer* renderer)
 void Terrain::RenderTerrain(Renderer* r)
 {
 	r->SetupWorldMatrix(posX, posY, posZ, 0, 0, 0, 1, 1, 1);
-	r->SetStreamSource(VB, sizeof(ENGIE_VERTEX));
+	r->SetStreamSource(this->vertexBufferIndex, sizeof(ENGIE_VERTEX));
+	r->SetFvF(D3DFVF_CUSTOMVERTEX);
 	r->SetTexture(*this->terrainTexture->getTexture());
 	r->DrawPrimitive(D3DPT_TRIANGLELIST, 0, this->numberOfVertices/3);
 }

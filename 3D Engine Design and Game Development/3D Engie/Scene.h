@@ -7,7 +7,7 @@
 #include "EntityModel.h"
 #include "ResourcesManager.h"
 #include <list>
-//#include "SkyBox.h"
+#include "SkyBox.h"
 #include "EntityCamera.h"
 #include <fstream>
 #include <iostream>
@@ -30,7 +30,7 @@ private:
 	Renderer* sceneRenderer;
 	EntityList* sceneEntitys;
 	EntityCamera* sceneCamera;
-	//SkyBox sceneSky;
+	SkyBox* sceneSky;
 	std::string sceneName;
 	ResourcesManager* resourceManager;
 };

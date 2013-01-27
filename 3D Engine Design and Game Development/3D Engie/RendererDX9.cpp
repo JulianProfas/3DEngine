@@ -4,6 +4,7 @@ RendererDX9::RendererDX9()
 {
 	this->g_pD3D = NULL; 
 	this->g_pd3dDevice = NULL;
+	this->mapIndex = 0;
 }
 
 HRESULT RendererDX9::InitDevice(HWND hWnd, int width, int height)
@@ -139,10 +140,10 @@ void RendererDX9::SetupProjectionMatrix()
 
 void RendererDX9::DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, unsigned int StartVertex, unsigned int NumberOfPrimitives)
 {
-	g_pd3dDevice->DrawPrimitive(PrimitiveType, StartVertex, NumberOfPrimitives);
+	this->g_pd3dDevice->DrawPrimitive(PrimitiveType, StartVertex, NumberOfPrimitives);
 }
 
-LPDIRECT3DVERTEXBUFFER9 RendererDX9::CreateVertexBuffer(ENGIE_VERTEX Vertices[], int NumberofVertices)
+int RendererDX9::CreateVertexBuffer(ENGIE_VERTEX Vertices[], int NumberofVertices)
 {
 	
 	LPDIRECT3DVERTEXBUFFER9 VB = 0;
@@ -155,12 +156,18 @@ LPDIRECT3DVERTEXBUFFER9 RendererDX9::CreateVertexBuffer(ENGIE_VERTEX Vertices[],
     VB->Lock( 0, sizeof( Vertices ), ( void** )&pVertices, 0 );
     memcpy( pVertices, Vertices, sizeof( ENGIE_VERTEX ) * NumberofVertices );
     VB->Unlock();
-	return VB;
+
+	++ this->mapIndex;
+
+	this->VBM.insert(std::pair<int, LPDIRECT3DVERTEXBUFFER9>(mapIndex, VB));
+
+	return mapIndex;
 }
 
-void RendererDX9::SetStreamSource(LPDIRECT3DVERTEXBUFFER9 buffer, unsigned int Stride)
+void RendererDX9::SetStreamSource(int buffer, unsigned int Stride)
 { 
-	g_pd3dDevice->SetStreamSource( 0, buffer, 0, Stride );
+	LPDIRECT3DVERTEXBUFFER9 VB = VBM[buffer];
+	this->g_pd3dDevice->SetStreamSource(0, VB, 0, Stride);
 }
 
 void RendererDX9::DrawSubset(LPD3DXMESH Mesh, DWORD i)
@@ -170,10 +177,20 @@ void RendererDX9::DrawSubset(LPD3DXMESH Mesh, DWORD i)
 
 void RendererDX9::SetMaterial(D3DMATERIAL9 *MeshMaterial)
 {
-	g_pd3dDevice->SetMaterial(MeshMaterial);
+	this->g_pd3dDevice->SetMaterial(MeshMaterial);
 }
 
 void RendererDX9::SetTexture(LPDIRECT3DTEXTURE9 Texture)
 {
-	g_pd3dDevice->SetTexture( 0, Texture);
+	this->g_pd3dDevice->SetTexture( 0, Texture);
+}
+
+void RendererDX9::SetFvF(DWORD fvf)
+{
+	this->g_pd3dDevice->SetFVF(fvf);
+}
+
+void RendererDX9::Zenable(bool enable)
+{
+	g_pd3dDevice->SetRenderState(D3DRS_ZENABLE, enable);
 }
