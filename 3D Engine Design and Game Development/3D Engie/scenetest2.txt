@@ -9,3 +9,7 @@ heightmap.bmp dirt.jpg
 
 Entity:
 -20 5 0 4.725 0 0 15 15 15 tiger.x tiger.bmp
+
+
+Entity:
+100 20 0 1.725 0 0 50 50 50 tiger.x snake.jpg
