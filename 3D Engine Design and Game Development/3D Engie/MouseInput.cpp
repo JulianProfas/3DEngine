@@ -93,14 +93,14 @@ bool MouseInput::InitMouseInput()
  * Function:	Mouse::GetMouseInput()
  * Description:	Method to see if the mousebuffer can be red or that a aquire is needed
  */
-bool MouseInput::GetMouseInput()
+bool MouseInput::GetMouseInput(Scene* s)
 {
 	if(!SUCCEEDED( dDevice->Poll()))
 	{
 		DoAcquire();
 	}
 	
-	SetTheMouseBuffer();
+	SetTheMouseBuffer(s);
 
 	return true;
 }
@@ -129,7 +129,7 @@ bool MouseInput::DoAcquire()
  * Function:	Mouse::SetTheMouseBuffer()
  * Description:	Setting the buffer for the mouse and getting the device-data
  */
-void MouseInput::SetTheMouseBuffer()
+void MouseInput::SetTheMouseBuffer(Scene* s)
 {
 	DIDEVICEOBJECTDATA od;
 	DWORD elements = 1;
@@ -143,13 +143,15 @@ void MouseInput::SetTheMouseBuffer()
 		// Mouse horizontal motion
 		case DIMOFS_X:
 			bufferedMouse.positionX += static_cast<long>(od.dwData);
-			std::cout<<"Mouse moved horizontal"<<std::endl;
+			std::cout<<"x = "<<static_cast<long>(od.dwData)<<std::endl;
+			s->GetCamera()->Yaw(static_cast<long>(od.dwData));
 			break;
 
 		// Mouse vertical motion
 		case DIMOFS_Y:
 			bufferedMouse.positionY += static_cast<long>(od.dwData);
-			std::cout<<"Mouse moved vertical"<<std::endl;
+			std::cout<<"Y = "<<static_cast<long>(od.dwData)<<std::endl;
+			s->GetCamera()->Pitch(static_cast<long>(od.dwData));
 			break;
 
 		// Mouse left button

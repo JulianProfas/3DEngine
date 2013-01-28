@@ -33,7 +33,7 @@ void InputManager::AddKeyboardInput(HWND hwnd)
 */
 void InputManager::AddMouseInput(HWND hwnd)
 {
-	//mouseInput = new MouseInput(hwnd);
+	mouseInput = new MouseInput(hwnd);
 	Logger::GetInstance()->Write("MouseInput aangemaakt");
 }
 
@@ -50,5 +50,5 @@ void InputManager::Release()
 void InputManager::CheckStates(Scene* s)
 {
 	keyboardInput->CheckKeyPressed(s);
-	//mouseInput->GetMouseInput();
+	mouseInput->GetMouseInput(s);
 }

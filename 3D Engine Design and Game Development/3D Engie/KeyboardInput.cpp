@@ -167,10 +167,10 @@ void KeyboardInput::CheckKeyPressed(Scene* s)
 	}
 	if(ProcessKBInput(DIK_B))
 	{
-		s->Move(4, 20);
+		s->Move(4, 1);
 	}
 	if(ProcessKBInput(DIK_N))
 	{
-		s->Move(5, 20);
+		s->Move(5, 1);
 	}
 }

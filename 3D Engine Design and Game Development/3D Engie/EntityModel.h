@@ -20,6 +20,7 @@ public:
 	float GetScaleY();
 	void SetScaleZ(float z);
 	float GetScaleZ();
+	void Move(int d, float unit);
 private:
 	float rotationX;
 	float rotationY;

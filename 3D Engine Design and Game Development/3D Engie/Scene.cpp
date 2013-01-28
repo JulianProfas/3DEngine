@@ -29,9 +29,9 @@ void Scene::LoadScene(std::string sceneName)
 
 			if(line.compare("Camera:") == 0) // 0 means that the two strings match
 			{
-				float posX, posY, posZ, laX, laY, laZ;
-				fileStream >> posX >> posY >> posZ >> laX >> laY >> laZ;
-				this->sceneCamera = new EntityCamera(posX, posY, posZ, laX, laY, laZ);
+				float posX, posY, posZ;
+				fileStream >> posX >> posY >> posZ;
+				this->sceneCamera = new EntityCamera(posX, posY, posZ);
 			}
 			else if(line.compare("SkyBox:") == 0)
 			{
@@ -87,7 +87,7 @@ void Scene::RenderScene(HWND hWnd)
 	this->sceneRenderer->BeginScene();
 	this->sceneRenderer->SetupProjectionMatrix();
 	//this->sceneRenderer->SetupViewMatrix();
-	this->sceneCamera->SetCamera(this->sceneRenderer);
+	this->sceneCamera->CalculateViewMatrix(this->sceneRenderer);
 
 	// render sky
 	this->sceneRenderer->Zenable(false);
@@ -98,10 +98,10 @@ void Scene::RenderScene(HWND hWnd)
 	this->sceneTerrain->RenderTerrain(this->sceneRenderer);
 
 	// render entitys
-	//for(EntityList::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
-	//{
-	//	i->renderEntityModel(this->sceneRenderer);
-	//}
+	for(EntityList::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
+	{
+		i->renderEntityModel(this->sceneRenderer);
+	}
 
 	this->sceneRenderer->EndScene();
 	this->sceneRenderer->PresentScene(hWnd);
@@ -111,4 +111,13 @@ void Scene::RenderScene(HWND hWnd)
 void Scene::Move(int d, float z)
 {
 	this->sceneTerrain->Move(d, z);
+	for(EntityList::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
+	{
+		i->Move(d, z);
+	}
+}
+
+EntityCamera* Scene::GetCamera()
+{
+	return this->sceneCamera;
 }

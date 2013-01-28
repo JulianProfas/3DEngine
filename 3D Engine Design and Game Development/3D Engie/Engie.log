@@ -1,20 +1,21 @@
-<01/27/13> <14:30:04> start logging
-<01/27/13> <14:30:04> WindowManager aangemaakt
-<01/27/13> <14:30:04> InputManager aangemaakt
-<01/27/13> <14:30:04> Window aangemaakt
-<01/27/13> <14:30:04> Window Window 1 aangemaakt
-<01/27/13> <14:30:04> Window Window 1 toegevoegd aan WindowsMap
-<01/27/13> <14:30:04> SceneManager aangemaakt
-<01/27/13> <14:30:04> Loading scene scenetest.txt
-<01/27/13> <14:30:04> Created SkyBox vertices
-<01/27/13> <14:30:04> Created SkyBox vertexbuffer
-<01/27/13> <14:30:05> Height data loaded
-<01/27/13> <14:30:05> Created terrain vertices
-<01/27/13> <14:30:05> Created terrain vertexbuffer
-<01/27/13> <14:30:05> Succesfully created terrain
-<01/27/13> <14:30:05> Successful loaded model
-<01/27/13> <14:30:05> Scene scenetest.txt loaded
-<01/27/13> <14:30:05> Scene scenetest.txt aangemaakt
-<01/27/13> <14:30:05> Scene scenetest.txt toegevoegd aan SceneMap
-<01/27/13> <14:30:05> Showing window 
-<01/27/13> <14:30:06> KeyboardInput aangemaakt
+<01/28/13> <11:04:36> start logging
+<01/28/13> <11:04:36> WindowManager aangemaakt
+<01/28/13> <11:04:36> InputManager aangemaakt
+<01/28/13> <11:04:36> Window aangemaakt
+<01/28/13> <11:04:36> Window Window 1 aangemaakt
+<01/28/13> <11:04:36> Window Window 1 toegevoegd aan WindowsMap
+<01/28/13> <11:04:36> SceneManager aangemaakt
+<01/28/13> <11:04:36> Loading scene scenetest.txt
+<01/28/13> <11:04:37> Created SkyBox vertices
+<01/28/13> <11:04:37> Created SkyBox vertexbuffer
+<01/28/13> <11:04:37> Height data loaded
+<01/28/13> <11:04:37> Created terrain vertices
+<01/28/13> <11:04:37> Created terrain vertexbuffer
+<01/28/13> <11:04:37> Succesfully created terrain
+<01/28/13> <11:04:37> Successful loaded model
+<01/28/13> <11:04:37> Scene scenetest.txt loaded
+<01/28/13> <11:04:37> Scene scenetest.txt aangemaakt
+<01/28/13> <11:04:37> Scene scenetest.txt toegevoegd aan SceneMap
+<01/28/13> <11:04:37> Showing window 
+<01/28/13> <11:04:37> KeyboardInput aangemaakt
+<01/28/13> <11:04:37> MouseInput aangemaakt

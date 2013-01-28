@@ -18,7 +18,8 @@ public:
 	~Renderer() {};
 	virtual HRESULT	InitDevice(HWND hWnd, int width, int height) = 0;
 	virtual void SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ) = 0;
-	virtual	void SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ) = 0;
+	//virtual	void SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ) = 0;
+	virtual void SetupViewMatrix(D3DXMATRIX viewMatrix) = 0;
 	virtual void SetupProjectionMatrix() = 0;
 	virtual void CleanUp() = 0;
 	virtual void ClearScene() = 0;

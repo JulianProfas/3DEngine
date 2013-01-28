@@ -2,6 +2,7 @@
 #define MOUSEINPUT_H
 
 #include "windows.h"
+#include "Scene.h" 
 #define DIRECTINPUT_VERSION 0x0800
 #include <dinput.h>
 
@@ -16,8 +17,8 @@ public:
 	bool DoAcquire();
 	void CheckKeyPressed();
 	void ResetMouseStruct();
-	bool GetMouseInput();
-	void SetTheMouseBuffer();
+	bool GetMouseInput(Scene* s);
+	void SetTheMouseBuffer(Scene* s);
 private:
 	DIPROPDWORD dipdw;
 	LPDIRECTINPUT8 dInput;		

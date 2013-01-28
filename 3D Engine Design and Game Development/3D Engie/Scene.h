@@ -23,6 +23,7 @@ public:
 	void LoadScene(std::string sceneName);
 	void RenderScene(HWND hWnd);
 	void Move(int d, float z);
+	EntityCamera* GetCamera();
 
 private:
 

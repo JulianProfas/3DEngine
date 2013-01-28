@@ -113,20 +113,25 @@ void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float 
 }
 
 
-void RendererDX9::SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ)
+/*void RendererDX9::SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ)
 {
 	D3DXMATRIXA16 matView;
 
-	/*D3DXVECTOR3 vEyePt( 0.0f, 25.0f, -128.0f ); //camera location
-    D3DXVECTOR3 vLookatPt( 0.0f, 0.0f, 0.0f ); //look at location
-    D3DXVECTOR3 vUpVec( 0.0f, 1.0f, 0.0f ); // the up vector ( Y is up)
-    */
+	//D3DXVECTOR3 vEyePt( 0.0f, 25.0f, -128.0f ); //camera location
+    //D3DXVECTOR3 vLookatPt( 0.0f, 0.0f, 0.0f ); //look at location
+    //D3DXVECTOR3 vUpVec( 0.0f, 1.0f, 0.0f ); // the up vector ( Y is up)
+    
 	D3DXVECTOR3 vEyePt(x, y, z); //camera location
     D3DXVECTOR3 vLookatPt(laX, laY, laZ); //look at location
     D3DXVECTOR3 vUpVec( 0.0f, 1.0f, 0.0f ); // the up vector ( Y is up)
 
     D3DXMatrixLookAtLH( &matView, &vEyePt, &vLookatPt, &vUpVec );
     g_pd3dDevice->SetTransform( D3DTS_VIEW, &matView );
+}
+*/
+void RendererDX9::SetupViewMatrix(D3DXMATRIX viewMatrix)
+{
+	g_pd3dDevice->SetTransform( D3DTS_VIEW, &viewMatrix );
 }
 
 void RendererDX9::SetupProjectionMatrix()

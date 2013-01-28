@@ -1,5 +1,8 @@
 Camera:
-0 25 -128 0 0 0
+0 0 0
+
+SkyBox:
+SkyBox_Front.jpg SkyBox_Back.jpg SkyBox_Left.jpg SkyBox_Right.jpg SkyBox_Top.jpg SkyBox_Bottom.jpg
 
 Terrain:
 heightmap.bmp dirt.jpg

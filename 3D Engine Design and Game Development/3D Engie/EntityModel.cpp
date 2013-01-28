@@ -59,3 +59,31 @@ float EntityModel::GetScaleZ()
 {
 	return scaleZ;
 }
+
+void EntityModel::Move(int d, float unit)
+{
+	if(d == 0)
+	{
+		this->positionZ -= unit;
+	}
+	else if(d == 1)
+	{
+		this->positionZ += unit;
+	}
+	else if(d == 2)
+	{
+		this->positionX += unit;
+	}
+	else if(d == 3)
+	{
+		this->positionX -= unit;
+	}
+	else if(d == 4)
+	{
+		this->positionY -= unit;
+	}
+	else if(d == 5)
+	{
+		this->positionY += unit;
+	}
+}

@@ -19,7 +19,8 @@ public:
 	~RendererDX9();	
 	HRESULT	InitDevice(HWND hWnd, int width, int height);
 	void SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ);
-	void SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ);
+	//void SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ);
+	void SetupViewMatrix(D3DXMATRIX viewMatrix);
 	void SetupProjectionMatrix();
 	void ClearScene();
 	bool BeginScene();

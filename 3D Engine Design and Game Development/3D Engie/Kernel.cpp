@@ -61,7 +61,7 @@ void Kernel::Start()
 		w->Show(SW_SHOW);
 		HWND hwnd = w->getWindow();
 		inputManager->AddKeyboardInput(hwnd);
-		//inputManager->AddMouseInput(hwnd);
+		inputManager->AddMouseInput(hwnd);
 		++it;
 	}
 
