@@ -33,6 +33,7 @@ void SkyBox::Render(Renderer* renderer, EntityCamera* camera)
 		LPDIRECT3DTEXTURE9 tex = *textures.at(it)->getTexture();
 		renderer->SetTexture(tex);	
 		renderer->DrawPrimitive(D3DPT_TRIANGLELIST, i * 6, 2);
+		--it;
 	}
 	
 }
