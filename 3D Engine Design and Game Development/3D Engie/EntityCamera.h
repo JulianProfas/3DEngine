@@ -5,7 +5,6 @@
 #include "Entity.h"
 #include "ResourcesManager.h"
 #include "Renderer.h"
-#include "RendererDX9.h"
 #include "Model.h"
 #include "Texture.h"
 #define DEGTORAD(degree) ((D3DX_PI / 180.0f) * (degree)) // converts from degrees to radians

@@ -116,10 +116,6 @@ bool MouseInput::DoAcquire()
 	if( SUCCEEDED( dDevice->Acquire() ) )
 	{
 		return true;
-	} 
-	else 
-	{
-		DoAcquire();		//Try again if it failed
 	}
 	//std::cout<<"Keyboard acuiring somehow failed"<<std::endl;
 	return false;

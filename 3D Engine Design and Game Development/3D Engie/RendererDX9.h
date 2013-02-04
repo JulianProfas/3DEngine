@@ -8,10 +8,6 @@
 #include "Renderer.h"
 #include <map>
 
-
-
-typedef std::map<int, LPDIRECT3DVERTEXBUFFER9> VertexBufferMap;
-
 class RendererDX9 : public Renderer
 {
 public:
@@ -37,7 +33,7 @@ public:
 	void* GetDevice();
 private:
 	void CleanUp();
-	VertexBufferMap VBM;
+	std::map<int, LPDIRECT3DVERTEXBUFFER9> VBM;
 	LPDIRECT3D9         g_pD3D; // Used to create the D3DDevice
 	LPDIRECT3DDEVICE9   g_pd3dDevice; // Our rendering device
 	int mapIndex;

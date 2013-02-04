@@ -140,11 +140,8 @@ bool KeyboardInput::DoAcquire()
 	if( SUCCEEDED( dDevice->Acquire() ) )
 	{
 		return true;
-	} 
-	else 
-	{
-		DoAcquire();		//Try again if it failed
 	}
+	return false;
 }
 
 void KeyboardInput::CheckKeyPressed(Scene* s)

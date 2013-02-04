@@ -4,7 +4,6 @@
 #include "Entity.h"
 #include "ResourcesManager.h"
 #include "Renderer.h"
-#include "RendererDX9.h"
 #include "Model.h"
 #include "Texture.h"
 

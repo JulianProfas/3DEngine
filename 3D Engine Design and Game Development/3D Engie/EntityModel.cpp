@@ -19,14 +19,14 @@ EntityModel::~EntityModel()
 
 void EntityModel::renderEntityModel(Renderer* rd)
 {
-	static_cast<RendererDX9*>(rd)->SetupWorldMatrix(positionX, positionY, positionZ, rotationX, rotationY, rotationZ, scaleX, scaleY, scaleZ);
+	rd->SetupWorldMatrix(positionX, positionY, positionZ, rotationX, rotationY, rotationZ, scaleX, scaleY, scaleZ);
 	for( DWORD i = 0; i < m->GetNumMaterials(); i++)
 	{
 		// Set the material and texture for this subset
-		static_cast<RendererDX9*>(rd)->SetMaterial(&m->GetMaterials()[i] );
-		static_cast<RendererDX9*>(rd)->SetTexture(t->getTexture()[i]);
+		rd->SetMaterial(&m->GetMaterials()[i]);
+		rd->SetTexture(t->getTexture()[i]);
 		// Draw the mesh subset
-		static_cast<RendererDX9*>(rd)->DrawSubset(m->GetMesh(), i);
+		rd->DrawSubset(m->GetMesh(), i);
 	}
 }
 

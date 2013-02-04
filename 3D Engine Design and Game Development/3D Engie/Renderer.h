@@ -30,6 +30,7 @@ public:
 	virtual void DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, unsigned int StartVertex, unsigned int NumberOfPrimitives) = 0;
 	virtual int	 CreateVertexBuffer(ENGIE_VERTEX Vertices[], int NumberofVertices) = 0;
 	virtual void DrawSubset(LPD3DXMESH leakMesh, DWORD i) = 0;
+	virtual void SetMaterial(D3DMATERIAL9 *MeshMaterial) = 0;
 	virtual void SetTexture(LPDIRECT3DTEXTURE9 Texture) = 0;	
 	virtual void* GetDevice() = 0;	
 	virtual void SetFvF(DWORD fvf) = 0;
