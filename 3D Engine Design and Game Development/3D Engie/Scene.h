@@ -15,22 +15,31 @@
 class Scene
 {
 public:
-	//enum Direction{FORWARD, BACKWARD, LEFTWARD, RIGHTWARD, UPWARD, DOWNWARD};
+	//Constructor for a Scene object
 	Scene(Renderer* r, ResourcesManager* rm, std::string sceneName);
+	//Destructor for a Scene object
 	~Scene();
-	void LoadScene(std::string sceneName);
+	//Loads a Scene from a textfile
+	void LoadScene(std::string filePath);
+	//Renders all objects in the scene
 	void RenderScene(HWND hWnd);
-	void Move(int d, float z);
+
 	EntityCamera* GetCamera();
 
 private:
-
+	//Terrain in the Scene
 	Terrain* sceneTerrain;
+	//Renderer object to render the Scene
 	Renderer* sceneRenderer;
+	//List with EntityModel objects in the Scene
 	std::list<EntityModel>* sceneEntitys;
+	//Camera for the Scene
 	EntityCamera* sceneCamera;
+	//Skybox in the Scene
 	SkyBox* sceneSky;
-	std::string sceneName;
+	//The URL to the scenefile
+	std::string filePath;
+	//ResourcesManager object for loading models and textures
 	ResourcesManager* resourceManager;
 };
 

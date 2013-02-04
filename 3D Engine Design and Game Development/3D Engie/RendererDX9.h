@@ -7,35 +7,64 @@
 #include "Texture.h"
 #include "Renderer.h"
 #include <map>
+#include "Logger.h"
+
+#define D3DFVF_CUSTOMVERTEX (D3DFVF_XYZ|D3DFVF_TEX1)
 
 class RendererDX9 : public Renderer
 {
 public:
+	//Constructor for a RendererDX9 object
 	RendererDX9();
+	//Destructor for a RendererDX9 object
 	~RendererDX9();	
-	HRESULT	InitDevice(HWND hWnd, int width, int height);
+	//Initializes the device of a renderer object for given HWND
+	HRESULT	InitDevice(HWND hWnd);
+	//Sets the world matrix
 	void SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ);
+	
+	
 	//void SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ);
-	void SetupViewMatrix(D3DXMATRIX viewMatrix);
+	//void SetupViewMatrix(D3DXMATRIX viewMatrix);
+	
+	//Sets the projection matrix
 	void SetupProjectionMatrix();
+	//Clears a scene
 	void ClearScene();
+	//Begins a scene
 	bool BeginScene();
+	//Ends a scene
 	void EndScene();
+	//Present a scene to given HWND
 	void PresentScene(HWND hWnd);
-	int	 CreateVertexBuffer(ENGIE_VERTEX Vertices[], int NumberofVertices);
-	void SetStreamSource(int buffer, unsigned int Stride);
+	//Sets a vertex buffer to a device data stream
+	void SetStreamSource(int buffer, int stride);
+	//Renders nonindexed triangles
+	void DrawPrimitiveTriangle(int startVertex, int numberOfTriangles);
+	//Creates a vertexbuffer and adds it to the vertexBufferMap
+	int	 CreateVertexBuffer(ENGIE_VERTEX vertices[], int numberofVertices);
+	//Renders a subset of a mesh
+	void DrawSubset(Model* model, DWORD i);
+	//Sets a texture
+	void SetTexture(Texture* texture);
+	//Sets the current vertex stream declaration
 	void SetFvF(DWORD fvf);
-	void DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, unsigned int StartVertex, unsigned int NumberOfPrimitives);
-	void DrawSubset(LPD3DXMESH mesh, DWORD i);
-	void SetMaterial(D3DMATERIAL9 *MeshMaterial);
-	void SetTexture(LPDIRECT3DTEXTURE9 Texture);
+	//Enables or disables z-buffering
 	void Zenable(bool enable);
+	//Get the device
 	void* GetDevice();
+
 private:
+	//Releases the device and the D3D object
 	void CleanUp();
-	std::map<int, LPDIRECT3DVERTEXBUFFER9> VBM;
-	LPDIRECT3D9         g_pD3D; // Used to create the D3DDevice
-	LPDIRECT3DDEVICE9   g_pd3dDevice; // Our rendering device
+
+	//Map for holding different Vertex Buffers
+	std::map<int, LPDIRECT3DVERTEXBUFFER9> vertexBufferMap;
+	//d3d object
+	LPDIRECT3D9 d3d; 
+	//Directx 9 rendering device
+	LPDIRECT3DDEVICE9 device;
+	//Index for the vertexBufferMap
 	int mapIndex;
 };
 

@@ -1,81 +1,62 @@
 #include "WindowManager.h"
-#include "Logger.h"
 
 /*
-	Constructor.
+	Constructor for a WindowManager object
 */
 WindowManager::WindowManager()
 {
-	windows = new WindowMap();
-	Logger::GetInstance()->Write("WindowManager aangemaakt");
+	Logger::GetInstance()->Write("WindowManager created");
 }
 
 /*
-	Destructor.
+	Destructor for a WindowManager object
 */
 WindowManager::~WindowManager()
 {
-	ClearWindowMap();
-	Logger::GetInstance()->Write("WindowManager verwijderd");
+	this->ClearWindowMap();
+	Logger::GetInstance()->Write("WindowManager deleted");
 }
 
 /*
-	Add a window to the WindowMap.
+	Create and add a Window to the windowMap
+	@param title, title for the Window
+	@param x, the x position of the Window
+	@param y, the y position of the Window
+	@param width, the width of the Window
+	@param height, the height of the Window
 */
 void WindowManager::AddWindow(std::string title, int x, int y, int width, int height)
 {
+	//Creates a new Window object
 	Window* w = new Window(title, x, y, width, height);
-	Logger::GetInstance()->Write("Window " + title + " aangemaakt");
-	this->windows->insert(std::pair<std::string, Window*>(title, w));
-	Logger::GetInstance()->Write("Window " + title + " toegevoegd aan WindowsMap");
+	
+	//Insert the newly created Window in the windowMap
+	this->windowMap.insert(std::pair<std::string, Window*>(title, w));
+	Logger::GetInstance()->Write("Window " + title + " inserted to windowMap");
 }
 
 /*
-	Remove a window from the WindowMap: the destructor is called from the removed window. 
+	Remove a Window from the WindowMap
+	@param title, title of the Window that needs to be removed
 */
 void WindowManager::RemoveWindow(std::string title)
 {
-	this->windows->erase(title);
+	this->windowMap.erase(title);
 }
 
 /*	
-	All the elements in the container are dropped: their destructors are called, 
-	and then they are removed from the container, leaving it with a size of 0.
+	Removes all windows from the windowMap
 */
 void WindowManager::ClearWindowMap()
 {
-	this->windows->clear();
+	this->windowMap.clear();
 }
 
 /*
-	Returns a window by title
+	Get a Window object
+	@param title, title of the Window you want to get returned
 */
 Window* WindowManager::GetWindow(std::string title)
 {
-	return windows->find(title)->second;
-}
-
-/*
-	Returns the WindowMap
-*/
-WindowMap* WindowManager::GetWindowMap()
-{
-	return windows;
-}
-
-/*
-
-*/
-void WindowManager::RemoveWindow(HWND hwnd)
-{
-	WindowMap::iterator it = windows->begin();
-	bool found = false;
-	while(found == false)
-	{
-		Window* temp = it->second;
-		if(hwnd == temp->getWindow())
-		{
-			windows->erase(it);
-		}
-	} 
+	return this->windowMap.find(title)->second;
 }

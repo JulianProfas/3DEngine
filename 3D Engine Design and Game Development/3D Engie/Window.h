@@ -3,18 +3,27 @@
 
 #include <windows.h>
 #include <string>
+#include "Logger.h"
 
 extern WNDCLASSEX wc;
 
 class Window
 {
 public:
-	Window(std::string title, int x, int y, int height, int width );
+	//Constructor for a Window object
+	Window(std::string title, int x, int y, int height, int width);
+	//Destructor for a Window object
 	~Window();
-	void Show(int showWindow);
-	HWND getWindow();
+	//Shows the Window
+	void Show(DWORD showWindow);
+	//Get the HWND from the window
+	HWND* getWindow();
+
 private:
-	HWND hwnd;
+	//The HWND of the Window
+	HWND* hwnd;
+	//The title of the Window
+	std::string title;
 };
 
 #endif

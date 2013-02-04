@@ -1,17 +1,38 @@
 #include "RendererDX9.h"
 
+/*
+	Constructor for a RendererDX9 object
+*/
 RendererDX9::RendererDX9()
 {
-	this->g_pD3D = NULL; 
-	this->g_pd3dDevice = NULL;
+	this->d3d = NULL; 
+	this->device = NULL;
 	this->mapIndex = 0;
+
+	Logger::GetInstance()->Write("RendererDX9 created");
 }
 
-HRESULT RendererDX9::InitDevice(HWND hWnd, int width, int height)
+/*
+	Destructor for a RendererDX9 object
+*/
+RendererDX9::~RendererDX9()
+{
+	this->CleanUp();
+
+	Logger::GetInstance()->Write("RendererDX9 destroyed");
+}
+
+/*
+	Initializes the device of a renderer object for given HWND
+	@param hWnd, the HWND needed to create the device
+*/
+HRESULT RendererDX9::InitDevice(HWND hWnd)
 {
 	// Create the D3D object.
-    if( NULL == ( g_pD3D = Direct3DCreate9( D3D_SDK_VERSION ) ) )
+    if(NULL == (this->d3d = Direct3DCreate9(D3D_SDK_VERSION)))
+	{
         return E_FAIL;
+	}
 
 	D3DPRESENT_PARAMETERS d3dpp;
     ZeroMemory( &d3dpp, sizeof( d3dpp ) );
@@ -21,77 +42,94 @@ HRESULT RendererDX9::InitDevice(HWND hWnd, int width, int height)
 	d3dpp.EnableAutoDepthStencil = TRUE;
 	d3dpp.AutoDepthStencilFormat = D3DFMT_D16;
 
-	if( FAILED( g_pD3D->CreateDevice( D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,
+	if(FAILED(this->d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,
                                       D3DCREATE_SOFTWARE_VERTEXPROCESSING,
-                                      &d3dpp, &g_pd3dDevice ) ) )
+                                      &d3dpp, &device)))
     {
         return E_FAIL;
     }
 
-    // Device state would normally be set here
-	// Turn on the zbuffer
-
     // Turn on ambient lighting 
-	g_pd3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);	//Counter Clockwise Cullmode
-	g_pd3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE ); //No lightning
-    g_pd3dDevice->SetRenderState( D3DRS_ZENABLE, TRUE ); //Z buffer on
-	g_pd3dDevice->SetRenderState(D3DRS_AMBIENT, 0xffffffff ); //Ambient is white
-	g_pd3dDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, true ); //Turn Alphablending on
-	g_pd3dDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA ); //Type alphablending
-	g_pd3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA); //Type alphablending
+	this->device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);	//Counter Clockwise Cullmode
+	this->device->SetRenderState(D3DRS_LIGHTING, FALSE ); //No lightning
+    this->device->SetRenderState( D3DRS_ZENABLE, TRUE ); //Z buffer on
+	this->device->SetRenderState(D3DRS_AMBIENT, 0xffffffff ); //Ambient is white
+	this->device->SetRenderState(D3DRS_ALPHABLENDENABLE, true ); //Turn Alphablending on
+	this->device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA ); //Type alphablending
+	this->device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA); //Type alphablending
 
     return S_OK;
 }
 
-
-VOID RendererDX9::CleanUp()
+/*
+	Releases the device and D3D object
+*/
+void RendererDX9::CleanUp()
 {
-    if( g_pd3dDevice != NULL )
-        g_pd3dDevice->Release();
+	if(NULL != this->device)
+	{
+        this->device->Release();
+	}
 
-    if( g_pD3D != NULL )
-        g_pD3D->Release();
+	if(NULL != this->d3d)
+	{
+        this->d3d->Release();
+	}
 }
 
+/*
+	Clears the scene
+*/
 void RendererDX9::ClearScene()
 {
 	 // Clear the backbuffer to a blue color
-    g_pd3dDevice->Clear( 0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB( 0, 0, 255 ), 1.0f, 0 );
+    this->device->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 255), 1.0f, 0);
 	// Clear the z buffer
-	g_pd3dDevice->Clear( 0, NULL, D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB( 0, 0, 255 ), 1.0f, 0 );
+	this->device->Clear(0, NULL, D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 255), 1.0f, 0);
 }
 
+/*
+	Begins the scene
+*/
 bool RendererDX9::BeginScene()
 {
-	if( NULL == g_pd3dDevice )
-        return false;
-	
-	 // Begin the scene
-    if(SUCCEEDED( g_pd3dDevice->BeginScene()))
+	if(NULL == this->device)
+	{
+       return false;
+	}
+
+    if(SUCCEEDED(this->device->BeginScene()))
     {
 		return true;
 	}
 	return false;
 }
 
+/*
+	Ends the scene
+*/
 void RendererDX9::EndScene()
 {	
-     // End the scene
-     g_pd3dDevice->EndScene();
+     this->device->EndScene();
 }
 
 /*
-	Present the backbuffer contents to the display
+	Present a scene to given HWND
+	@param hWnd, The HWND that needs to display the scene
 */
 void RendererDX9::PresentScene(HWND hWnd)
 {
-    g_pd3dDevice->Present( NULL, NULL, hWnd, NULL );
+    this->device->Present(NULL, NULL, hWnd, NULL);
 }
 
+/*
+	Get the device
+*/
 void* RendererDX9::GetDevice()
 {
-	return this->g_pd3dDevice;
+	return this->device;
 }
+
 
 void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ)
 {
@@ -109,7 +147,7 @@ void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float 
 	D3DXMatrixMultiply(&matWorld, &matWorldRot, &matWorld);
 
 	//Multiply the modelmatrix + the CameraMatrix then set the transformation
-    g_pd3dDevice->SetTransform(D3DTS_WORLD, &matWorld );
+    this->device->SetTransform(D3DTS_WORLD, &matWorld );
 }
 
 
@@ -128,11 +166,13 @@ void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float 
     D3DXMatrixLookAtLH( &matView, &vEyePt, &vLookatPt, &vUpVec );
     g_pd3dDevice->SetTransform( D3DTS_VIEW, &matView );
 }
-*/
+
 void RendererDX9::SetupViewMatrix(D3DXMATRIX viewMatrix)
 {
 	g_pd3dDevice->SetTransform( D3DTS_VIEW, &viewMatrix );
 }
+*/
+
 
 void RendererDX9::SetupProjectionMatrix()
 {
@@ -142,60 +182,88 @@ void RendererDX9::SetupProjectionMatrix()
     g_pd3dDevice->SetTransform( D3DTS_PROJECTION, &matProj );
 }
 
-
-void RendererDX9::DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, unsigned int StartVertex, unsigned int NumberOfPrimitives)
+/*
+	Renders nonindexed triangles
+	@param startVertex, The vertex where the device starts drawing
+	@param numberOfTriangles, The quantity of triangles to be drawn
+*/
+void RendererDX9::DrawPrimitiveTriangle(int startVertex, int numberOfTriangles)
 {
-	this->g_pd3dDevice->DrawPrimitive(PrimitiveType, StartVertex, NumberOfPrimitives);
+	this->device->DrawPrimitive(D3DPT_TRIANGLELIST, startVertex, numberOfTriangles);
 }
 
-int RendererDX9::CreateVertexBuffer(ENGIE_VERTEX Vertices[], int NumberofVertices)
+/*
+	Creates a vertexbuffer and adds it to the vertexBufferMap
+	@param vertices, Contains all vertices that need to go in the vertex buffer
+	@param numberOfVertices, The quantity of the vertices
+*/
+int RendererDX9::CreateVertexBuffer(ENGIE_VERTEX vertices[], int numberOfVertices)
 {
 	
 	LPDIRECT3DVERTEXBUFFER9 VB = 0;
 	
-	g_pd3dDevice->CreateVertexBuffer( NumberofVertices * sizeof(ENGIE_VERTEX) ,
+	this->device->CreateVertexBuffer(numberOfVertices * sizeof(ENGIE_VERTEX) ,
                                       0, D3DFVF_CUSTOMVERTEX,
-                                      D3DPOOL_DEFAULT, &VB, NULL );
+                                      D3DPOOL_DEFAULT, &VB, NULL);
 
 	VOID* pVertices;
-    VB->Lock( 0, sizeof( Vertices ), ( void** )&pVertices, 0 );
-    memcpy( pVertices, Vertices, sizeof( ENGIE_VERTEX ) * NumberofVertices );
+    VB->Lock(0, sizeof( vertices ), ( void** )&pVertices, 0);
+    memcpy(pVertices, vertices, sizeof( ENGIE_VERTEX ) * numberOfVertices);
     VB->Unlock();
 
 	++ this->mapIndex;
+	
+	//Add the vertex buffer to the vertexBufferMap
+	this->vertexBufferMap.insert(std::pair<int, LPDIRECT3DVERTEXBUFFER9>(mapIndex, VB));
 
-	this->VBM.insert(std::pair<int, LPDIRECT3DVERTEXBUFFER9>(mapIndex, VB));
-
-	return mapIndex;
+	return this->mapIndex;
 }
 
-void RendererDX9::SetStreamSource(int buffer, unsigned int Stride)
+/*
+	Sets a vertex buffer to a device data stream
+	@param buffer, The index for the vertexBufferMap
+	@param stride, Stride of the component, in bytes
+*/
+void RendererDX9::SetStreamSource(int buffer, int stride)
 { 
-	LPDIRECT3DVERTEXBUFFER9 VB = VBM[buffer];
-	this->g_pd3dDevice->SetStreamSource(0, VB, 0, Stride);
+	LPDIRECT3DVERTEXBUFFER9 VB = this->vertexBufferMap[buffer];
+	this->device->SetStreamSource(0, VB, 0, stride);
 }
 
-void RendererDX9::DrawSubset(LPD3DXMESH Mesh, DWORD i)
+/*
+	Renders a subset of a mesh
+	@param model, Model object to get a DX9 mesh from
+	@param i, Attribute id that specifies which subset from a mesh to draw
+*/
+void RendererDX9::DrawSubset(Model* model, DWORD i)
 {
-	Mesh->DrawSubset(i);
+	LPD3DXMESH mesh = *model->GetMesh();
+	mesh->DrawSubset(i);
 }
 
-void RendererDX9::SetMaterial(D3DMATERIAL9 *MeshMaterial)
+/*
+	Sets a texture
+	@param texture, The texture that is to be set by the device
+*/
+void RendererDX9::SetTexture(Texture* texture)
 {
-	this->g_pd3dDevice->SetMaterial(MeshMaterial);
+	this->device->SetTexture(0, *texture->getTexture());
 }
 
-void RendererDX9::SetTexture(LPDIRECT3DTEXTURE9 Texture)
-{
-	this->g_pd3dDevice->SetTexture( 0, Texture);
-}
-
+/*
+	Sets the current vertex stream declaration
+	@param fvf, DWORD containing the fixed function vertex type
+*/
 void RendererDX9::SetFvF(DWORD fvf)
 {
-	this->g_pd3dDevice->SetFVF(fvf);
+	this->device->SetFVF(fvf);
 }
 
+/*
+	Enables or disables z-buffering
+	@param enable, true enables z-buffering, false disables z-buffering
+*/
 void RendererDX9::Zenable(bool enable)
 {
-	g_pd3dDevice->SetRenderState(D3DRS_ZENABLE, enable);
+	this-device->SetRenderState(D3DRS_ZENABLE, enable);
 }
