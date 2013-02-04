@@ -5,26 +5,32 @@
 #include <d3dx9.h>
 #include <d3d9.h>
 #include "Logger.h"
-#include <strsafe.h>
-#include <Windows.h>
-#include <mmsystem.h>
 #include <dxerr.h>
 
 class Model
 {
 public:
-	Model(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string pathName);
+	//Constructor for a Model object
+	Model(LPDIRECT3DDEVICE9 device, std::string filePath);
+	//Destructor for a Model object
 	~Model();
-	std::string* GetPathName();
-	LPD3DXMESH GetMesh();
-	DWORD GetNumMaterials();
+	//Get the Mesh 
+	LPD3DXMESH* GetMesh();
+	//Get the number of materials
+	DWORD* GetNumMaterials();
+	//Get the materials
 	D3DMATERIAL9* GetMaterials();
+
 private:
-	LPD3DXMESH mesh;
-	std::string* pathName;
-	DWORD numMaterials;
-	D3DMATERIAL9* materials;
+	//Loads the mesh from the given filePath
 	void LoadMesh(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string filePath);
+	
+	//Directx 9 Mesh
+	LPD3DXMESH* mesh;
+	//The number of materials in the mesh
+	DWORD* numMaterials;
+	//The materials in the mesh
+	D3DMATERIAL9* materials;
 };
 
 #endif

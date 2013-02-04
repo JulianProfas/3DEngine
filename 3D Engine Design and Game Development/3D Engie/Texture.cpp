@@ -1,41 +1,51 @@
 #include "Texture.h"
 
-
-Texture::Texture(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string pathName)
+/*
+	Constructor for a Texture object
+	@param device, a directx 9 device is needed for the loadTexture method
+	@param filePath, the URL to the texturefile
+*/
+Texture::Texture(LPDIRECT3DDEVICE9 device, std::string filePath)
 {
-	name = pathName;
 	loadedTexture = new LPDIRECT3DTEXTURE9;
-	//loadedTexture = NULL;
-	loadTexture(g_pd3dDevice, pathName);
+	loadTexture(device, filePath);
 }
 
-
+/*
+	Destructor for a Texture object
+*/
 Texture::~Texture()
 {
-	//loadedTexture->Release();
+	
 }
 
-std::string Texture::GetName()
-{
-	return name;
-}
-
+/*
+	Get the directx 9 texture
+*/
 LPDIRECT3DTEXTURE9* Texture::getTexture()
 {
 	return loadedTexture;
 }
 
-
-void Texture::loadTexture(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string filePath)
+/*
+	Load the directx 9 Texture from given filePath
+	@param device, a directx 9 device 
+	@param filePath, the URL to the texturefile
+*/
+void Texture::loadTexture(LPDIRECT3DDEVICE9 device, std::string filePath)
 {
 	LPCSTR path = filePath.c_str();
 
 	if(FAILED( D3DXCreateTextureFromFileA( 
-	   g_pd3dDevice,
+	   device,
        path,
        loadedTexture)))
 	{
 		// Failed loading texture
-		Logger::GetInstance()->Write("Failed loading texture");
+		Logger::GetInstance()->Write("Failed loading texture: " + filePath);
+	}
+	else
+	{
+		Logger::GetInstance()->Write("Succesfully loaded texture: " + filePath);
 	}
 }
