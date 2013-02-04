@@ -6,8 +6,6 @@
 #include <map>
 #include <string>
 
-typedef std::map<std::string, Scene*> SceneMap;
-
 class SceneManager
 {
 public:
@@ -16,10 +14,10 @@ public:
 	void AddScene(std::string sceneName);
 	void RemoveScene(std::string sceneName);
 	void ClearSceneMap();
-	SceneMap* GetSceneMap();
+	std::map<std::string, Scene*>* GetSceneMap();
 	Scene* GetScene(std::string sceneName);
 private:
-	SceneMap* scenes;
+	std::map<std::string, Scene*>* scenes;
 	ResourcesManager* resourceManager;
 	Renderer* renderer;
 };

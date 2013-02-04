@@ -12,8 +12,6 @@
 #include <fstream>
 #include <iostream>
 
-typedef std::list<EntityModel> EntityList;
-
 class Scene
 {
 public:
@@ -29,7 +27,7 @@ private:
 
 	Terrain* sceneTerrain;
 	Renderer* sceneRenderer;
-	EntityList* sceneEntitys;
+	std::list<EntityModel>* sceneEntitys;
 	EntityCamera* sceneCamera;
 	SkyBox* sceneSky;
 	std::string sceneName;

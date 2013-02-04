@@ -5,7 +5,7 @@
 */
 SceneManager::SceneManager(ResourcesManager* resourceManager, Renderer* renderer)
 {
-	this->scenes = new SceneMap();
+	this->scenes = new std::map<std::string, Scene*>();
 	this->resourceManager = resourceManager;
 	this->renderer = renderer;
 	Logger::GetInstance()->Write("SceneManager aangemaakt");
@@ -52,7 +52,7 @@ void SceneManager::ClearSceneMap()
 /*
 	Returns the SceneMap
 */
-SceneMap* SceneManager::GetSceneMap()
+std::map<std::string, Scene*>* SceneManager::GetSceneMap()
 {
 	return this->scenes;
 }

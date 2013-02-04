@@ -7,20 +7,18 @@
 #include "Logger.h"
 #include "Texture.h"
 #include "EntityCamera.h"
-	
-typedef std::vector<Texture*> SkyTexture;
 
 class SkyBox
 {
 public:
-	SkyBox(Renderer *renderer, SkyTexture textures);
+	SkyBox(Renderer *renderer, std::vector<Texture*> textures);
 	~SkyBox();
 	void Render(Renderer* renderer, EntityCamera* camera);
 private:	
 	void FillVertices(Renderer* renderer);
 	int	vertexBufferIndex;
 	int	numberOfVertices;
-	SkyTexture textures;
+	std::vector<Texture*> textures;
 };
 
 #endif

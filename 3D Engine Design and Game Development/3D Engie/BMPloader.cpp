@@ -45,7 +45,7 @@ void BMPloader::LoadHeightMap(std::string fileName)
 	height = bm.bmHeight;
 	
 	//Create an array to hold all the heightdata
-	heightData = new BYTE[width*height];
+	heightData = new unsigned char[width*height];
 
 	//Iterate through the BMP-file and fill the heightdata-array
 	

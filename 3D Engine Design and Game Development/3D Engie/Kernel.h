@@ -12,8 +12,6 @@
 #include <string>
 #include <map>
 
-typedef std::map<Window*, Scene*> RenderMap;
-
 class Kernel
 {
 public:
@@ -32,7 +30,7 @@ private:
 	Renderer* renderer;
 	ResourcesManager* resourceManager;
 	SceneManager* sceneManager;
-	RenderMap* renderMap;
+	std::map<Window*, Scene*>* renderMap;
 	void CleanUp();
 };
 

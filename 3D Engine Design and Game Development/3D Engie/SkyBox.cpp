@@ -3,7 +3,7 @@
 /*
 	Constructor SkyBox.
 */
-SkyBox::SkyBox(Renderer *renderer, SkyTexture textures)
+SkyBox::SkyBox(Renderer *renderer, std::vector<Texture*> textures)
 {
 
 	this->FillVertices(renderer);

@@ -98,7 +98,7 @@ void Scene::RenderScene(HWND hWnd)
 	this->sceneTerrain->RenderTerrain(this->sceneRenderer);
 
 	// render entitys
-	for(EntityList::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
+	for(std::list<EntityModel>::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
 	{
 		i->renderEntityModel(this->sceneRenderer);
 	}
@@ -111,7 +111,7 @@ void Scene::RenderScene(HWND hWnd)
 void Scene::Move(int d, float z)
 {
 	this->sceneTerrain->Move(d, z);
-	for(EntityList::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
+	for(std::list<EntityModel>::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
 	{
 		i->Move(d, z);
 	}

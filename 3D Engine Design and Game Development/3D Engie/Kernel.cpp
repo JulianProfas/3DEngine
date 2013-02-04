@@ -28,7 +28,7 @@ Kernel::Kernel()
 	RegisterClassEx( &wc );
 	this->windowManager = new WindowManager();
 	this->renderer = new RendererDX9();
-	this->renderMap = new RenderMap();
+	this->renderMap = new std::map<Window*, Scene*>();
 	this->inputManager = new InputManager();
 	
 }
@@ -54,7 +54,7 @@ WindowManager* Kernel::GetWindowManager()
 */
 void Kernel::Start()
 {
-	RenderMap::iterator it = this->renderMap->begin();
+	std::map<Window*, Scene*>::iterator it = this->renderMap->begin();
 	while(it != this->renderMap->end())
 	{
 		Window* w = it->first;

@@ -5,18 +5,17 @@
 #include <Windows.h>
 #include "Logger.h"
 
-typedef unsigned char BYTE;
 class BMPloader
 {
 public:
 	BMPloader();
 	~BMPloader();
 	void LoadHeightMap(std::string fileName);
-	BYTE* GetHeightData();
+	unsigned char* GetHeightData();
 	int GetHeight();
 	int GetWidth();
 private:
-	BYTE* heightData;
+	unsigned char* heightData;
 	int height;
 	int width;
 };
