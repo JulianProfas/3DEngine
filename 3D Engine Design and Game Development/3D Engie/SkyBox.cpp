@@ -26,7 +26,7 @@ void SkyBox::Render(Renderer* renderer, EntityCamera* camera)
 	renderer->SetupWorldMatrix(camera->GetPositionX(), camera->GetPositionY(), camera->GetPositionZ(), 0, 0, 0, 1, 1, 1);
 	renderer->SetStreamSource(this->vertexBufferIndex, sizeof(ENGIE_VERTEX));
 	renderer->SetFvF(D3DFVF_CUSTOMVERTEX);
-	
+	/*
 	int it = 5;
 	for(int i = 0; i < 6; i++)
 	{	
@@ -35,6 +35,7 @@ void SkyBox::Render(Renderer* renderer, EntityCamera* camera)
 		renderer->DrawPrimitive(D3DPT_TRIANGLELIST, i * 6, 2);
 		--it;
 	}
+	*/
 	
 }
 

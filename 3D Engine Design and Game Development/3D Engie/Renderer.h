@@ -10,6 +10,8 @@ struct ENGIE_VERTEX
 	FLOAT tu, tv; //Texture coordinates	
 };
 
+#define D3DFVF_CUSTOMVERTEX (D3DFVF_XYZ|D3DFVF_TEX1)
+
 class Renderer
 {
 public:
@@ -43,6 +45,8 @@ public:
 	virtual void DrawSubset(Model* model, DWORD i) = 0;
 	//Sets a texture
 	virtual void SetTexture(Texture* texture) = 0;	
+	//Sets a material
+	virtual void SetMaterial(Model* model, int materialIndex) = 0;
 	//Get the device
 	virtual void* GetDevice() = 0;
 	//Sets the current vertex stream declaration

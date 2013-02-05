@@ -12,7 +12,7 @@ Window::Window(std::string title, int x, int y, int height, int width)
 {
 	this->title = title;
 
-	*hwnd = CreateWindow( "ENGIE", title.c_str(),
+	this->hwnd = CreateWindow( "ENGIE", title.c_str(),
 		WS_EX_LAYERED, x, y, width, height,
 		NULL, NULL, wc.hInstance, NULL );
 
@@ -25,8 +25,8 @@ Window::Window(std::string title, int x, int y, int height, int width)
 */
 void Window::Show(DWORD showWindow)
 {
-	ShowWindow(*hwnd, showWindow);
-	UpdateWindow(*hwnd);
+	ShowWindow(hwnd, showWindow);
+	UpdateWindow(hwnd);
 
 	Logger::GetInstance()->Write("Showing window: " + this->title);
 }
@@ -34,7 +34,7 @@ void Window::Show(DWORD showWindow)
 /*
 	Get the HWND from the Window
 */
-HWND* Window::getWindow()
+HWND Window::getWindow()
 {
 	return hwnd;
 }

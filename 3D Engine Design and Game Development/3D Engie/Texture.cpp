@@ -5,7 +5,7 @@
 	@param device, a directx 9 device is needed for the loadTexture method
 	@param filePath, the URL to the texturefile
 */
-Texture::Texture(LPDIRECT3DDEVICE9 device, std::string filePath)
+Texture::Texture(void* device, std::string filePath)
 {
 	loadedTexture = new LPDIRECT3DTEXTURE9;
 	loadTexture(device, filePath);
@@ -32,12 +32,12 @@ LPDIRECT3DTEXTURE9* Texture::getTexture()
 	@param device, a directx 9 device 
 	@param filePath, the URL to the texturefile
 */
-void Texture::loadTexture(LPDIRECT3DDEVICE9 device, std::string filePath)
+void Texture::loadTexture(void* device, std::string filePath)
 {
 	LPCSTR path = filePath.c_str();
 
 	if(FAILED( D3DXCreateTextureFromFileA( 
-	   device,
+		(LPDIRECT3DDEVICE9)device,
        path,
        loadedTexture)))
 	{

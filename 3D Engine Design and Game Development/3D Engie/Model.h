@@ -11,7 +11,7 @@ class Model
 {
 public:
 	//Constructor for a Model object
-	Model(LPDIRECT3DDEVICE9 device, std::string filePath);
+	Model(void* device, std::string filePath);
 	//Destructor for a Model object
 	~Model();
 	//Get the Mesh 
@@ -23,12 +23,12 @@ public:
 
 private:
 	//Loads the mesh from the given filePath
-	void LoadMesh(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string filePath);
+	void LoadMesh(void* device, std::string filePath);
 	
 	//Directx 9 Mesh
-	LPD3DXMESH* mesh;
+	LPD3DXMESH mesh;
 	//The number of materials in the mesh
-	DWORD* numMaterials;
+	DWORD numMaterials;
 	//The materials in the mesh
 	D3DMATERIAL9* materials;
 };

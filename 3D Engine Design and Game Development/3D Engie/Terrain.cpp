@@ -1,22 +1,30 @@
 #include "Terrain.h"
 
-Terrain::Terrain(std::string terrainFileName, std::string texturefilename, Renderer* renderer, ResourcesManager* resourceManager)
+Terrain::Terrain(std::string terrainPath, std::string texturePath)
 {
 	this->posX = -128;
 	this->posY = -10;
 	this->posZ = -128;
-	m_BMPLoader = new BMPloader();
-	m_BMPLoader->LoadHeightMap(terrainFileName);
-
-	terrainTexture = &resourceManager->LoadTexture(texturefilename);
-
-	FillVertices(renderer);
+	this->terrainPath = terrainPath;
+	this->texturePath = texturePath;
 
 	Logger::GetInstance()->Write("Succesfully created terrain");
 }
 
 Terrain::~Terrain()
 {
+
+}
+
+void Terrain::LoadResources(Renderer* renderer, ResourcesManager* resourceManager)
+{
+	//create BMPloader object 
+	m_BMPLoader = new BMPloader();
+	m_BMPLoader->LoadHeightMap(this->terrainPath);
+
+	texture = resourceManager->LoadTexture(renderer->GetDevice(), this->texturePath);
+
+	FillVertices(renderer);
 
 }
 
@@ -32,7 +40,7 @@ int Terrain::GetNumberOfVertices()
 
 Texture* Terrain::GetTexture()
 {
-	return this->terrainTexture;
+	return this->texture;
 }
 
 /* 
@@ -112,13 +120,13 @@ void Terrain::FillVertices(Renderer* renderer)
 /*
 	Terrain renders its vertices, with texture
 */
-void Terrain::RenderTerrain(Renderer* r)
+void Terrain::RenderTerrain(Renderer* renderer)
 {
-	r->SetupWorldMatrix(posX, posY, posZ, 0, 0, 0, 1, 1, 1);
-	r->SetStreamSource(this->vertexBufferIndex, sizeof(ENGIE_VERTEX));
-	r->SetFvF(D3DFVF_CUSTOMVERTEX);
-	r->SetTexture(*this->terrainTexture->getTexture());
-	r->DrawPrimitive(D3DPT_TRIANGLELIST, 0, this->numberOfVertices/3);
+	renderer->SetupWorldMatrix(posX, posY, posZ, 0, 0, 0, 1, 1, 1);
+	renderer->SetStreamSource(this->vertexBufferIndex, sizeof(ENGIE_VERTEX));
+	renderer->SetFvF(D3DFVF_CUSTOMVERTEX);
+	renderer->SetTexture(this->texture);
+	renderer->DrawPrimitiveTriangle(0, this->numberOfVertices/3);
 }
 
 void Terrain::SetPositionX(float x)
@@ -136,30 +144,3 @@ void Terrain::SetPositionZ(float z)
 	this->posZ = z;
 }
 
-void Terrain::Move(int d, float unit)
-{
-	if(d == 0)
-	{
-		this->posZ -= unit;
-	}
-	else if(d == 1)
-	{
-		this->posZ += unit;
-	}
-	else if(d == 2)
-	{
-		this->posX += unit;
-	}
-	else if(d == 3)
-	{
-		this->posX -= unit;
-	}
-	else if(d == 4)
-	{
-		this->posY -= unit;
-	}
-	else if(d == 5)
-	{
-		this->posY += unit;
-	}
-}

@@ -50,7 +50,7 @@ void EntityCamera::CalculateViewMatrix(Renderer* rd)
   viewMatrix._42 = - D3DXVec3Dot( &position, &up );
   viewMatrix._43 = - D3DXVec3Dot( &position, &look );
 
-  rd->SetupViewMatrix(viewMatrix);
+ // rd->SetupViewMatrix(viewMatrix);
 }
 
 void EntityCamera::Yaw(float amount)

@@ -1,47 +1,23 @@
-<02/04/13> <13:48:39> start logging
-<02/04/13> <13:48:39> WindowManager aangemaakt
-<02/04/13> <13:48:39> InputManager aangemaakt
-<02/04/13> <13:48:39> Window aangemaakt
-<02/04/13> <13:48:39> Window Window 1 aangemaakt
-<02/04/13> <13:48:39> Window Window 1 toegevoegd aan WindowsMap
-<02/04/13> <13:48:39> SceneManager aangemaakt
-<02/04/13> <13:48:39> Window aangemaakt
-<02/04/13> <13:48:39> Window Window 2 aangemaakt
-<02/04/13> <13:48:39> Window Window 2 toegevoegd aan WindowsMap
-<02/04/13> <13:48:39> SceneManager aangemaakt
-<02/04/13> <13:48:39> Loading scene scenetest.txt
-<02/04/13> <13:48:39> Created SkyBox vertices
-<02/04/13> <13:48:39> Created SkyBox vertexbuffer
-<02/04/13> <13:48:39> Height data loaded
-<02/04/13> <13:48:40> Created terrain vertices
-<02/04/13> <13:48:40> Created terrain vertexbuffer
-<02/04/13> <13:48:40> Succesfully created terrain
-<02/04/13> <13:48:40> Successful loaded model
-<02/04/13> <13:48:40> Scene scenetest.txt loaded
-<02/04/13> <13:48:40> Scene scenetest.txt aangemaakt
-<02/04/13> <13:48:40> Scene scenetest.txt toegevoegd aan SceneMap
-<02/04/13> <13:48:40> Loading scene scenetest2.txt
-<02/04/13> <13:48:40> Texture al ingeladen
-<02/04/13> <13:48:40> Texture al ingeladen
-<02/04/13> <13:48:40> Texture al ingeladen
-<02/04/13> <13:48:40> Texture al ingeladen
-<02/04/13> <13:48:40> Texture al ingeladen
-<02/04/13> <13:48:40> Texture al ingeladen
-<02/04/13> <13:48:40> Created SkyBox vertices
-<02/04/13> <13:48:40> Created SkyBox vertexbuffer
-<02/04/13> <13:48:40> Height data loaded
-<02/04/13> <13:48:40> Created terrain vertices
-<02/04/13> <13:48:40> Created terrain vertexbuffer
-<02/04/13> <13:48:40> Succesfully created terrain
-<02/04/13> <13:48:40> Model al ingeladen
-<02/04/13> <13:48:40> Texture al ingeladen
-<02/04/13> <13:48:40> Model al ingeladen
-<02/04/13> <13:48:40> Scene scenetest2.txt loaded
-<02/04/13> <13:48:40> Scene scenetest2.txt aangemaakt
-<02/04/13> <13:48:40> Scene scenetest2.txt toegevoegd aan SceneMap
-<02/04/13> <13:48:40> Showing window 
-<02/04/13> <13:48:40> KeyboardInput aangemaakt
-<02/04/13> <13:48:40> MouseInput aangemaakt
-<02/04/13> <13:48:40> Showing window 
-<02/04/13> <13:48:40> KeyboardInput aangemaakt
-<02/04/13> <13:48:40> MouseInput aangemaakt
+<02/05/13> <14:02:09> start logging
+<02/05/13> <14:02:09> WindowManager created
+<02/05/13> <14:02:09> RendererDX9 created
+<02/05/13> <14:02:09> InputManager aangemaakt
+<02/05/13> <14:02:09> Window Window 1 created
+<02/05/13> <14:02:09> Window Window 1 inserted to windowMap
+<02/05/13> <14:02:09> SceneManager created
+<02/05/13> <14:02:09> Window Window 2 created
+<02/05/13> <14:02:09> Window Window 2 inserted to windowMap
+<02/05/13> <14:02:09> SceneManager created
+<02/05/13> <14:02:09> Scene scenetest.txt created
+<02/05/13> <14:02:09> Scene scenetest.txt added to SceneMap
+<02/05/13> <14:02:09> Loading scene scenetest.txt
+<02/05/13> <14:02:09> Succesfully created terrain
+<02/05/13> <14:02:09> Scene scenetest.txt loaded
+<02/05/13> <14:02:09> Preparing scene: scenetest.txt
+<02/05/13> <14:02:10> Height data loaded
+<02/05/13> <14:02:10> Succesfully loaded texture: lava.jpg
+<02/05/13> <14:02:10> Created terrain vertices
+<02/05/13> <14:02:10> Created terrain vertexbuffer
+<02/05/13> <14:02:10> Successfully loaded model: tiger.x
+<02/05/13> <14:02:10> Succesfully loaded texture: tiger.bmp
+<02/05/13> <14:02:10> Showing window: Window 1

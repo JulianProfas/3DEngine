@@ -1,20 +1,24 @@
 #include "Scene.h"
 
-Scene::Scene(Renderer* r, ResourcesManager* rm, std::string sceneName)
+/*
+	Constructor for a Scene object
+	@param scenePath, the URL to the scenefile
+*/
+Scene::Scene(std::string scenePath)
 {
-	this->sceneRenderer  = r;
-	this->resourceManager = rm;
-	this->sceneName = sceneName;
-	this->sceneEntitys = new std::list<EntityModel>();
-	this->LoadScene(sceneName);
+	this->scenePath = scenePath;
+	this->entityList = new std::list<EntityModel>();
 }
 
+/*
+	Destructor for a Scene object
+*/
 Scene::~Scene()
 {
-
+	this->ClearEntityList();
 }
 
-void Scene::LoadScene(std::string sceneName)
+void Scene::LoadScene(Renderer* renderer, std::string sceneName)
 {
 	Logger::GetInstance()->Write("Loading scene " + sceneName);
 	
@@ -31,8 +35,9 @@ void Scene::LoadScene(std::string sceneName)
 			{
 				float posX, posY, posZ;
 				fileStream >> posX >> posY >> posZ;
-				this->sceneCamera = new EntityCamera(posX, posY, posZ);
+				this->camera = new EntityCamera(posX, posY, posZ);
 			}
+			/*
 			else if(line.compare("SkyBox:") == 0)
 			{
 				std::string front, back, left, right, top, bottom;
@@ -49,6 +54,7 @@ void Scene::LoadScene(std::string sceneName)
 	
 				this->sceneSky = new SkyBox(this->sceneRenderer, textures);
 			}
+			*/
 			else if(line.compare("Terrain:") == 0)
 			{
 				std::string heightMap;
@@ -56,7 +62,7 @@ void Scene::LoadScene(std::string sceneName)
 
 				fileStream >> heightMap >> terrainTexture;
 
-				this->sceneTerrain = new Terrain(heightMap, terrainTexture, this->sceneRenderer, this->resourceManager);
+				this->terrain = new Terrain(heightMap, terrainTexture);
 			}
 			else if(line.compare("Entity:") == 0)
 			{
@@ -66,8 +72,8 @@ void Scene::LoadScene(std::string sceneName)
 
 				fileStream >> posX >> posY >> posZ >> rotX >> rotY >> rotZ >> scaX >> scaY >> scaZ >> modelPath >> texturePath;
 				
-				EntityModel* e = new EntityModel(posX, posY, posZ, rotX, rotY, rotZ, scaX, scaY, scaZ, modelPath, texturePath, this->resourceManager);
-				this->sceneEntitys->push_back(*e);
+				EntityModel* e = new EntityModel(posX, posY, posZ, rotX, rotY, rotZ, scaX, scaY, scaZ, modelPath, texturePath);
+				this->entityList->push_back(*e);
 			}
 		}
 		Logger::GetInstance()->Write("Scene " + sceneName + " loaded");
@@ -79,45 +85,58 @@ void Scene::LoadScene(std::string sceneName)
 }
 
 /*
+
+*/
+void Scene::PrepareScene(Renderer* renderer, ResourcesManager* resourceManager)
+{
+	Logger::GetInstance()->Write("Preparing scene: " + this->scenePath);
+
+	//prepare terrain
+	this->terrain->LoadResources(renderer, resourceManager);
+
+	//prepare sky
+
+
+	//prepare entitys
+	for(std::list<EntityModel>::iterator i = this->entityList->begin(); i != this->entityList->end(); ++i)
+	{
+		i->LoadResources(resourceManager, renderer);
+	}
+}
+
+
+/*
 	Renders the scene to the window
 */
-void Scene::RenderScene(HWND hWnd)
+void Scene::RenderScene(Renderer* renderer, HWND hWnd)
 {
-	this->sceneRenderer->ClearScene();
-	this->sceneRenderer->BeginScene();
-	this->sceneRenderer->SetupProjectionMatrix();
+	renderer->ClearScene();
+	renderer->BeginScene();
+	renderer->SetupProjectionMatrix();
 	//this->sceneRenderer->SetupViewMatrix();
-	this->sceneCamera->CalculateViewMatrix(this->sceneRenderer);
+	//this->sceneCamera->CalculateViewMatrix(this->sceneRenderer);
 
 	// render sky
-	this->sceneRenderer->Zenable(false);
-	this->sceneSky->Render(this->sceneRenderer, this->sceneCamera);
+	//renderer->Zenable(false);
+	//this->sky->Render(renderer, camera);
 
 	// render terrain
-	this->sceneRenderer->Zenable(true);
-	this->sceneTerrain->RenderTerrain(this->sceneRenderer);
+	renderer->Zenable(true);
+	this->terrain->RenderTerrain(renderer);
 
 	// render entitys
-	for(std::list<EntityModel>::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
+	for(std::list<EntityModel>::iterator i = this->entityList->begin(); i != this->entityList->end(); ++i)
 	{
-		i->renderEntityModel(this->sceneRenderer);
+		i->renderEntityModel(renderer);
 	}
 
-	this->sceneRenderer->EndScene();
-	this->sceneRenderer->PresentScene(hWnd);
+	renderer->EndScene();
+	renderer->PresentScene(hWnd);
 
 }
 
-void Scene::Move(int d, float z)
-{
-	this->sceneTerrain->Move(d, z);
-	for(std::list<EntityModel>::iterator i = this->sceneEntitys->begin(); i != this->sceneEntitys->end(); ++i)
-	{
-		i->Move(d, z);
-	}
-}
 
-EntityCamera* Scene::GetCamera()
+void Scene::ClearEntityList()
 {
-	return this->sceneCamera;
+
 }

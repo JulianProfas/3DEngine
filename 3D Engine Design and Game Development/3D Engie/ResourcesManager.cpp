@@ -22,13 +22,17 @@ ResourcesManager::~ResourcesManager()
 	@param filePath, the URL to the modelfile
 	@return Model*, returns an already loaded Model or a newly created Model 
 */
-Model* ResourcesManager::LoadModel(LPDIRECT3DDEVICE9 device, std::string filePath)
+Model* ResourcesManager::LoadModel(void* device, std::string filePath)
 {
+	Model* m;
+
 	//Check if the model is already in the modelMap(Loaded), if not make a new Model
-	Model* m = this->modelMap.find(filePath)->second;
-	if(NULL != m)
+	std::map<std::string, Model*>::iterator it;
+	it = this->modelMap.find(filePath);
+	if(it != modelMap.end())
 	{
 		Logger::GetInstance()->Write("Model: " + filePath + " already loaded");
+		m = it->second;
 		return m;
 	}
 	else
@@ -48,13 +52,17 @@ Model* ResourcesManager::LoadModel(LPDIRECT3DDEVICE9 device, std::string filePat
 	@param filePath, the URL to the texturefile
 	@return Texture*, returns an already loaded Texture or a newly created Texture
 */
-Texture* ResourcesManager::LoadTexture(LPDIRECT3DDEVICE9 device, std::string filePath)
+Texture* ResourcesManager::LoadTexture(void* device, std::string filePath)
 {
+	Texture* t;
+
 	//Check if the Texture is already in the textureMap(Loaded), if not make a new Texture
-	Texture* t = this->textureMap.find(filePath)->second; 
-	if(NULL != t)
+	std::map<std::string, Texture*>::iterator it;
+	it = this->textureMap.find(filePath); 
+	if(it != textureMap.end())
 	{
 		Logger::GetInstance()->Write("Texture: " + filePath + " already loaded");
+		t = it->second;
 		return t;
 	}
 	else
@@ -81,7 +89,7 @@ void ResourcesManager::RemoveModel(std::string filePath)
 	Remove a Texture from the textureMap
 	@param filePath, the URL to the texturefile
 */
-void ResourcesManager::RemoveModel(std::string filePath)
+void ResourcesManager::RemoveTexture(std::string filePath)
 {
 	this->textureMap.erase(filePath);
 }

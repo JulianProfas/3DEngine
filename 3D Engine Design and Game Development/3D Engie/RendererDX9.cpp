@@ -31,6 +31,7 @@ HRESULT RendererDX9::InitDevice(HWND hWnd)
 	// Create the D3D object.
     if(NULL == (this->d3d = Direct3DCreate9(D3D_SDK_VERSION)))
 	{
+		Logger::GetInstance()->Write("Failed to create the D3D object");
         return E_FAIL;
 	}
 
@@ -46,6 +47,7 @@ HRESULT RendererDX9::InitDevice(HWND hWnd)
                                       D3DCREATE_SOFTWARE_VERTEXPROCESSING,
                                       &d3dpp, &device)))
     {
+		Logger::GetInstance()->Write("Failed to create the device");
         return E_FAIL;
     }
 
@@ -179,7 +181,7 @@ void RendererDX9::SetupProjectionMatrix()
 	D3DXMATRIXA16 matProj;
 
     D3DXMatrixPerspectiveFovLH( &matProj, D3DX_PI / 4, 1.0f, 1.0f, 1000.0f );
-    g_pd3dDevice->SetTransform( D3DTS_PROJECTION, &matProj );
+	device->SetTransform( D3DTS_PROJECTION, &matProj );
 }
 
 /*
@@ -251,6 +253,16 @@ void RendererDX9::SetTexture(Texture* texture)
 }
 
 /*
+	Sets a material
+	@param model, Model object that has the materials
+	@param materialIndex, Specifies which material we need to set
+*/
+void RendererDX9::SetMaterial(Model* model, int materialIndex)
+{
+	this->device->SetMaterial(&model->GetMaterials()[materialIndex]);
+}
+
+/*
 	Sets the current vertex stream declaration
 	@param fvf, DWORD containing the fixed function vertex type
 */
@@ -265,5 +277,5 @@ void RendererDX9::SetFvF(DWORD fvf)
 */
 void RendererDX9::Zenable(bool enable)
 {
-	this-device->SetRenderState(D3DRS_ZENABLE, enable);
+	this->device->SetRenderState(D3DRS_ZENABLE, enable);
 }

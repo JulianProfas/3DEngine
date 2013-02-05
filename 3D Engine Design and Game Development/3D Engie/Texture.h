@@ -9,7 +9,7 @@ class Texture
 {
 public:
 	//Constructor for a Texture object
-	Texture(LPDIRECT3DDEVICE9 device, std::string filePath);
+	Texture(void* device, std::string filePath);
 	//Destructor for a Texture object
 	~Texture();
 	//Get the directx 9 Texture
@@ -17,7 +17,7 @@ public:
 
 private:
 	//Load the directx 9 Texture from given filePath
-	void loadTexture(LPDIRECT3DDEVICE9 g_pd3dDevice, std::string filePath);
+	void loadTexture(void* device, std::string filePath);
 
 	//Directx 9 Texture
 	LPDIRECT3DTEXTURE9* loadedTexture;

@@ -47,6 +47,8 @@ public:
 	void DrawSubset(Model* model, DWORD i);
 	//Sets a texture
 	void SetTexture(Texture* texture);
+	//Sets a material
+	void SetMaterial(Model* model, int materialIndex);
 	//Sets the current vertex stream declaration
 	void SetFvF(DWORD fvf);
 	//Enables or disables z-buffering

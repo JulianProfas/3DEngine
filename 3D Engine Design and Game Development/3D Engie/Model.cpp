@@ -5,12 +5,12 @@
 	@param device, Model needs a device to load a mesh from it
 	@param filePath, the URL to the modelfile
 */
-Model::Model(LPDIRECT3DDEVICE9 device, std::string filePath)
+Model::Model(void* device, std::string filePath)
 {
 	//initialize attributes
-	mesh = NULL;
-	materials = NULL;
-	numMaterials = 0;
+	this->mesh = NULL;
+	this->materials = NULL;
+	this->numMaterials = 0L;
 	//loads the mesh from the filePath
 	LoadMesh(device, filePath);	
 }
@@ -28,7 +28,7 @@ Model::~Model()
 */
 LPD3DXMESH* Model::GetMesh()
 {
-	return this->mesh;
+	return &this->mesh;
 }
 
 /*
@@ -44,7 +44,7 @@ D3DMATERIAL9* Model::GetMaterials()
 */
 DWORD* Model::GetNumMaterials()
 {
-	return this->numMaterials;
+	return &this->numMaterials;
 }
 
 /*
@@ -52,7 +52,7 @@ DWORD* Model::GetNumMaterials()
 	@param device, a device is needed to load the mesh
 	@param filePath, the URL to the modelfile
 */
-void Model::LoadMesh(LPDIRECT3DDEVICE9 device, std::string filePath)
+void Model::LoadMesh(void* device, std::string filePath)
 {
 	LPD3DXBUFFER pD3DXMtrlBuffer = NULL;
 	LPCSTR path = filePath.c_str();
@@ -62,12 +62,12 @@ void Model::LoadMesh(LPDIRECT3DDEVICE9 device, std::string filePath)
 	res = D3DXLoadMeshFromX(
 		path,
 		D3DXMESH_SYSTEMMEM,
-		device,
+		(LPDIRECT3DDEVICE9)device,
 		NULL,
 		&pD3DXMtrlBuffer,
 		NULL,
-		this->numMaterials,
-		this->mesh);
+		&this->numMaterials,
+		&this->mesh);
 
 	if(FAILED(res))
 	{
@@ -78,9 +78,9 @@ void Model::LoadMesh(LPDIRECT3DDEVICE9 device, std::string filePath)
 	{
 		D3DXMATERIAL* d3dxMaterials = (D3DXMATERIAL*)pD3DXMtrlBuffer->GetBufferPointer();
 		
-		this->materials = new D3DMATERIAL9[*this->numMaterials];		
+		this->materials = new D3DMATERIAL9[this->numMaterials];		
 		
-		for (DWORD i = 0; i < *this->numMaterials; i++)
+		for (DWORD i = 0; i < this->numMaterials; i++)
 		{
 			this->materials[i] = d3dxMaterials[i].MatD3D;
 			this->materials[i].Ambient = this->materials[i].Diffuse;

@@ -17,11 +17,11 @@ public:
 	//Shows the Window
 	void Show(DWORD showWindow);
 	//Get the HWND from the window
-	HWND* getWindow();
+	HWND getWindow();
 
 private:
 	//The HWND of the Window
-	HWND* hwnd;
+	HWND hwnd;
 	//The title of the Window
 	std::string title;
 };

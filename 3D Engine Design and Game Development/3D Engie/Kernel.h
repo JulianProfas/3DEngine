@@ -23,6 +23,7 @@ public:
 	Renderer* GetRenderer();
 	void AddWindow(std::string title, int x, int y, int width, int height);
 	void LinkSceneToWindow(Scene* scene, Window* window);
+	void LoadAndPrepareScene(std::string scenePath);
 	//LRESULT CALLBACK MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
 private:
 	WindowManager* windowManager;

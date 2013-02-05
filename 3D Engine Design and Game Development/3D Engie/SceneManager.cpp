@@ -3,12 +3,10 @@
 /*
 	Constructor
 */
-SceneManager::SceneManager(ResourcesManager* resourceManager, Renderer* renderer)
+SceneManager::SceneManager()
 {
-	this->scenes = new std::map<std::string, Scene*>();
-	this->resourceManager = resourceManager;
-	this->renderer = renderer;
-	Logger::GetInstance()->Write("SceneManager aangemaakt");
+	this->sceneMap = new std::map<std::string, Scene*>();
+	Logger::GetInstance()->Write("SceneManager created");
 }
 
 /*
@@ -17,27 +15,26 @@ SceneManager::SceneManager(ResourcesManager* resourceManager, Renderer* renderer
 SceneManager::~SceneManager()
 {
 	this->ClearSceneMap();
-	Logger::GetInstance()->Write("SceneManager verwijderd");
+	Logger::GetInstance()->Write("SceneManager destroyed");
 }
 
 /*
 	Add a new scene to the SceneMap
 */
-void SceneManager::AddScene(std::string sceneName)
+void SceneManager::AddScene(std::string scenePath)
 {
-	Scene* s = new Scene(this->renderer, this->resourceManager, sceneName);
-	Logger::GetInstance()->Write("Scene " + sceneName + " aangemaakt");
-	this->scenes->insert(std::pair<std::string, Scene*>(sceneName, s));
-	Logger::GetInstance()->Write("Scene " + sceneName + " toegevoegd aan SceneMap");
+	Scene* s = new Scene(scenePath);
+	Logger::GetInstance()->Write("Scene " + scenePath + " created");
+	this->sceneMap->insert(std::pair<std::string, Scene*>(scenePath, s));
+	Logger::GetInstance()->Write("Scene " + scenePath + " added to SceneMap");
 }
 
 /*
 	Remove a scene from the SceneMap: the destructor is called from the removed scene.
 */
-void SceneManager::RemoveScene(std::string sceneName)
+void SceneManager::RemoveScene(std::string scenePath)
 {
-	this->scenes->erase(sceneName);
-
+	this->sceneMap->erase(scenePath);
 }
 
 /*
@@ -46,21 +43,13 @@ void SceneManager::RemoveScene(std::string sceneName)
 */
 void SceneManager::ClearSceneMap()
 {
-	this->scenes->clear();
-}
-
-/*
-	Returns the SceneMap
-*/
-std::map<std::string, Scene*>* SceneManager::GetSceneMap()
-{
-	return this->scenes;
+	this->sceneMap->clear();
 }
 
 /*
 	Returns a scene by sceneName
 */
-Scene* SceneManager::GetScene(std::string sceneName)
+Scene* SceneManager::GetScene(std::string scenePath)
 {
-	return this->scenes->find(sceneName)->second;
+	return this->sceneMap->find(scenePath)->second;
 }

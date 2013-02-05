@@ -16,31 +16,29 @@ class Scene
 {
 public:
 	//Constructor for a Scene object
-	Scene(Renderer* r, ResourcesManager* rm, std::string sceneName);
+	Scene(std::string scenePath);
 	//Destructor for a Scene object
 	~Scene();
 	//Loads a Scene from a textfile
-	void LoadScene(std::string filePath);
+	void LoadScene(Renderer* renderer, std::string filePath);
 	//Renders all objects in the scene
-	void RenderScene(HWND hWnd);
-
-	EntityCamera* GetCamera();
+	void RenderScene(Renderer* renderer, HWND hWnd);
+	//Prepares the Scene by loading all resources for terrain, sky and entitys
+	void PrepareScene(Renderer* renderer, ResourcesManager* resourceManager);
+	//Removes all EntityModel objects from the entityList
+	void ClearEntityList();
 
 private:
 	//Terrain in the Scene
-	Terrain* sceneTerrain;
-	//Renderer object to render the Scene
-	Renderer* sceneRenderer;
+	Terrain* terrain;
 	//List with EntityModel objects in the Scene
-	std::list<EntityModel>* sceneEntitys;
+	std::list<EntityModel>* entityList;
 	//Camera for the Scene
-	EntityCamera* sceneCamera;
+	EntityCamera* camera;
 	//Skybox in the Scene
-	SkyBox* sceneSky;
+	SkyBox* sky;
 	//The URL to the scenefile
-	std::string filePath;
-	//ResourcesManager object for loading models and textures
-	ResourcesManager* resourceManager;
+	std::string scenePath;
 };
 
 #endif

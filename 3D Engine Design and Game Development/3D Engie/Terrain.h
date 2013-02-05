@@ -11,26 +11,29 @@
 class Terrain
 {
 public:
-	Terrain(std::string terrainFileName, std::string texturefilename, Renderer* renderer, ResourcesManager* resourceManager);
+	Terrain(std::string terrainPath, std::string texturePath);
 	~Terrain();
 
 	int GetVertexBufferIndex();
 	int GetNumberOfVertices();
 	Texture* GetTexture();
-	void RenderTerrain(Renderer* r);
+	void RenderTerrain(Renderer* renderer);
 	void SetPositionX(float x);
 	void SetPositionY(float y);
 	void SetPositionZ(float z);
-	void Move(int d, float unit);
+	void LoadResources(Renderer* renderer, ResourcesManager* resourceManager);
+
 private:	
 	void FillVertices(Renderer* renderer);
 	float posX;
 	float posY;
 	float posZ;
+	std::string texturePath;
+	std::string terrainPath;
 	BMPloader* m_BMPLoader;
 	ENGIE_VERTEX* terrainVertices;
 	int numberOfVertices;
-	Texture* terrainTexture;
+	Texture* texture;
 	int vertexBufferIndex;
 };
 

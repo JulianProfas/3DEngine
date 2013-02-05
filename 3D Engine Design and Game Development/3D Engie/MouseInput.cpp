@@ -140,14 +140,14 @@ void MouseInput::SetTheMouseBuffer(Scene* s)
 		case DIMOFS_X:
 			bufferedMouse.positionX += static_cast<long>(od.dwData);
 			std::cout<<"x = "<<static_cast<long>(od.dwData)<<std::endl;
-			s->GetCamera()->Yaw(static_cast<long>(od.dwData));
+			//s->GetCamera()->Yaw(static_cast<long>(od.dwData));
 			break;
 
 		// Mouse vertical motion
 		case DIMOFS_Y:
 			bufferedMouse.positionY += static_cast<long>(od.dwData);
 			std::cout<<"Y = "<<static_cast<long>(od.dwData)<<std::endl;
-			s->GetCamera()->Pitch(static_cast<long>(od.dwData));
+			//s->GetCamera()->Pitch(static_cast<long>(od.dwData));
 			break;
 
 		// Mouse left button

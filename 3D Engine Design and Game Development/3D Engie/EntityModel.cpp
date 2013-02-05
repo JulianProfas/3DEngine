@@ -1,38 +1,61 @@
 #include "EntityModel.h"
 
-EntityModel::EntityModel(float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string mPath, std::string tPath, ResourcesManager* resMan)
+/*
+	Constructor for an EntityModel object
+	@param posX, the x position
+	@param posY, the y position
+	@param posZ, the z position
+	@param rotX, the x rotation
+	@param rotY, the y rotation
+	@param rotZ, the z rotation
+	@param scaX, the x scaling
+	@param scaY, the y scaling
+	@param scaZ, the Z scaling
+	@param modelPath, The URL to the model file
+	@param texturePath, The URL to the texture file
+*/
+EntityModel::EntityModel(float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string modelPath, std::string texturePath)
 	: Entity(posX, posY, posZ)
 {
-	rotationX = rotX;
-	rotationY = rotY;
-	rotationZ = rotZ;
-	scaleX = scaX;
-	scaleY = scaY;
-	scaleZ = scaZ;
-	m = &resMan->LoadModel(mPath);
-	t = &resMan->LoadTexture(tPath);
+	this->rotationX = rotX;
+	this->rotationY = rotY;
+	this->rotationZ = rotZ;
+	this->scaleX = scaX;
+	this->scaleY = scaY;
+	this->scaleZ = scaZ;
+	this->modelPath = modelPath;
+	this->texturePath = texturePath;
 }
 
+/*
+	Destructor for an EntityModel
+*/
 EntityModel::~EntityModel()
 {
+
 }
 
-void EntityModel::renderEntityModel(Renderer* rd)
+/*
+	Renders the EntityModel
+	@param renderer, Renderer object needed for rendering an EntityModel
+*/
+void EntityModel::renderEntityModel(Renderer* renderer)
 {
-	rd->SetupWorldMatrix(positionX, positionY, positionZ, rotationX, rotationY, rotationZ, scaleX, scaleY, scaleZ);
-	for( DWORD i = 0; i < m->GetNumMaterials(); i++)
+	renderer->SetupWorldMatrix(positionX, positionY, positionZ, rotationX, rotationY, rotationZ, scaleX, scaleY, scaleZ);
+	
+	for(DWORD i = 0; i < *model->GetNumMaterials(); ++i)
 	{
 		// Set the material and texture for this subset
-		rd->SetMaterial(&m->GetMaterials()[i]);
-		rd->SetTexture(t->getTexture()[i]);
+		renderer->SetMaterial(this->model, i);
+		renderer->SetTexture(this->texture);
 		// Draw the mesh subset
-		rd->DrawSubset(m->GetMesh(), i);
+		renderer->DrawSubset(this->model, i);
 	}
 }
 
 void EntityModel::SetScaleX(float x)
 {
-	scaleX = x;
+	this->scaleX = x;
 }
 
 float EntityModel::GetScaleX()
@@ -42,7 +65,7 @@ float EntityModel::GetScaleX()
 
 void EntityModel::SetScaleY(float y)
 {
-	scaleY = y;
+	this->scaleY = y;
 }
 
 float EntityModel::GetScaleY()
@@ -52,7 +75,7 @@ float EntityModel::GetScaleY()
 
 void EntityModel::SetScaleZ(float z)
 {
-	scaleY = z;
+	this->scaleY = z;
 }
 
 float EntityModel::GetScaleZ()
@@ -60,30 +83,13 @@ float EntityModel::GetScaleZ()
 	return scaleZ;
 }
 
-void EntityModel::Move(int d, float unit)
+/*
+	Loads the resources needed by this object
+	@param resourceManager, ResourcesManager object for managing the loaded resources
+	@param renderer, Renderer object for loading the resources
+*/
+void EntityModel::LoadResources(ResourcesManager* resourceManager, Renderer* renderer)
 {
-	if(d == 0)
-	{
-		this->positionZ -= unit;
-	}
-	else if(d == 1)
-	{
-		this->positionZ += unit;
-	}
-	else if(d == 2)
-	{
-		this->positionX += unit;
-	}
-	else if(d == 3)
-	{
-		this->positionX -= unit;
-	}
-	else if(d == 4)
-	{
-		this->positionY -= unit;
-	}
-	else if(d == 5)
-	{
-		this->positionY += unit;
-	}
+	this->model = resourceManager->LoadModel(renderer->GetDevice(), this->modelPath);
+	this->texture = resourceManager->LoadTexture(renderer->GetDevice(), this->texturePath);
 }

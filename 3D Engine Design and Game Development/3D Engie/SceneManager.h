@@ -9,17 +9,22 @@
 class SceneManager
 {
 public:
-	SceneManager(ResourcesManager* resourceManager, Renderer* renderer);
+	//Constructor for a SceneManager object
+	SceneManager();
+	//Destructor for a SceneManager object
 	~SceneManager();
-	void AddScene(std::string sceneName);
-	void RemoveScene(std::string sceneName);
+	//Add a scene to the sceneMap
+	void AddScene(std::string scenePath);
+	//Remove a scene from the sceneMap
+	void RemoveScene(std::string scenePath);
+	//Removes all scenes from the sceneMap
 	void ClearSceneMap();
-	std::map<std::string, Scene*>* GetSceneMap();
-	Scene* GetScene(std::string sceneName);
+	//Get a Scene object
+	Scene* GetScene(std::string scenePath);
+
 private:
-	std::map<std::string, Scene*>* scenes;
-	ResourcesManager* resourceManager;
-	Renderer* renderer;
+	//Map to hold Scene objects
+	std::map<std::string, Scene*>* sceneMap;
 };
 
 #endif

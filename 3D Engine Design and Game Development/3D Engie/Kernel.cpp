@@ -59,9 +59,12 @@ void Kernel::Start()
 	{
 		Window* w = it->first;
 		w->Show(SW_SHOW);
+		/*
 		HWND hwnd = w->getWindow();
 		inputManager->AddKeyboardInput(hwnd);
 		inputManager->AddMouseInput(hwnd);
+		++it;
+		*/
 		++it;
 	}
 
@@ -82,11 +85,10 @@ void Kernel::Start()
 			it = renderMap->begin();
 			while(it != this->renderMap->end())
 			{
-				inputManager->CheckStates(it->second);
-				it->second->RenderScene(it->first->getWindow());
+				//inputManager->CheckStates(it->second);
+				it->second->RenderScene(this->renderer, it->first->getWindow());
 				++it;
 			}
-			
 			
 		}
 		
@@ -136,8 +138,16 @@ void Kernel::AddWindow(std::string title, int x, int y, int width, int height)
 {
 	this->GetWindowManager()->AddWindow(title, x, y, width, height);
 
-	this->renderer->InitDevice(this->GetWindowManager()->GetWindow(title)->getWindow(), width, height);
+	this->renderer->InitDevice(this->GetWindowManager()->GetWindow(title)->getWindow());
 
-	this->resourceManager = new ResourcesManager((LPDIRECT3DDEVICE9)this->renderer->GetDevice());
-	this->sceneManager = new SceneManager(this->resourceManager, this->renderer);
+	this->resourceManager = new ResourcesManager();
+	this->sceneManager = new SceneManager();
+}
+
+void Kernel::LoadAndPrepareScene(std::string scenePath)
+{
+	this->GetSceneManager()->AddScene(scenePath);
+	Scene* scene = this->GetSceneManager()->GetScene(scenePath);
+	scene->LoadScene(this->renderer, scenePath);
+	scene->PrepareScene(this->renderer, this->resourceManager);
 }

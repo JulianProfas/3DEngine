@@ -146,28 +146,5 @@ bool KeyboardInput::DoAcquire()
 
 void KeyboardInput::CheckKeyPressed(Scene* s)
 {
-	if(ProcessKBInput(DIK_UPARROW))
-	{
-		s->Move(0, 1);
-	}
-	if(ProcessKBInput(DIK_RIGHT))
-	{
-		s->Move(3, 1);
-	}
-	if(ProcessKBInput(DIK_LEFT))
-	{
-		s->Move(2, 1);
-	}
-	if(ProcessKBInput(DIK_DOWN))
-	{
-		s->Move(1, 1);
-	}
-	if(ProcessKBInput(DIK_B))
-	{
-		s->Move(4, 1);
-	}
-	if(ProcessKBInput(DIK_N))
-	{
-		s->Move(5, 1);
-	}
+	
 }
