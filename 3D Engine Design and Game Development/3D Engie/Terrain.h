@@ -7,6 +7,7 @@
 #include "Renderer.h"
 #include "ResourcesManager.h"
 #include "Texture.h"
+#include "EntityCamera.h"
 
 class Terrain
 {
@@ -17,7 +18,7 @@ public:
 	int GetVertexBufferIndex();
 	int GetNumberOfVertices();
 	Texture* GetTexture();
-	void RenderTerrain(Renderer* renderer);
+	void RenderTerrain(Renderer* renderer, EntityCamera* camera);
 	void SetPositionX(float x);
 	void SetPositionY(float y);
 	void SetPositionZ(float z);

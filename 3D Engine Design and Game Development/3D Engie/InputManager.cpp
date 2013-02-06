@@ -49,6 +49,16 @@ void InputManager::Release()
 
 void InputManager::CheckStates(Scene* s)
 {
-	keyboardInput->CheckKeyPressed(s);
 	mouseInput->GetMouseInput(s);
+}
+
+
+KeyboardInput* InputManager::GetKeyboard()
+{
+	return this->keyboardInput;
+}
+
+MouseInput* InputManager::GetMouse()
+{
+	return this->mouseInput;
 }

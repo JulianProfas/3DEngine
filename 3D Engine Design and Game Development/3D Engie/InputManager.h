@@ -13,7 +13,8 @@ public:
 	void AddMouseInput(HWND hwnd);
 	void Release();
 	void CheckStates(Scene* s);
-
+	KeyboardInput* GetKeyboard();
+	MouseInput* GetMouse();
 private:
 	KeyboardInput* keyboardInput;
 	MouseInput* mouseInput;

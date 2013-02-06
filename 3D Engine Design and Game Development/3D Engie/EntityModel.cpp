@@ -39,9 +39,9 @@ EntityModel::~EntityModel()
 	Renders the EntityModel
 	@param renderer, Renderer object needed for rendering an EntityModel
 */
-void EntityModel::renderEntityModel(Renderer* renderer)
+void EntityModel::renderEntityModel(Renderer* renderer, EntityCamera* camera)
 {
-	renderer->SetupWorldMatrix(positionX, positionY, positionZ, rotationX, rotationY, rotationZ, scaleX, scaleY, scaleZ);
+	renderer->SetupWorldMatrix(positionX, positionY, positionZ, rotationX, rotationY, rotationZ, scaleX, scaleY, scaleZ, camera);
 	
 	for(DWORD i = 0; i < *model->GetNumMaterials(); ++i)
 	{

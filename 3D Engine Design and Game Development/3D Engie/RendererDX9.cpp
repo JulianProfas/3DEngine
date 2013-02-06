@@ -132,8 +132,88 @@ void* RendererDX9::GetDevice()
 	return this->device;
 }
 
+/*!
+ * \brief
+ * Set where a object should be rendered in the world
+ * 
+ * \param x
+ * Location on X-axis
+ * 
+ * \param y
+ * Location on Y-axis
+ * 
+ * \param z
+ * Location on Z-Axis
+ * 
+ * \param rotX
+ * Rotation on X-Axis
+ * 
+ * \param rotY
+ * Rotation on Y-Axis
+ * 
+ * \param rotZ
+ * Rotation on Z-Axis
+ * 
+ * \param scaleX
+ * Scaling on X-Axis
+ * 
+ * \param scaleY
+ * Scaling on Y-Axis
+ * 
+ * \param scaleZ
+ * Scaling on Z-axis
+ * 
+ * \param camera
+ * Pointer to the camera
+ * 
+ * Setup the location, scaling and rotation of an object, then multiply it with the matrix of the camera.
+ * 
+ */
+void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ, EntityCamera* camera)
+{
+	//The Matrix variables
+	D3DXMATRIXA16 matWorld;
+	D3DXMATRIXA16 matCam;
+	D3DXMATRIXA16 matWorldRot;
+	D3DXMATRIXA16 matWorldTrans;
+	D3DXMATRIXA16 model;
+	D3DXMATRIXA16 modelTrans;
+	D3DXMATRIXA16 modelRot;
+	D3DXMATRIXA16 modelRotZ;
+	D3DXMATRIXA16 modelRotY;
+	D3DXMATRIXA16 modelRotX;
+	D3DXMATRIXA16 modelScale;
 
-void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ)
+	//Get the Camera variables
+	float newX = camera->GetPosX() ;
+	float newY = camera->GetPosY() ;
+	float newZ = camera->GetPosZ() ;
+	float newRX =  camera->GetPitch() ;
+	float newRY =  camera->GetYaw() ;
+	
+	//Setting the matrix of a model/object
+	D3DXMatrixScaling( &modelScale, scaleX, scaleY, scaleZ);
+	D3DXMatrixTranslation( &modelTrans, x, y, z);
+	D3DXMatrixMultiply(&model, &modelScale, &modelTrans);
+	D3DXMatrixRotationY(&modelRotY, rotY);
+	D3DXMatrixRotationX(&modelRotX, rotX);
+	D3DXMatrixMultiply(&modelRot, &modelRotY, &modelRotX);
+	D3DXMatrixRotationZ(&modelRotZ, rotZ);
+	D3DXMatrixMultiply(&modelRot, &modelRot, &modelRotZ);
+	D3DXMatrixMultiply(&model, &model, &modelRot);
+
+	//Setting the matrix of the camera
+	D3DXMatrixTranslation( &matWorldTrans, newX, newY, newZ);
+	D3DXMatrixRotationYawPitchRoll( &matWorldRot, newRY, newRX, 0);
+	D3DXMatrixInverse( &matWorldRot, NULL, &matWorldRot);
+	D3DXMatrixMultiply( &matCam, &matWorldTrans, &matWorldRot);
+
+	//Multiply the modelmatrix + the CameraMatrix then set the transformation
+	D3DXMatrixMultiply(&matWorld, &model, &matCam);
+    device->SetTransform( D3DTS_WORLD, &matWorld );
+}
+
+/*void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ)
 {
 	//The Matrix variables
 	D3DXMATRIXA16 matWorld;
@@ -151,6 +231,7 @@ void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float 
 	//Multiply the modelmatrix + the CameraMatrix then set the transformation
     this->device->SetTransform(D3DTS_WORLD, &matWorld );
 }
+*/
 
 
 /*void RendererDX9::SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ)
@@ -174,6 +255,22 @@ void RendererDX9::SetupViewMatrix(D3DXMATRIX viewMatrix)
 	g_pd3dDevice->SetTransform( D3DTS_VIEW, &viewMatrix );
 }
 */
+
+void RendererDX9::moveMatrix(float Ox, float Oy, float Oz, float Px, float Py, float Pz)
+{
+	D3DXMATRIXA16	matOrientation;
+	D3DXMATRIXA16	matTranslation;
+	D3DXMATRIXA16	matWorld;
+
+	D3DXMatrixRotationX(&matOrientation, Ox);
+	D3DXMatrixRotationY(&matOrientation, Oy);
+	D3DXMatrixRotationZ(&matOrientation, Oz);
+	
+	D3DXMatrixTranslation(&matTranslation, Px, Py, Pz);
+	D3DXMatrixMultiply(&matWorld, &matOrientation, &matTranslation);
+
+	device->SetTransform(D3DTS_WORLD, &matWorld);
+}
 
 
 void RendererDX9::SetupProjectionMatrix()

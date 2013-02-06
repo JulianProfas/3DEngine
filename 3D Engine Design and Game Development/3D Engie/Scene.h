@@ -28,6 +28,8 @@ public:
 	//Removes all EntityModel objects from the entityList
 	void ClearEntityList();
 
+	EntityCamera* GetCamera();
+
 private:
 	//Terrain in the Scene
 	Terrain* terrain;

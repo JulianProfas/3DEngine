@@ -106,7 +106,7 @@ void KeyboardInput::SaveReleaseDevice()
  * @ param argKeyIsPressed
  *	 Byte containing the key that must be checked
  */
-bool KeyboardInput::ProcessKBInput( byte argKeyIsPressed ) 
+bool KeyboardInput::ProcessKBInput(byte argKeyIsPressed) 
 { 
 	if(!SUCCEEDED( dDevice->Poll() ))
 	{
@@ -118,10 +118,10 @@ bool KeyboardInput::ProcessKBInput( byte argKeyIsPressed )
 	dDevice->GetDeviceState( sizeof(keyBuffer) , (LPVOID)&keyBuffer);
 	
 	// Check if keybuffer contains given key
-	int pressed = KEYDOWN(keyBuffer, argKeyIsPressed );
+	int pressed = KEYDOWN(keyBuffer, argKeyIsPressed);
 
 	// pressed == 0 or 128 (0x80); meaning false or true
-	if( pressed == 0 )
+	if(pressed == 0)
 	{
 		return false;
 	}
@@ -144,7 +144,3 @@ bool KeyboardInput::DoAcquire()
 	return false;
 }
 
-void KeyboardInput::CheckKeyPressed(Scene* s)
-{
-	
-}

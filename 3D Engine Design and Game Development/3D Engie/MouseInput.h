@@ -16,15 +16,16 @@ public:
 	void SaveReleaseDevice();
 	bool DoAcquire();
 	void CheckKeyPressed();
-	void ResetMouseStruct();
 	bool GetMouseInput(Scene* s);
 	void SetTheMouseBuffer(Scene* s);
+	float GetRelativeX();
+	float GetRelativeY();
 private:
 	DIPROPDWORD dipdw;
 	LPDIRECTINPUT8 dInput;		
 	LPDIRECTINPUTDEVICE8 dDevice;	
 	HWND hwnd;
-	struct BufferedMouse;
+	DIMOUSESTATE mouseState;
 };
 
 #endif

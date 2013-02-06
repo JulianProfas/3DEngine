@@ -6,6 +6,7 @@
 #include "Renderer.h"
 #include "Model.h"
 #include "Texture.h"
+#include "EntityCamera.h"
 
 class EntityModel : public Entity
 {
@@ -15,7 +16,7 @@ public:
 	//Destructor for an EntityModel object
 	~EntityModel();
 	//Renders the EntityModel
-	void renderEntityModel(Renderer* renderer);
+	void renderEntityModel(Renderer* renderer, EntityCamera* camera);
 	//Set the x scale
 	void SetScaleX(float x);
 	//Get the x scale

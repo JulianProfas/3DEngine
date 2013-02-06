@@ -23,7 +23,7 @@ SkyBox::~SkyBox()
 */
 void SkyBox::Render(Renderer* renderer, EntityCamera* camera)
 {
-	renderer->SetupWorldMatrix(camera->GetPositionX(), camera->GetPositionY(), camera->GetPositionZ(), 0, 0, 0, 1, 1, 1);
+	renderer->SetupWorldMatrix(camera->GetPositionX(), camera->GetPositionY(), camera->GetPositionZ(), 0, 0, 0, 1, 1, 1, camera);
 	renderer->SetStreamSource(this->vertexBufferIndex, sizeof(ENGIE_VERTEX));
 	renderer->SetFvF(D3DFVF_CUSTOMVERTEX);
 	/*

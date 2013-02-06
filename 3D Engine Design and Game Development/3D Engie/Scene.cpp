@@ -112,6 +112,7 @@ void Scene::RenderScene(Renderer* renderer, HWND hWnd)
 {
 	renderer->ClearScene();
 	renderer->BeginScene();
+	renderer->moveMatrix(0, 0, 0, 0, 0, 1);
 	renderer->SetupProjectionMatrix();
 	//this->sceneRenderer->SetupViewMatrix();
 	//this->sceneCamera->CalculateViewMatrix(this->sceneRenderer);
@@ -122,12 +123,12 @@ void Scene::RenderScene(Renderer* renderer, HWND hWnd)
 
 	// render terrain
 	renderer->Zenable(true);
-	this->terrain->RenderTerrain(renderer);
+	this->terrain->RenderTerrain(renderer, camera);
 
 	// render entitys
 	for(std::list<EntityModel>::iterator i = this->entityList->begin(); i != this->entityList->end(); ++i)
 	{
-		i->renderEntityModel(renderer);
+		i->renderEntityModel(renderer, camera);
 	}
 
 	renderer->EndScene();
@@ -139,4 +140,9 @@ void Scene::RenderScene(Renderer* renderer, HWND hWnd)
 void Scene::ClearEntityList()
 {
 
+}
+
+EntityCamera* Scene::GetCamera()
+{
+	return this->camera;
 }

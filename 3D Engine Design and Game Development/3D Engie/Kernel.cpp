@@ -59,12 +59,9 @@ void Kernel::Start()
 	{
 		Window* w = it->first;
 		w->Show(SW_SHOW);
-		/*
 		HWND hwnd = w->getWindow();
 		inputManager->AddKeyboardInput(hwnd);
 		inputManager->AddMouseInput(hwnd);
-		++it;
-		*/
 		++it;
 	}
 
@@ -85,7 +82,57 @@ void Kernel::Start()
 			it = renderMap->begin();
 			while(it != this->renderMap->end())
 			{
-				//inputManager->CheckStates(it->second);
+				inputManager->CheckStates(it->second);
+				EntityCamera* camera = it->second->GetCamera();
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_W))
+				{
+					camera->MoveForward();
+				}
+
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_S))
+				{
+					camera->MoveBackward();
+				}
+
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_A))
+				{
+					camera->MoveLeft();
+				}
+
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_D))
+				{
+					camera->MoveRight();
+				}
+
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_SPACE))
+				{
+					camera->MoveUp();
+				}
+
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_C))
+				{
+					camera->MoveDown();
+				}
+
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_LEFT))
+				{
+						camera->SetYaw(0.1);
+				}
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_RIGHT))
+				{
+						camera->SetYaw(-0.1);
+				}
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_UP))
+				{
+						camera->SetPitch(0.1);
+				}
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_DOWN))
+				{
+						camera->SetPitch(-0.1);
+				}
+				std::cout << inputManager->GetMouse()->GetRelativeX() << std::endl;
+				camera->SetPitch(inputManager->GetMouse()->GetRelativeY());
+				camera->SetYaw(inputManager->GetMouse()->GetRelativeX());
 				it->second->RenderScene(this->renderer, it->first->getWindow());
 				++it;
 			}

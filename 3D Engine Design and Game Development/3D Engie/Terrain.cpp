@@ -120,9 +120,9 @@ void Terrain::FillVertices(Renderer* renderer)
 /*
 	Terrain renders its vertices, with texture
 */
-void Terrain::RenderTerrain(Renderer* renderer)
+void Terrain::RenderTerrain(Renderer* renderer, EntityCamera* camera)
 {
-	renderer->SetupWorldMatrix(posX, posY, posZ, 0, 0, 0, 1, 1, 1);
+	renderer->SetupWorldMatrix(posX, posY, posZ, 0, 0, 0, 1, 1, 1, camera);
 	renderer->SetStreamSource(this->vertexBufferIndex, sizeof(ENGIE_VERTEX));
 	renderer->SetFvF(D3DFVF_CUSTOMVERTEX);
 	renderer->SetTexture(this->texture);
