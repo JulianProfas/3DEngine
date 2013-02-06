@@ -3,8 +3,7 @@
 LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 {
     switch( msg )
-    {
-		
+    {	
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			return 0;
@@ -21,7 +20,7 @@ WNDCLASSEX wc =
 };
 
 /*
-
+	Constructor for a Kernel object
 */
 Kernel::Kernel()
 {
@@ -34,7 +33,7 @@ Kernel::Kernel()
 }
 
 /*
-
+	Destructor for a Kernel object
 */
 Kernel::~Kernel()
 {
@@ -42,15 +41,7 @@ Kernel::~Kernel()
 }
 
 /*
-
-*/
-WindowManager* Kernel::GetWindowManager()
-{
-	return this->windowManager;
-}
-
-/*
-
+	Start rendering all scenes in the renderMap
 */
 void Kernel::Start()
 {
@@ -60,8 +51,11 @@ void Kernel::Start()
 		Window* w = it->first;
 		w->Show(SW_SHOW);
 		HWND hwnd = w->getWindow();
-		inputManager->AddKeyboardInput(hwnd);
-		inputManager->AddMouseInput(hwnd);
+		this->inputManager->AddKeyboardInput();
+		this->inputManager->AddMouseInput();
+		this->inputManager->GetKeyboard()->InitKeyboardInput(hwnd);
+		this->inputManager->GetMouse()->InitMouseInput(hwnd);
+
 		++it;
 	}
 
@@ -69,8 +63,7 @@ void Kernel::Start()
 	ZeroMemory(&msg, sizeof(msg));
 	while(msg.message != WM_QUIT)
     {
-		
-
+	
 		if(PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
 		{
 			TranslateMessage(&msg);
@@ -82,8 +75,10 @@ void Kernel::Start()
 			it = renderMap->begin();
 			while(it != this->renderMap->end())
 			{
-				inputManager->CheckStates(it->second);
+				inputManager->UpdateStates();
 				EntityCamera* camera = it->second->GetCamera();
+
+				//process keyboard input
 				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_W))
 				{
 					camera->MoveForward();
@@ -130,71 +125,77 @@ void Kernel::Start()
 				{
 						camera->SetPitch(-0.1);
 				}
-				std::cout << inputManager->GetMouse()->GetRelativeX() << std::endl;
+
+				//process mouse input
 				camera->SetPitch(inputManager->GetMouse()->GetRelativeY());
 				camera->SetYaw(inputManager->GetMouse()->GetRelativeX());
+
+				//render the scene
 				it->second->RenderScene(this->renderer, it->first->getWindow());
 				++it;
-			}
-			
+			}	
 		}
-		
     }
-	
-
 }
 
 /*
-
+	Cleanup
 */
 void Kernel::CleanUp()
 {
 	this->renderMap->clear();
 
-	if(windowManager != NULL)
+	if(this->windowManager != NULL)
 	{
-		delete windowManager;
+		delete this->windowManager;
 	}
-	if(sceneManager != NULL)
+	if(this->sceneManager != NULL)
 	{
-		delete sceneManager;
+		delete this->sceneManager;
 	}
-	if(resourceManager != NULL)
+	if(this->resourceManager != NULL)
 	{
-		delete resourceManager;
+		delete this->resourceManager;
+	}
+	if(this->renderer != NULL)
+	{
+		delete this->renderer;
+	}
+	if(this->inputManager != NULL)
+	{
+		delete this->inputManager;
 	}
 	
 }
 
-void Kernel::LinkSceneToWindow(Scene* scene, Window* window)
+/*
+	Links a scene to a window in the renderMap
+*/
+void Kernel::LinkSceneToWindow(std::string window, std::string scene)
 {
-	this->renderMap->insert(std::pair<Window*, Scene*>(window, scene));
+	this->renderMap->insert(std::pair<Window*, Scene*>(this->windowManager->GetWindow(window), this->sceneManager->GetScene(scene)));
 }
 
-SceneManager* Kernel::GetSceneManager()
-{
-	return this->sceneManager;
-}
-
-Renderer* Kernel::GetRenderer()
-{
-	return this->renderer;
-}
-
+/*
+	Create a new window
+*/
 void Kernel::AddWindow(std::string title, int x, int y, int width, int height)
 {
-	this->GetWindowManager()->AddWindow(title, x, y, width, height);
+	this->windowManager->AddWindow(title, x, y, width, height);
 
-	this->renderer->InitDevice(this->GetWindowManager()->GetWindow(title)->getWindow());
+	this->renderer->InitDevice(this->windowManager->GetWindow(title)->getWindow());
 
 	this->resourceManager = new ResourcesManager();
 	this->sceneManager = new SceneManager();
 }
 
+/*
+	Creates a new scene and loads and prepares it
+*/
 void Kernel::LoadAndPrepareScene(std::string scenePath)
 {
-	this->GetSceneManager()->AddScene(scenePath);
-	Scene* scene = this->GetSceneManager()->GetScene(scenePath);
-	scene->LoadScene(this->renderer, scenePath);
+	this->sceneManager->AddScene(scenePath);
+	Scene* scene = this->sceneManager->GetScene(scenePath);
+	scene->LoadScene(scenePath);
 	scene->PrepareScene(this->renderer, this->resourceManager);
 }

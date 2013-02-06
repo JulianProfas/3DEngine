@@ -15,23 +15,33 @@
 class Kernel
 {
 public:
+	//Constructor for a Kernel object
 	Kernel();
+	//Destructor for a Kernel object
 	~Kernel();
+	//Start rendering all scenes in the renderMap
 	void Start();
-	WindowManager* GetWindowManager();
-	SceneManager* GetSceneManager();
-	Renderer* GetRenderer();
+	//Create a new window
 	void AddWindow(std::string title, int x, int y, int width, int height);
-	void LinkSceneToWindow(Scene* scene, Window* window);
+	//Links a scene to a window in the renderMap
+	void LinkSceneToWindow(std::string window, std::string scene);
+	//Creates a new scene and loads and prepares it
 	void LoadAndPrepareScene(std::string scenePath);
-	//LRESULT CALLBACK MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam );
+
 private:
+	//Manager to manage all windows
 	WindowManager* windowManager;
+	//Manager to manage all input
 	InputManager* inputManager;
+	//Renderer
 	Renderer* renderer;
+	//Manager to manage all resources
 	ResourcesManager* resourceManager;
+	//Manager to manage all scenes
 	SceneManager* sceneManager;
+	//Map to know which scene must be drawn in which window
 	std::map<Window*, Scene*>* renderMap;
+	//Cleanup
 	void CleanUp();
 };
 

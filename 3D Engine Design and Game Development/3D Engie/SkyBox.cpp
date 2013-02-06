@@ -1,17 +1,21 @@
 #include "SkyBox.h"
 
 /*
-	Constructor SkyBox.
+	Constructor for a SkyBox object
+	@param texturePath, 6 URLs to a texture file
 */
-SkyBox::SkyBox(Renderer *renderer, std::vector<Texture*> textures)
+SkyBox::SkyBox(std::string texturePath [6])
 {
-
-	this->FillVertices(renderer);
-	this->textures = textures;
+	for(int i = 0; i < 6; ++i)
+	{
+		this->texturePath[i] = texturePath[i];
+	}
+	
+	Logger::GetInstance()->Write("Succesfully created SkyBox");
 }
 
 /*
-	Destructor SkyBox
+	Destructor for a SkyBox object
 */
 SkyBox::~SkyBox()
 {
@@ -20,27 +24,32 @@ SkyBox::~SkyBox()
 
 /*
 	Renders the SkyBox
+	@param renderer, Renderer object needed for rendering the skybox
+	@param camera, EntityCamera object for setting the worldmatrix
 */
 void SkyBox::Render(Renderer* renderer, EntityCamera* camera)
 {
-	renderer->SetupWorldMatrix(camera->GetPositionX(), camera->GetPositionY(), camera->GetPositionZ(), 0, 0, 0, 1, 1, 1, camera);
+
+	float x = -camera->GetPositionX();
+	float y = -camera->GetPositionY();
+	float z = -camera->GetPositionZ();
+
+	renderer->SetupWorldMatrix(x, y, z, 0, 0, 0, 1, 1, 1, camera);
 	renderer->SetStreamSource(this->vertexBufferIndex, sizeof(ENGIE_VERTEX));
 	renderer->SetFvF(D3DFVF_CUSTOMVERTEX);
-	/*
-	int it = 5;
+	
 	for(int i = 0; i < 6; i++)
 	{	
-		LPDIRECT3DTEXTURE9 tex = *textures.at(it)->getTexture();
-		renderer->SetTexture(tex);	
-		renderer->DrawPrimitive(D3DPT_TRIANGLELIST, i * 6, 2);
-		--it;
+		renderer->SetTexture(this->texture[i]);	
+		renderer->DrawPrimitiveTriangle(i * 6, 2);
 	}
-	*/
+	
 	
 }
 
 /*
-	Creates the vertices for the SkyBox
+	Creates the vertices and vertex buffer which resembles the SkyBox
+	@param renderer, Renderer object for creating the vertex buffer
 */
 void SkyBox::FillVertices(Renderer* renderer)
 {
@@ -116,4 +125,19 @@ void SkyBox::FillVertices(Renderer* renderer)
 	Logger::GetInstance()->Write("Created SkyBox vertices");
 	this->vertexBufferIndex = renderer->CreateVertexBuffer(vertices, 36);  
 	Logger::GetInstance()->Write("Created SkyBox vertexbuffer");
+}
+
+/*
+	Loads all resources need for a Skybox object, including creating the vertices and vertex buffer
+	@param renderer, Renderer object for loading textures
+	@param resourceManager, ResourcesManager object to manage the loaded textures
+*/
+void SkyBox::LoadResources(Renderer* renderer, ResourcesManager* resourceManager)
+{
+	this->FillVertices(renderer);
+
+	for(int i = 0; i < 6; ++i)
+	{
+		this->texture[i] = resourceManager->LoadTexture(renderer->GetDevice(), this->texturePath[i]);
+	}
 }

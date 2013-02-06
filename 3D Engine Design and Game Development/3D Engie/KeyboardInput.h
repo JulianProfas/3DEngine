@@ -1,3 +1,6 @@
+#ifndef ENGIE_KEYBOARDINPUT_H
+#define ENGIE_KEYBOARDINPUT_H
+
 #include "windows.h"
 #define DIRECTINPUT_VERSION 0x0800
 #include <dinput.h>
@@ -5,17 +8,21 @@
 class KeyboardInput
 {
 public:
+	//Constructor for a KeyBoardInput object
 	KeyboardInput();
-	KeyboardInput(HWND argHwnd);
+	//Destructor for a KeyBoardInput object
 	~KeyboardInput();
-	bool InitKeyboardInput();
+	//Initializes the keyboardinput, creating the devices
+	bool InitKeyboardInput(HWND argHwnd);
+	//Releases the devices
 	void SaveReleaseDevice();
+	//Checks if an key is pressed
 	bool ProcessKBInput(byte argKeyIsPressed);
+	//Acquire the device
 	bool DoAcquire();
-	boolean CheckKeyPressed(DWORD key);
 private:
 	LPDIRECTINPUT8 dInput;		
 	LPDIRECTINPUTDEVICE8 dDevice;	
-	HWND hwnd;
 };
 
+#endif

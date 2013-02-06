@@ -2,6 +2,8 @@
 #define ENGIE_RENDERER_H
 
 #include "EntityCamera.h"
+#include "Model.h"
+#include "Texture.h"
 
 struct ENGIE_VERTEX
 {
@@ -19,12 +21,9 @@ public:
 	//Initializes the device of a renderer object for given HWND
 	virtual HRESULT	InitDevice(HWND hWnd) = 0;
 	//Sets the world matrix
-	//virtual void SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ) = 0;
 	virtual void SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ, EntityCamera* camera) = 0;
-	
-
-	//virtual	void SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ) = 0;
-	
+	//Sets the view matrix
+	virtual	void SetupViewMatrix(float x, float y, float z) = 0;
 	//Sets the projection matrix
 	virtual void SetupProjectionMatrix() = 0;
 	//Clears a scene
@@ -53,7 +52,6 @@ public:
 	virtual void SetFvF(DWORD fvf) = 0;
 	//Enables or disables z-buffering
 	virtual void Zenable(bool enable) = 0;
-	virtual void moveMatrix(float Ox, float Oy, float Oz, float Px, float Py, float Pz)= 0;
 
 private:
 

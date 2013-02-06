@@ -5,7 +5,7 @@ SkyBox:
 SkyBox_Front.jpg SkyBox_Back.jpg SkyBox_Left.jpg SkyBox_Right.jpg SkyBox_Top.jpg SkyBox_Bottom.jpg
 
 Terrain:
-Naamloos.bmp lava.jpg
+-128 -10 -128 Naamloos.bmp lava.jpg 5
 
 Entity:
--20 5 0 4.725 0 0 15 15 15 tiger.x tiger.bmp
+-20 5 0 4.725 0 0 15 15 15 Wolf.x wolf.x1_4.bmp

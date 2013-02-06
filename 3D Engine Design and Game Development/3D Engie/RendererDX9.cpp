@@ -132,43 +132,19 @@ void* RendererDX9::GetDevice()
 	return this->device;
 }
 
-/*!
- * \brief
- * Set where a object should be rendered in the world
- * 
- * \param x
- * Location on X-axis
- * 
- * \param y
- * Location on Y-axis
- * 
- * \param z
- * Location on Z-Axis
- * 
- * \param rotX
- * Rotation on X-Axis
- * 
- * \param rotY
- * Rotation on Y-Axis
- * 
- * \param rotZ
- * Rotation on Z-Axis
- * 
- * \param scaleX
- * Scaling on X-Axis
- * 
- * \param scaleY
- * Scaling on Y-Axis
- * 
- * \param scaleZ
- * Scaling on Z-axis
- * 
- * \param camera
- * Pointer to the camera
- * 
- * Setup the location, scaling and rotation of an object, then multiply it with the matrix of the camera.
- * 
- */
+/*
+	Sets the world matrix
+	@param x, the x position
+	@param y, the y position
+	@param z, the z position
+	@param rotX, the x rotation
+	@param rotY, the y rotation
+	@param rotZ, the Z rotation
+	@param scaX, the x scaling
+	@param scaY, the y scaling
+	@param scaZ, the z scaling
+	@param camera, EntityCamera object for transforming the world matrix
+*/
 void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ, EntityCamera* camera)
 {
 	//The Matrix variables
@@ -185,9 +161,9 @@ void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float 
 	D3DXMATRIXA16 modelScale;
 
 	//Get the Camera variables
-	float newX = camera->GetPosX() ;
-	float newY = camera->GetPosY() ;
-	float newZ = camera->GetPosZ() ;
+	float newX = camera->GetPositionX() ;
+	float newY = camera->GetPositionY() ;
+	float newZ = camera->GetPositionZ() ;
 	float newRX =  camera->GetPitch() ;
 	float newRY =  camera->GetYaw() ;
 	
@@ -213,72 +189,33 @@ void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float 
     device->SetTransform( D3DTS_WORLD, &matWorld );
 }
 
-/*void RendererDX9::SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ)
-{
-	//The Matrix variables
-	D3DXMATRIXA16 matWorld;
-	D3DXMATRIXA16 matWorldTrans;
-	D3DXMATRIXA16 matWorldRot;
-	D3DXMATRIXA16 matWorldScale;
-
-	D3DXMatrixScaling(&matWorldScale, scaleX, scaleY, scaleZ);
-	D3DXMatrixRotationYawPitchRoll(&matWorldRot, rotX, rotY, rotZ);
-	D3DXMatrixTranslation(&matWorldTrans, x, y, z);
-
-	D3DXMatrixMultiply(&matWorld, &matWorldScale, &matWorldTrans);
-	D3DXMatrixMultiply(&matWorld, &matWorldRot, &matWorld);
-
-	//Multiply the modelmatrix + the CameraMatrix then set the transformation
-    this->device->SetTransform(D3DTS_WORLD, &matWorld );
-}
+/*
+	Sets the view matrix
+	@param x, the x position 
+	@param y, the y position
+	@param z, the z position
 */
-
-
-/*void RendererDX9::SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ)
+void RendererDX9::SetupViewMatrix(float x, float y, float z)
 {
 	D3DXMATRIXA16 matView;
-
-	//D3DXVECTOR3 vEyePt( 0.0f, 25.0f, -128.0f ); //camera location
-    //D3DXVECTOR3 vLookatPt( 0.0f, 0.0f, 0.0f ); //look at location
-    //D3DXVECTOR3 vUpVec( 0.0f, 1.0f, 0.0f ); // the up vector ( Y is up)
     
 	D3DXVECTOR3 vEyePt(x, y, z); //camera location
-    D3DXVECTOR3 vLookatPt(laX, laY, laZ); //look at location
-    D3DXVECTOR3 vUpVec( 0.0f, 1.0f, 0.0f ); // the up vector ( Y is up)
+    D3DXVECTOR3 vLookatPt(0.0f, 0.0f, 1.0f); //look at location
+    D3DXVECTOR3 vUpVec(0.0f, 1.0f, 0.0f); // the up vector ( Y is up)
 
-    D3DXMatrixLookAtLH( &matView, &vEyePt, &vLookatPt, &vUpVec );
-    g_pd3dDevice->SetTransform( D3DTS_VIEW, &matView );
+    D3DXMatrixLookAtLH(&matView, &vEyePt, &vLookatPt, &vUpVec);
+    device->SetTransform( D3DTS_VIEW, &matView );
 }
 
-void RendererDX9::SetupViewMatrix(D3DXMATRIX viewMatrix)
-{
-	g_pd3dDevice->SetTransform( D3DTS_VIEW, &viewMatrix );
-}
+/*
+	Sets the projection matrix
 */
-
-void RendererDX9::moveMatrix(float Ox, float Oy, float Oz, float Px, float Py, float Pz)
-{
-	D3DXMATRIXA16	matOrientation;
-	D3DXMATRIXA16	matTranslation;
-	D3DXMATRIXA16	matWorld;
-
-	D3DXMatrixRotationX(&matOrientation, Ox);
-	D3DXMatrixRotationY(&matOrientation, Oy);
-	D3DXMatrixRotationZ(&matOrientation, Oz);
-	
-	D3DXMatrixTranslation(&matTranslation, Px, Py, Pz);
-	D3DXMatrixMultiply(&matWorld, &matOrientation, &matTranslation);
-
-	device->SetTransform(D3DTS_WORLD, &matWorld);
-}
-
-
 void RendererDX9::SetupProjectionMatrix()
 {
 	D3DXMATRIXA16 matProj;
 
-    D3DXMatrixPerspectiveFovLH( &matProj, D3DX_PI / 4, 1.0f, 1.0f, 1000.0f );
-	device->SetTransform( D3DTS_PROJECTION, &matProj );
+    D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 1.0f, 1.0f, 1000.0f);
+	device->SetTransform(D3DTS_PROJECTION, &matProj);
 }
 
 /*

@@ -1,40 +1,38 @@
 #include "InputManager.h"
-#include "Logger.h"
 
 /*
-	Constructor.
+	Constructor for an InputManager object
 */
 InputManager::InputManager()
 {
-
-	Logger::GetInstance()->Write("InputManager aangemaakt");
+	Logger::GetInstance()->Write("InputManager created");
 }
 
 /*
-	Destructor.
+	Destructor for an InputManager object
 */
 InputManager::~InputManager()
 {
-	Release();
-	Logger::GetInstance()->Write("InpuntManager verwijderd");
+	this->Release();
+	Logger::GetInstance()->Write("InpuntManager destroyed");
 }
 
 /*
 	Creates the keyboardInput
 */
-void InputManager::AddKeyboardInput(HWND hwnd)
+void InputManager::AddKeyboardInput()
 {
-	keyboardInput = new KeyboardInput(hwnd);
-	Logger::GetInstance()->Write("KeyboardInput aangemaakt");
+	this->keyboardInput = new KeyboardInput();
+	Logger::GetInstance()->Write("KeyboardInput created");
 }
 
 /*
 	Creates the mouseInput
 */
-void InputManager::AddMouseInput(HWND hwnd)
+void InputManager::AddMouseInput()
 {
-	mouseInput = new MouseInput(hwnd);
-	Logger::GetInstance()->Write("MouseInput aangemaakt");
+	this->mouseInput = new MouseInput(-500);
+	Logger::GetInstance()->Write("MouseInput created");
 }
 
 /*
@@ -42,22 +40,30 @@ void InputManager::AddMouseInput(HWND hwnd)
 */
 void InputManager::Release()
 {
-	keyboardInput->SaveReleaseDevice();
-	mouseInput->SaveReleaseDevice();
+	this->keyboardInput->SaveReleaseDevice();
+	this->mouseInput->SaveReleaseDevice();
 	Logger::GetInstance()->Write("Input has been safely released");
 }
 
-void InputManager::CheckStates(Scene* s)
+/*
+	Update the mouse data
+*/
+void InputManager::UpdateStates()
 {
-	mouseInput->GetMouseInput(s);
+	this->mouseInput->GetMouseInput();
 }
 
-
+/*
+	Get the keyBoardInput
+*/
 KeyboardInput* InputManager::GetKeyboard()
 {
 	return this->keyboardInput;
 }
 
+/*
+	Get the mouseInput
+*/
 MouseInput* InputManager::GetMouse()
 {
 	return this->mouseInput;

@@ -1,15 +1,25 @@
 #include "BMPloader.h"
 
+/*
+	Constructor for a BMPLoader object
+*/
 BMPloader::BMPloader()
 {
 
 }
 
+/*
+	Destructor for a BMPLoader object
+*/
 BMPloader::~BMPloader()
 {
 
 }
 
+/*
+	Loads the heightdata from the file
+	@param fileName, The URL to the heightmap file
+*/
 void BMPloader::LoadHeightMap(std::string fileName)
 {
 	//Load image from file
@@ -61,16 +71,25 @@ void BMPloader::LoadHeightMap(std::string fileName)
 
 }
 
+/*
+	Get the height from the heightmap
+*/
 int BMPloader::GetHeight()
 {
 	return height;
 }
 
+/*
+	Get the width from the heightmap
+*/
 int BMPloader::GetWidth()
 {
 	return width;
 }
 
+/*
+	Get the heightdata from the heightmap
+*/
 BYTE* BMPloader::GetHeightData()
 {
 	return heightData;

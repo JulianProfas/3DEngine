@@ -25,12 +25,9 @@ public:
 	//Initializes the device of a renderer object for given HWND
 	HRESULT	InitDevice(HWND hWnd);
 	//Sets the world matrix
-	//void SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ);
-	
-	
-	//void SetupViewMatrix(float x, float y, float z, float laX, float laY, float laZ);
-	//void SetupViewMatrix(D3DXMATRIX viewMatrix);
-	
+	void SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ, EntityCamera* camera);
+	//Sets the view matrix
+	void SetupViewMatrix(float x, float y, float z);
 	//Sets the projection matrix
 	void SetupProjectionMatrix();
 	//Clears a scene
@@ -59,8 +56,7 @@ public:
 	void Zenable(bool enable);
 	//Get the device
 	void* GetDevice();
-	void moveMatrix(float Ox, float Oy, float Oz, float Px, float Py, float Pz);
-	void SetupWorldMatrix(float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ, EntityCamera* camera);
+	
 
 private:
 	//Releases the device and the D3D object

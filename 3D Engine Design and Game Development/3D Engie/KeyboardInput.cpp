@@ -1,75 +1,54 @@
 #define DIRECTINPUT_VERSION 0x0800
 #include "KeyboardInput.h"
 
-#include <iostream>
-
-
 #define KEYDOWN(name, key) (name[key] & 0x80) 
 
-/**
- * Function:	Keyboard::Keyboard()
- * Description:	Empty keyboard constructor
- */
+/*
+	Constructor for a KeyBoardInput object
+*/
 KeyboardInput::KeyboardInput()
 {
-	
+	this->dInput = NULL;			
+	this->dDevice = NULL;
 }
 
-/**
- * Function:	Keyboard::Keyboard(...)
- * Description:	Keyboard constructor
- * @ param hWnd:
- *   Pointer to windowHandle, used to set the "SetCooperativeLevel" 
- */
-KeyboardInput::KeyboardInput(HWND argHwnd)
-{
-	dInput = NULL;			
-	dDevice = NULL;		
-	hwnd = argHwnd;
-
-    InitKeyboardInput();
-}
-
-
-/**
- * Function:	Keyboard::~Keyboard()
- * Description:	Keyboard destructor
- */
+/*
+	Destructor for a KeyBoardInput object
+*/
 KeyboardInput::~KeyboardInput()
 {
 
 }
 
-
-/**
- * Function:	Keyboard::InitKeyboard()
- * Description:	initializing the keyboard (creating the device and setting the coopertive level)
- */
-bool KeyboardInput::InitKeyboardInput()
+/*
+	Initializes the keyboardinput, creating the devices
+	@param hWnd, HWND needed for setting the cooperatelevel
+*/
+bool KeyboardInput::InitKeyboardInput(HWND hWnd)
 {
 	//DirectInput8Create should be done only once in manager
 	HRESULT hr = DirectInput8Create(GetModuleHandle(NULL), DIRECTINPUT_VERSION, IID_IDirectInput8, (void**)&dInput, NULL);
-	if FAILED( hr ) 
+	if FAILED(hr) 
 	{
 		return false; 
 	}
 
-	hr = dInput->CreateDevice( GUID_SysKeyboard, &dDevice, NULL );
-	if FAILED( hr ) 
+	hr = dInput->CreateDevice(GUID_SysKeyboard, &dDevice, NULL);
+	if FAILED(hr) 
 	{ 
 		SaveReleaseDevice(); 
 		return false; 
 	}
 
-	hr = dDevice->SetDataFormat( &c_dfDIKeyboard ); 
-	if FAILED( hr ) 
+	hr = dDevice->SetDataFormat(&c_dfDIKeyboard); 
+	if FAILED(hr) 
 	{ 
 		SaveReleaseDevice(); 
 		return false; 
 	} 
 
-	hr = dDevice->SetCooperativeLevel( hwnd, DISCL_EXCLUSIVE | DISCL_FOREGROUND );
-	if FAILED( hr )
+	hr = dDevice->SetCooperativeLevel(hWnd, DISCL_EXCLUSIVE | DISCL_FOREGROUND);
+	if FAILED(hr)
 	{ 
 		SaveReleaseDevice(); 
 		return false; 
@@ -78,10 +57,9 @@ bool KeyboardInput::InitKeyboardInput()
 	return true; 
 }
 
-/**
- * Function:	Keyboard::saveReleaseDevice() 
- * Description:	Cleaning up the mess left if a keyboard is lost
- */
+/*
+	Releases the devices
+*/
 void KeyboardInput::SaveReleaseDevice() 
 { 
 	if (dInput) 
@@ -98,24 +76,21 @@ void KeyboardInput::SaveReleaseDevice()
 } 
 
 
-/**
- * Function:	Keyboard::ProcessKBInput(...)
- * Description:	Method to see if the keyboardbuffer can be red or that a aquire is needed
- * @ param argIsToggle
- *	 Boolean to see if the key that is pressed a togglebutton is
- * @ param argKeyIsPressed
- *	 Byte containing the key that must be checked
- */
+/*
+	Checks if an key is pressed
+	@param argKeyIsPressed, The key that needs to be checked if pressed
+	@return bool, true if key is pressed, false otherwise
+*/
 bool KeyboardInput::ProcessKBInput(byte argKeyIsPressed) 
 { 
 	if(!SUCCEEDED( dDevice->Poll() ))
 	{
-		DoAcquire();
+		this->DoAcquire();
 	}
 	
 	byte keyBuffer[256]; 
 
-	dDevice->GetDeviceState( sizeof(keyBuffer) , (LPVOID)&keyBuffer);
+	this->dDevice->GetDeviceState( sizeof(keyBuffer) , (LPVOID)&keyBuffer);
 	
 	// Check if keybuffer contains given key
 	int pressed = KEYDOWN(keyBuffer, argKeyIsPressed);
@@ -131,13 +106,12 @@ bool KeyboardInput::ProcessKBInput(byte argKeyIsPressed)
 	}
 }
 
-/**
- * Function:	Keyboard::DoAcquire()
- * Description:	Aquiring the device, multiple times to make sure it gets it
- */
+/*
+	Acquire the device
+*/
 bool KeyboardInput::DoAcquire()
 {
-	if( SUCCEEDED( dDevice->Acquire() ) )
+	if(SUCCEEDED(this->dDevice->Acquire()))
 	{
 		return true;
 	}

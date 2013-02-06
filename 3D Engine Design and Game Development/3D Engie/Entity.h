@@ -1,7 +1,7 @@
 #ifndef ENGIE_ENTITY_H
 #define ENGIE_ENTITY_H
 
-#include <string>
+
 
 class Entity
 {

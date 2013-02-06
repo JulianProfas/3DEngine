@@ -8,6 +8,8 @@ Scene::Scene(std::string scenePath)
 {
 	this->scenePath = scenePath;
 	this->entityList = new std::list<EntityModel>();
+	this->sceneLoaded = false;
+	this->scenePrepared = false;
 }
 
 /*
@@ -18,11 +20,15 @@ Scene::~Scene()
 	this->ClearEntityList();
 }
 
-void Scene::LoadScene(Renderer* renderer, std::string sceneName)
+/*
+	Loads a Scene from a textfile
+	@param filePath, The URL to the text file
+*/
+void Scene::LoadScene(std::string scenePath)
 {
-	Logger::GetInstance()->Write("Loading scene " + sceneName);
+	Logger::GetInstance()->Write("Loading scene: " + this->scenePath);
 	
-	std::ifstream fileStream(sceneName);
+	std::ifstream fileStream(scenePath);
 
 	if(fileStream.good())
 	{
@@ -37,32 +43,23 @@ void Scene::LoadScene(Renderer* renderer, std::string sceneName)
 				fileStream >> posX >> posY >> posZ;
 				this->camera = new EntityCamera(posX, posY, posZ);
 			}
-			/*
 			else if(line.compare("SkyBox:") == 0)
 			{
-				std::string front, back, left, right, top, bottom;
-				fileStream >> front >> back >> left >> right >> top >> bottom;
-				std::vector<Texture*> textures;
-				std::vector<Texture*>::iterator its; 
-				its = textures.begin();
-				its = textures.insert(its, &this->resourceManager->LoadTexture(front));
-				its = textures.insert(its, &this->resourceManager->LoadTexture(back));
-				its = textures.insert(its, &this->resourceManager->LoadTexture(left));
-				its = textures.insert(its, &this->resourceManager->LoadTexture(right));
-				its = textures.insert(its, &this->resourceManager->LoadTexture(top));
-				its = textures.insert(its, &this->resourceManager->LoadTexture(bottom));
-	
-				this->sceneSky = new SkyBox(this->sceneRenderer, textures);
+				std::string textures [6];
+				fileStream >> textures[0] >> textures[1] >> textures[2] >> textures[3] >> textures[4] >>textures[5];
+				
+				this->sky = new SkyBox(textures);
 			}
-			*/
 			else if(line.compare("Terrain:") == 0)
 			{
 				std::string heightMap;
 				std::string terrainTexture;
+				float posX, posY, posZ;
+				int scale;
 
-				fileStream >> heightMap >> terrainTexture;
+				fileStream >> posX >> posY >> posZ >> heightMap >> terrainTexture >> scale;
 
-				this->terrain = new Terrain(heightMap, terrainTexture);
+				this->terrain = new Terrain(heightMap, terrainTexture, posX, posY, posZ, scale);
 			}
 			else if(line.compare("Entity:") == 0)
 			{
@@ -76,72 +73,123 @@ void Scene::LoadScene(Renderer* renderer, std::string sceneName)
 				this->entityList->push_back(*e);
 			}
 		}
-		Logger::GetInstance()->Write("Scene " + sceneName + " loaded");
+		
+		if(NULL == this->sky)
+		{
+			Logger::GetInstance()->Write("SkyBox not found in: " + this->scenePath);
+		}
+		if(NULL == this->terrain)
+		{
+			Logger::GetInstance()->Write("Terrain not found in: " + this->scenePath);
+		}
+		if(NULL == this->camera)
+		{
+			Logger::GetInstance()->Write("Camera not found in: " + this->scenePath);
+			Logger::GetInstance()->Write("Creating default camera for: " + this->scenePath);
+			this->camera = new EntityCamera(0, 0, 0);
+		}
+
+		Logger::GetInstance()->Write("Scene: " + this->scenePath + " loaded");
+
+		this->sceneLoaded = true;
 	}
 	else
 	{
-		Logger::GetInstance()->Write("can't open scene file: " + sceneName);
+		Logger::GetInstance()->Write("Can't open scene file: " + this->scenePath);
 	}
 }
 
 /*
-
+	Prepares the Scene by loading all resources for terrain, sky and entitys
+	@param renderer, Renderer object for loading textures/models and creating vertex buffers
+	@param resourceManager, ResourcesManager object for managing all textures and models
 */
 void Scene::PrepareScene(Renderer* renderer, ResourcesManager* resourceManager)
 {
 	Logger::GetInstance()->Write("Preparing scene: " + this->scenePath);
 
 	//prepare terrain
-	this->terrain->LoadResources(renderer, resourceManager);
-
+	if(NULL != this->terrain)
+	{
+		this->terrain->LoadResources(renderer, resourceManager);
+	}
+	
 	//prepare sky
-
+	if(NULL != this->terrain)
+	{
+		this->sky->LoadResources(renderer, resourceManager);
+	}
 
 	//prepare entitys
 	for(std::list<EntityModel>::iterator i = this->entityList->begin(); i != this->entityList->end(); ++i)
 	{
 		i->LoadResources(resourceManager, renderer);
 	}
+
+	Logger::GetInstance()->Write("Scene: " + this->scenePath + " prepared");
+
+	this->scenePrepared = true;
 }
 
 
 /*
 	Renders the scene to the window
+	@param renderer, Renderer object for rendering the objects
+	@param hWnd, HWND object which specifies where the scene is rendered
 */
 void Scene::RenderScene(Renderer* renderer, HWND hWnd)
 {
-	renderer->ClearScene();
-	renderer->BeginScene();
-	renderer->moveMatrix(0, 0, 0, 0, 0, 1);
-	renderer->SetupProjectionMatrix();
-	//this->sceneRenderer->SetupViewMatrix();
-	//this->sceneCamera->CalculateViewMatrix(this->sceneRenderer);
-
-	// render sky
-	//renderer->Zenable(false);
-	//this->sky->Render(renderer, camera);
-
-	// render terrain
-	renderer->Zenable(true);
-	this->terrain->RenderTerrain(renderer, camera);
-
-	// render entitys
-	for(std::list<EntityModel>::iterator i = this->entityList->begin(); i != this->entityList->end(); ++i)
+	//check if scene is loaded
+	if(this->sceneLoaded)
 	{
-		i->renderEntityModel(renderer, camera);
+		//check if scene is prepared
+		if(this->scenePrepared)
+		{
+			renderer->ClearScene();
+			renderer->BeginScene();
+			renderer->SetupProjectionMatrix();
+			//this->sceneRenderer->SetupViewMatrix();
+	
+			// render sky
+			renderer->Zenable(false);
+			this->sky->Render(renderer, camera);
+
+			// render terrain
+			renderer->Zenable(true);
+			this->terrain->RenderTerrain(renderer, camera);
+
+			// render entitys
+			for(std::list<EntityModel>::iterator i = this->entityList->begin(); i != this->entityList->end(); ++i)
+			{
+				i->renderEntityModel(renderer, camera);
+			}
+
+			renderer->EndScene();
+			renderer->PresentScene(hWnd);
+		}
+		else
+		{
+			Logger::GetInstance()->Write("Prepare scene: " + this->scenePath + " before rendering");
+		}
+		
 	}
-
-	renderer->EndScene();
-	renderer->PresentScene(hWnd);
-
+	else
+	{
+		Logger::GetInstance()->Write("Load scene: " + this->scenePath + " before rendering");
+	}
 }
 
-
+/*
+	Removes all EntityModel objects from the entityList
+*/
 void Scene::ClearEntityList()
 {
-
+	this->entityList->clear();
 }
 
+/*
+	Get the camera
+*/
 EntityCamera* Scene::GetCamera()
 {
 	return this->camera;

@@ -20,14 +20,14 @@ public:
 	//Destructor for a Scene object
 	~Scene();
 	//Loads a Scene from a textfile
-	void LoadScene(Renderer* renderer, std::string filePath);
-	//Renders all objects in the scene
+	void LoadScene(std::string scenePath);
+	//Renders all objects in the scene to the window
 	void RenderScene(Renderer* renderer, HWND hWnd);
 	//Prepares the Scene by loading all resources for terrain, sky and entitys
 	void PrepareScene(Renderer* renderer, ResourcesManager* resourceManager);
 	//Removes all EntityModel objects from the entityList
 	void ClearEntityList();
-
+	//Get the camera
 	EntityCamera* GetCamera();
 
 private:
@@ -41,6 +41,10 @@ private:
 	SkyBox* sky;
 	//The URL to the scenefile
 	std::string scenePath;
+	//Check if scene is loaded or not
+	bool sceneLoaded;
+	//Check if scene is prepared or not
+	bool scenePrepared;
 };
 
 #endif
