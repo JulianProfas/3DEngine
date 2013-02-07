@@ -1,34 +1,40 @@
-<02/06/13> <23:02:30> start logging
-<02/06/13> <23:02:30> WindowManager created
-<02/06/13> <23:02:30> RendererDX9 created
-<02/06/13> <23:02:30> InputManager created
-<02/06/13> <23:02:30> Window Window 1 created
-<02/06/13> <23:02:30> Window Window 1 inserted to windowMap
-<02/06/13> <23:02:30> SceneManager created
-<02/06/13> <23:02:30> Scene scenetest.txt created
-<02/06/13> <23:02:30> Scene scenetest.txt added to SceneMap
-<02/06/13> <23:02:30> Loading scene: scenetest.txt
-<02/06/13> <23:02:30> Succesfully created SkyBox
-<02/06/13> <23:02:30> Succesfully created terrain
-<02/06/13> <23:02:30> Scene: scenetest.txt loaded
-<02/06/13> <23:02:30> Preparing scene: scenetest.txt
-<02/06/13> <23:02:30> Loading terrain resources...
-<02/06/13> <23:02:31> Height data loaded
-<02/06/13> <23:02:31> Succesfully loaded texture: lava.jpg
-<02/06/13> <23:02:31> Created terrain vertices
-<02/06/13> <23:02:31> Created terrain vertexbuffer
-<02/06/13> <23:02:31> Terrain resources loaded
-<02/06/13> <23:02:31> Created SkyBox vertices
-<02/06/13> <23:02:31> Created SkyBox vertexbuffer
-<02/06/13> <23:02:31> Succesfully loaded texture: SkyBox_Front.jpg
-<02/06/13> <23:02:31> Succesfully loaded texture: SkyBox_Back.jpg
-<02/06/13> <23:02:31> Succesfully loaded texture: SkyBox_Left.jpg
-<02/06/13> <23:02:32> Succesfully loaded texture: SkyBox_Right.jpg
-<02/06/13> <23:02:32> Succesfully loaded texture: SkyBox_Top.jpg
-<02/06/13> <23:02:32> Succesfully loaded texture: SkyBox_Bottom.jpg
-<02/06/13> <23:02:32> Successfully loaded model: Wolf.x
-<02/06/13> <23:02:32> Succesfully loaded texture: wolf.x1_4.bmp
-<02/06/13> <23:02:32> Scene: scenetest.txt prepared
-<02/06/13> <23:02:32> Showing window: Window 1
-<02/06/13> <23:02:32> KeyboardInput created
-<02/06/13> <23:02:32> MouseInput created
+<02/07/13> <09:56:05> start logging
+<02/07/13> <09:56:05> WindowManager created
+<02/07/13> <09:56:05> RendererDX9 created
+<02/07/13> <09:56:05> InputManager created
+<02/07/13> <09:56:05> Window Window 1 created
+<02/07/13> <09:56:05> Window Window 1 inserted to windowMap
+<02/07/13> <09:56:05> SceneManager created
+<02/07/13> <09:56:05> Scene scenetest.txt created
+<02/07/13> <09:56:05> Scene scenetest.txt added to SceneMap
+<02/07/13> <09:56:05> Loading scene: scenetest.txt
+<02/07/13> <09:56:05> Succesfully created SkyBox
+<02/07/13> <09:56:05> Succesfully created terrain
+<02/07/13> <09:56:05> Scene: scenetest.txt loaded
+<02/07/13> <09:56:05> Preparing scene: scenetest.txt
+<02/07/13> <09:56:05> Loading terrain resources...
+<02/07/13> <09:56:06> Height data loaded
+<02/07/13> <09:56:06> Succesfully loaded texture: lava.jpg
+<02/07/13> <09:56:07> Created terrain vertices
+<02/07/13> <09:56:07> Created terrain vertexbuffer
+<02/07/13> <09:56:07> Terrain resources loaded
+<02/07/13> <09:56:07> Created SkyBox vertices
+<02/07/13> <09:56:07> Created SkyBox vertexbuffer
+<02/07/13> <09:56:07> Succesfully loaded texture: SkyBox_Front.jpg
+<02/07/13> <09:56:07> Succesfully loaded texture: SkyBox_Back.jpg
+<02/07/13> <09:56:07> Succesfully loaded texture: SkyBox_Left.jpg
+<02/07/13> <09:56:07> Succesfully loaded texture: SkyBox_Right.jpg
+<02/07/13> <09:56:07> Succesfully loaded texture: SkyBox_Top.jpg
+<02/07/13> <09:56:07> Succesfully loaded texture: SkyBox_Bottom.jpg
+<02/07/13> <09:56:07> Successfully loaded model: Wolf.x
+<02/07/13> <09:56:07> Succesfully loaded texture: wolf.x1_4.bmp
+<02/07/13> <09:56:07> Successfully loaded model: wolf.x
+<02/07/13> <09:56:07> Texture: wolf.x1_4.bmp already loaded
+<02/07/13> <09:56:07> Scene: scenetest.txt prepared
+<02/07/13> <09:56:07> Showing window: Window 1
+<02/07/13> <09:56:07> KeyboardInput created
+<02/07/13> <09:56:07> MouseInput created
+<02/07/13> <09:56:19> WindowManager deleted
+<02/07/13> <09:56:19> SceneManager destroyed
+<02/07/13> <09:56:19> Input has been safely released
+<02/07/13> <09:56:19> InpuntManager destroyed

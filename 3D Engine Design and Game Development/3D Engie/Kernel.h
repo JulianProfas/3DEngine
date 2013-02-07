@@ -43,6 +43,8 @@ private:
 	std::map<Window*, Scene*>* renderMap;
 	//Cleanup
 	void CleanUp();
+	//check to see if kernel is running
+	bool isRunning;
 };
 
 #endif

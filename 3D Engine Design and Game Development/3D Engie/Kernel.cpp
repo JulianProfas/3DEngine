@@ -1,21 +1,21 @@
 #include "Kernel.h"
 
-LRESULT WINAPI MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
+LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-    switch( msg )
+    switch(msg)
     {	
 		case WM_DESTROY:
 			PostQuitMessage(0);
 			return 0;
     }
 
-    return DefWindowProc( hWnd, msg, wParam, lParam );
+    return DefWindowProc(hWnd, msg, wParam, lParam);
 }
 
 WNDCLASSEX wc =
 {
-	sizeof( WNDCLASSEX ), CS_CLASSDC, MsgProc, 0L, 0L,
-	GetModuleHandle( NULL ), NULL, NULL, NULL, NULL,
+	sizeof(WNDCLASSEX), CS_CLASSDC, MsgProc, 0L, 0L,
+	GetModuleHandle(NULL), NULL, NULL, NULL, NULL,
     "ENGIE", NULL
 };
 
@@ -24,7 +24,7 @@ WNDCLASSEX wc =
 */
 Kernel::Kernel()
 {
-	RegisterClassEx( &wc );
+	RegisterClassEx(&wc);
 	this->windowManager = new WindowManager();
 	this->renderer = new RendererDX9();
 	this->renderMap = new std::map<Window*, Scene*>();
@@ -45,6 +45,8 @@ Kernel::~Kernel()
 */
 void Kernel::Start()
 {
+	this->isRunning = true;
+
 	std::map<Window*, Scene*>::iterator it = this->renderMap->begin();
 	while(it != this->renderMap->end())
 	{
@@ -55,13 +57,14 @@ void Kernel::Start()
 		this->inputManager->AddMouseInput();
 		this->inputManager->GetKeyboard()->InitKeyboardInput(hwnd);
 		this->inputManager->GetMouse()->InitMouseInput(hwnd);
-
+		this->renderer->SetupViewMatrix(it->second->GetCamera()->GetPositionX(), it->second->GetCamera()->GetPositionY(), it->second->GetCamera()->GetPositionZ());
+		this->renderer->SetupProjectionMatrix();
 		++it;
 	}
 
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
-	while(msg.message != WM_QUIT)
+	while(msg.message != WM_QUIT & this->isRunning == true)
     {
 	
 		if(PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
@@ -109,21 +112,9 @@ void Kernel::Start()
 					camera->MoveDown();
 				}
 
-				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_LEFT))
+				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_ESCAPE))
 				{
-						camera->SetYaw(0.1);
-				}
-				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_RIGHT))
-				{
-						camera->SetYaw(-0.1);
-				}
-				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_UP))
-				{
-						camera->SetPitch(0.1);
-				}
-				if(inputManager->GetKeyboard()->ProcessKBInput(DIK_DOWN))
-				{
-						camera->SetPitch(-0.1);
+					this->isRunning = false;
 				}
 
 				//process mouse input
