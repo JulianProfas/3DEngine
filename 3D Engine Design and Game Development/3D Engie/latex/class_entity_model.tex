@@ -3,42 +3,127 @@
 }
 
 
+{\ttfamily \#include $<$Entity\-Model.\-h$>$}
+
+
+
 Inherits \hyperlink{class_entity}{Entity}.
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_entity_model_a58638118c3506ddf4daaa2b312582618}{{\bfseries Entity\-Model} (float pos\-X, float pos\-Y, float pos\-Z, float rot\-X, float rot\-Y, float rot\-Z, float sca\-X, float sca\-Y, float sca\-Z, std\-::string m\-Path, std\-::string t\-Path, \hyperlink{class_resources_manager}{Resources\-Manager} $\ast$res\-Man)}\label{class_entity_model_a58638118c3506ddf4daaa2b312582618}
-
+\hyperlink{class_entity_model_a0b116646cca29067e9519402aeb5b188}{Entity\-Model} (float pos\-X, float pos\-Y, float pos\-Z, float rot\-X, float rot\-Y, float rot\-Z, float sca\-X, float sca\-Y, float sca\-Z, std\-::string model\-Path, std\-::string texture\-Path)
 \item 
-\hypertarget{class_entity_model_af6cd7cf2febc5e17e08205b283cfb72b}{void {\bfseries render\-Entity\-Model} (\hyperlink{class_renderer}{Renderer} $\ast$rd)}\label{class_entity_model_af6cd7cf2febc5e17e08205b283cfb72b}
-
+\hyperlink{class_entity_model_a3c0f7e027bcbd2af3617724a460a447c}{$\sim$\-Entity\-Model} ()
 \item 
-\hypertarget{class_entity_model_a413b2bc4db6e472672982bbe28962bf2}{void {\bfseries Set\-Scale\-X} (float x)}\label{class_entity_model_a413b2bc4db6e472672982bbe28962bf2}
-
+void \hyperlink{class_entity_model_a829fba156b805c1657ca6ce3caf9e8b5}{render\-Entity\-Model} (\hyperlink{class_renderer}{Renderer} $\ast$renderer, \hyperlink{class_entity_camera}{Entity\-Camera} $\ast$camera)
 \item 
-\hypertarget{class_entity_model_aac39ccf2b12f8a63f27a6ffa2ffee9a2}{float {\bfseries Get\-Scale\-X} ()}\label{class_entity_model_aac39ccf2b12f8a63f27a6ffa2ffee9a2}
-
+void \hyperlink{class_entity_model_a413b2bc4db6e472672982bbe28962bf2}{Set\-Scale\-X} (float x)
 \item 
-\hypertarget{class_entity_model_aa3eb6e49cd41eabefc99280ccb414af9}{void {\bfseries Set\-Scale\-Y} (float y)}\label{class_entity_model_aa3eb6e49cd41eabefc99280ccb414af9}
-
+float \hyperlink{class_entity_model_aac39ccf2b12f8a63f27a6ffa2ffee9a2}{Get\-Scale\-X} ()
 \item 
-\hypertarget{class_entity_model_a982369e6e47959fd275c677546473fa2}{float {\bfseries Get\-Scale\-Y} ()}\label{class_entity_model_a982369e6e47959fd275c677546473fa2}
-
+void \hyperlink{class_entity_model_aa3eb6e49cd41eabefc99280ccb414af9}{Set\-Scale\-Y} (float y)
 \item 
-\hypertarget{class_entity_model_a0bb9038b6bfece059d5a43b7cc6781f0}{void {\bfseries Set\-Scale\-Z} (float z)}\label{class_entity_model_a0bb9038b6bfece059d5a43b7cc6781f0}
-
+float \hyperlink{class_entity_model_a982369e6e47959fd275c677546473fa2}{Get\-Scale\-Y} ()
 \item 
-\hypertarget{class_entity_model_a1380ee58be0b3747f2c83cdd94cee31b}{float {\bfseries Get\-Scale\-Z} ()}\label{class_entity_model_a1380ee58be0b3747f2c83cdd94cee31b}
-
+void \hyperlink{class_entity_model_a0bb9038b6bfece059d5a43b7cc6781f0}{Set\-Scale\-Z} (float z)
 \item 
-\hypertarget{class_entity_model_ab097a18440f08d0fa67e229f89b0a86c}{void {\bfseries Move} (int d, float unit)}\label{class_entity_model_ab097a18440f08d0fa67e229f89b0a86c}
-
+float \hyperlink{class_entity_model_a1380ee58be0b3747f2c83cdd94cee31b}{Get\-Scale\-Z} ()
+\item 
+void \hyperlink{class_entity_model_afa0d89b61e5c3f5db488b9ef900bde04}{Load\-Resources} (\hyperlink{class_resources_manager}{Resources\-Manager} $\ast$resource\-Manager, \hyperlink{class_renderer}{Renderer} $\ast$renderer)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_entity_model_a0b116646cca29067e9519402aeb5b188}{\index{Entity\-Model@{Entity\-Model}!Entity\-Model@{Entity\-Model}}
+\index{Entity\-Model@{Entity\-Model}!EntityModel@{Entity\-Model}}
+\subsubsection[{Entity\-Model}]{\setlength{\rightskip}{0pt plus 5cm}Entity\-Model\-::\-Entity\-Model (
+\begin{DoxyParamCaption}
+\item[{float}]{pos\-X, }
+\item[{float}]{pos\-Y, }
+\item[{float}]{pos\-Z, }
+\item[{float}]{rot\-X, }
+\item[{float}]{rot\-Y, }
+\item[{float}]{rot\-Z, }
+\item[{float}]{sca\-X, }
+\item[{float}]{sca\-Y, }
+\item[{float}]{sca\-Z, }
+\item[{std\-::string}]{model\-Path, }
+\item[{std\-::string}]{texture\-Path}
+\end{DoxyParamCaption}
+)}}\label{class_entity_model_a0b116646cca29067e9519402aeb5b188}
+\hypertarget{class_entity_model_a3c0f7e027bcbd2af3617724a460a447c}{\index{Entity\-Model@{Entity\-Model}!$\sim$\-Entity\-Model@{$\sim$\-Entity\-Model}}
+\index{$\sim$\-Entity\-Model@{$\sim$\-Entity\-Model}!EntityModel@{Entity\-Model}}
+\subsubsection[{$\sim$\-Entity\-Model}]{\setlength{\rightskip}{0pt plus 5cm}Entity\-Model\-::$\sim$\-Entity\-Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_entity_model_a3c0f7e027bcbd2af3617724a460a447c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_entity_model_aac39ccf2b12f8a63f27a6ffa2ffee9a2}{\index{Entity\-Model@{Entity\-Model}!Get\-Scale\-X@{Get\-Scale\-X}}
+\index{Get\-Scale\-X@{Get\-Scale\-X}!EntityModel@{Entity\-Model}}
+\subsubsection[{Get\-Scale\-X}]{\setlength{\rightskip}{0pt plus 5cm}float Entity\-Model\-::\-Get\-Scale\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_entity_model_aac39ccf2b12f8a63f27a6ffa2ffee9a2}
+\hypertarget{class_entity_model_a982369e6e47959fd275c677546473fa2}{\index{Entity\-Model@{Entity\-Model}!Get\-Scale\-Y@{Get\-Scale\-Y}}
+\index{Get\-Scale\-Y@{Get\-Scale\-Y}!EntityModel@{Entity\-Model}}
+\subsubsection[{Get\-Scale\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float Entity\-Model\-::\-Get\-Scale\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_entity_model_a982369e6e47959fd275c677546473fa2}
+\hypertarget{class_entity_model_a1380ee58be0b3747f2c83cdd94cee31b}{\index{Entity\-Model@{Entity\-Model}!Get\-Scale\-Z@{Get\-Scale\-Z}}
+\index{Get\-Scale\-Z@{Get\-Scale\-Z}!EntityModel@{Entity\-Model}}
+\subsubsection[{Get\-Scale\-Z}]{\setlength{\rightskip}{0pt plus 5cm}float Entity\-Model\-::\-Get\-Scale\-Z (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_entity_model_a1380ee58be0b3747f2c83cdd94cee31b}
+\hypertarget{class_entity_model_afa0d89b61e5c3f5db488b9ef900bde04}{\index{Entity\-Model@{Entity\-Model}!Load\-Resources@{Load\-Resources}}
+\index{Load\-Resources@{Load\-Resources}!EntityModel@{Entity\-Model}}
+\subsubsection[{Load\-Resources}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Model\-::\-Load\-Resources (
+\begin{DoxyParamCaption}
+\item[{{\bf Resources\-Manager} $\ast$}]{resource\-Manager, }
+\item[{{\bf Renderer} $\ast$}]{renderer}
+\end{DoxyParamCaption}
+)}}\label{class_entity_model_afa0d89b61e5c3f5db488b9ef900bde04}
+\hypertarget{class_entity_model_a829fba156b805c1657ca6ce3caf9e8b5}{\index{Entity\-Model@{Entity\-Model}!render\-Entity\-Model@{render\-Entity\-Model}}
+\index{render\-Entity\-Model@{render\-Entity\-Model}!EntityModel@{Entity\-Model}}
+\subsubsection[{render\-Entity\-Model}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Model\-::render\-Entity\-Model (
+\begin{DoxyParamCaption}
+\item[{{\bf Renderer} $\ast$}]{renderer, }
+\item[{{\bf Entity\-Camera} $\ast$}]{camera}
+\end{DoxyParamCaption}
+)}}\label{class_entity_model_a829fba156b805c1657ca6ce3caf9e8b5}
+\hypertarget{class_entity_model_a413b2bc4db6e472672982bbe28962bf2}{\index{Entity\-Model@{Entity\-Model}!Set\-Scale\-X@{Set\-Scale\-X}}
+\index{Set\-Scale\-X@{Set\-Scale\-X}!EntityModel@{Entity\-Model}}
+\subsubsection[{Set\-Scale\-X}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Model\-::\-Set\-Scale\-X (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+)}}\label{class_entity_model_a413b2bc4db6e472672982bbe28962bf2}
+\hypertarget{class_entity_model_aa3eb6e49cd41eabefc99280ccb414af9}{\index{Entity\-Model@{Entity\-Model}!Set\-Scale\-Y@{Set\-Scale\-Y}}
+\index{Set\-Scale\-Y@{Set\-Scale\-Y}!EntityModel@{Entity\-Model}}
+\subsubsection[{Set\-Scale\-Y}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Model\-::\-Set\-Scale\-Y (
+\begin{DoxyParamCaption}
+\item[{float}]{y}
+\end{DoxyParamCaption}
+)}}\label{class_entity_model_aa3eb6e49cd41eabefc99280ccb414af9}
+\hypertarget{class_entity_model_a0bb9038b6bfece059d5a43b7cc6781f0}{\index{Entity\-Model@{Entity\-Model}!Set\-Scale\-Z@{Set\-Scale\-Z}}
+\index{Set\-Scale\-Z@{Set\-Scale\-Z}!EntityModel@{Entity\-Model}}
+\subsubsection[{Set\-Scale\-Z}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Model\-::\-Set\-Scale\-Z (
+\begin{DoxyParamCaption}
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)}}\label{class_entity_model_a0bb9038b6bfece059d5a43b7cc6781f0}
+
+
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-Entity\-Model.\-h\item 
-Entity\-Model.\-cpp\end{DoxyCompactItemize}
+\hyperlink{_entity_model_8h}{Entity\-Model.\-h}\item 
+\hyperlink{_entity_model_8cpp}{Entity\-Model.\-cpp}\end{DoxyCompactItemize}

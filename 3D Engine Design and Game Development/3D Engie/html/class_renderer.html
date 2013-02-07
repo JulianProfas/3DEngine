@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>3DEngie: Renderer Class Reference</title>
+<title>3Dengie: Renderer Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">3DEngie
+   <div id="projectname">3Dengie
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,63 +89,642 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="_renderer_8h_source.html">Renderer.h</a>&gt;</code></p>
+
 <p>Inherited by <a class="el" href="class_renderer_d_x9.html">RendererDX9</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6313b523d721e6c2975a669af99a4c2b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6313b523d721e6c2975a669af99a4c2b"></a>
-virtual HRESULT&#160;</td><td class="memItemRight" valign="bottom"><b>InitDevice</b> (HWND hWnd)=0</td></tr>
+<tr class="memitem:afeee408862d5bd6255a6882d47e6d5cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#afeee408862d5bd6255a6882d47e6d5cd">~Renderer</a> ()</td></tr>
+<tr class="separator:afeee408862d5bd6255a6882d47e6d5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6313b523d721e6c2975a669af99a4c2b"><td class="memItemLeft" align="right" valign="top">virtual HRESULT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a6313b523d721e6c2975a669af99a4c2b">InitDevice</a> (HWND hWnd)=0</td></tr>
 <tr class="separator:a6313b523d721e6c2975a669af99a4c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfa2a874df852968998c3ee2b50d5bd3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfa2a874df852968998c3ee2b50d5bd3"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetupWorldMatrix</b> (float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ)=0</td></tr>
-<tr class="separator:adfa2a874df852968998c3ee2b50d5bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6dd3468007966dd81900ed3c4dd5873"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6dd3468007966dd81900ed3c4dd5873"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetupProjectionMatrix</b> ()=0</td></tr>
+<tr class="memitem:ac2a5819f123f462f4ed249be9427a228"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ac2a5819f123f462f4ed249be9427a228">SetupWorldMatrix</a> (float x, float y, float z, float rotX, float rotY, float rotZ, float scaleX, float scaleY, float scaleZ, <a class="el" href="class_entity_camera.html">EntityCamera</a> *camera)=0</td></tr>
+<tr class="separator:ac2a5819f123f462f4ed249be9427a228"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a872dd40fa890c4bd2b5ef28036e14d75"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a872dd40fa890c4bd2b5ef28036e14d75">SetupViewMatrix</a> (float x, float y, float z)=0</td></tr>
+<tr class="separator:a872dd40fa890c4bd2b5ef28036e14d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6dd3468007966dd81900ed3c4dd5873"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ab6dd3468007966dd81900ed3c4dd5873">SetupProjectionMatrix</a> ()=0</td></tr>
 <tr class="separator:ab6dd3468007966dd81900ed3c4dd5873"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7ed63f63bcc6726d40e2a43cc3a585e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7ed63f63bcc6726d40e2a43cc3a585e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearScene</b> ()=0</td></tr>
+<tr class="memitem:ab7ed63f63bcc6726d40e2a43cc3a585e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ab7ed63f63bcc6726d40e2a43cc3a585e">ClearScene</a> ()=0</td></tr>
 <tr class="separator:ab7ed63f63bcc6726d40e2a43cc3a585e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32e27baaab853cc2d24605b831bcda75"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32e27baaab853cc2d24605b831bcda75"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>BeginScene</b> ()=0</td></tr>
+<tr class="memitem:a32e27baaab853cc2d24605b831bcda75"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a32e27baaab853cc2d24605b831bcda75">BeginScene</a> ()=0</td></tr>
 <tr class="separator:a32e27baaab853cc2d24605b831bcda75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdf143dedfb79932050c37cf0f4449bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abdf143dedfb79932050c37cf0f4449bd"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>EndScene</b> ()=0</td></tr>
+<tr class="memitem:abdf143dedfb79932050c37cf0f4449bd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#abdf143dedfb79932050c37cf0f4449bd">EndScene</a> ()=0</td></tr>
 <tr class="separator:abdf143dedfb79932050c37cf0f4449bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dfa1935125f68f2c169c447a66aaf39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9dfa1935125f68f2c169c447a66aaf39"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>PresentScene</b> (HWND hWnd)=0</td></tr>
+<tr class="memitem:a9dfa1935125f68f2c169c447a66aaf39"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a9dfa1935125f68f2c169c447a66aaf39">PresentScene</a> (HWND hWnd)=0</td></tr>
 <tr class="separator:a9dfa1935125f68f2c169c447a66aaf39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bf165a1520c271b7bbfee6a70766a77"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9bf165a1520c271b7bbfee6a70766a77"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetStreamSource</b> (int buffer, int stride)=0</td></tr>
+<tr class="memitem:a9bf165a1520c271b7bbfee6a70766a77"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a9bf165a1520c271b7bbfee6a70766a77">SetStreamSource</a> (int buffer, int stride)=0</td></tr>
 <tr class="separator:a9bf165a1520c271b7bbfee6a70766a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16ae452ed8535d6ebada62910699dc11"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a16ae452ed8535d6ebada62910699dc11"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawPrimitiveTriangle</b> (int startVertex, int numberOfTriangles)=0</td></tr>
+<tr class="memitem:a16ae452ed8535d6ebada62910699dc11"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a16ae452ed8535d6ebada62910699dc11">DrawPrimitiveTriangle</a> (int startVertex, int numberOfTriangles)=0</td></tr>
 <tr class="separator:a16ae452ed8535d6ebada62910699dc11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1e5dc6344fe47b849f107b2357267ac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1e5dc6344fe47b849f107b2357267ac"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>CreateVertexBuffer</b> (<a class="el" href="struct_e_n_g_i_e___v_e_r_t_e_x.html">ENGIE_VERTEX</a> vertices[], int numberofVertices)=0</td></tr>
+<tr class="memitem:ae1e5dc6344fe47b849f107b2357267ac"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ae1e5dc6344fe47b849f107b2357267ac">CreateVertexBuffer</a> (<a class="el" href="struct_e_n_g_i_e___v_e_r_t_e_x.html">ENGIE_VERTEX</a> vertices[], int numberofVertices)=0</td></tr>
 <tr class="separator:ae1e5dc6344fe47b849f107b2357267ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab99ef0eafcdc306365871c10af2f0689"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab99ef0eafcdc306365871c10af2f0689"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>DrawSubset</b> (<a class="el" href="class_model.html">Model</a> *model, DWORD i)=0</td></tr>
+<tr class="memitem:ab99ef0eafcdc306365871c10af2f0689"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ab99ef0eafcdc306365871c10af2f0689">DrawSubset</a> (<a class="el" href="class_model.html">Model</a> *model, DWORD i)=0</td></tr>
 <tr class="separator:ab99ef0eafcdc306365871c10af2f0689"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98a8e7889a9fcbeafc64bbdf6f2412c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98a8e7889a9fcbeafc64bbdf6f2412c9"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetTexture</b> (<a class="el" href="class_texture.html">Texture</a> *texture)=0</td></tr>
+<tr class="memitem:a98a8e7889a9fcbeafc64bbdf6f2412c9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a98a8e7889a9fcbeafc64bbdf6f2412c9">SetTexture</a> (<a class="el" href="class_texture.html">Texture</a> *texture)=0</td></tr>
 <tr class="separator:a98a8e7889a9fcbeafc64bbdf6f2412c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52c252a28ba213fa18be4bc25055fc48"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52c252a28ba213fa18be4bc25055fc48"></a>
-virtual void *&#160;</td><td class="memItemRight" valign="bottom"><b>GetDevice</b> ()=0</td></tr>
+<tr class="memitem:a742b997e4c498fa5990c953b3d6dfe35"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a742b997e4c498fa5990c953b3d6dfe35">SetMaterial</a> (<a class="el" href="class_model.html">Model</a> *model, int materialIndex)=0</td></tr>
+<tr class="separator:a742b997e4c498fa5990c953b3d6dfe35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52c252a28ba213fa18be4bc25055fc48"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a52c252a28ba213fa18be4bc25055fc48">GetDevice</a> ()=0</td></tr>
 <tr class="separator:a52c252a28ba213fa18be4bc25055fc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67e9bbda69173ba4328b26882935cc34"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67e9bbda69173ba4328b26882935cc34"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFvF</b> (DWORD fvf)=0</td></tr>
+<tr class="memitem:a67e9bbda69173ba4328b26882935cc34"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a67e9bbda69173ba4328b26882935cc34">SetFvF</a> (DWORD fvf)=0</td></tr>
 <tr class="separator:a67e9bbda69173ba4328b26882935cc34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19ed7be341f5468735f9892a55d405f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19ed7be341f5468735f9892a55d405f6"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Zenable</b> (bool enable)=0</td></tr>
+<tr class="memitem:a19ed7be341f5468735f9892a55d405f6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a19ed7be341f5468735f9892a55d405f6">Zenable</a> (bool enable)=0</td></tr>
 <tr class="separator:a19ed7be341f5468735f9892a55d405f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="afeee408862d5bd6255a6882d47e6d5cd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Renderer::~Renderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a32e27baaab853cc2d24605b831bcda75"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Renderer::BeginScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#a77163ec49875c0584fc849f0f6fa14fa">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab7ed63f63bcc6726d40e2a43cc3a585e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::ClearScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#affe5d73baddc5ee719a2b29a811007b6">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1e5dc6344fe47b849f107b2357267ac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Renderer::CreateVertexBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_e_n_g_i_e___v_e_r_t_e_x.html">ENGIE_VERTEX</a>&#160;</td>
+          <td class="paramname"><em>vertices</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numberofVertices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#adf76b988cc846b89c54a3b28976b9a9d">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a16ae452ed8535d6ebada62910699dc11"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::DrawPrimitiveTriangle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startVertex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numberOfTriangles</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#aaafcf651470404e9d177f659c051ab0c">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab99ef0eafcdc306365871c10af2f0689"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::DrawSubset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_model.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DWORD&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#ae9656f2589ffb2e0c90d1f09d4435e85">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abdf143dedfb79932050c37cf0f4449bd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::EndScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#a712e654baa65e8e05163a2a336a677eb">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a52c252a28ba213fa18be4bc25055fc48"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void* Renderer::GetDevice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#a9431af486dd19440d02a6bdeeea7658b">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6313b523d721e6c2975a669af99a4c2b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual HRESULT Renderer::InitDevice </td>
+          <td>(</td>
+          <td class="paramtype">HWND&#160;</td>
+          <td class="paramname"><em>hWnd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#a691a441a358c841dc5189325b8e0b086">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9dfa1935125f68f2c169c447a66aaf39"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::PresentScene </td>
+          <td>(</td>
+          <td class="paramtype">HWND&#160;</td>
+          <td class="paramname"><em>hWnd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#aae9ac91351b19ee6e77d9e1d7d5c3570">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a67e9bbda69173ba4328b26882935cc34"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::SetFvF </td>
+          <td>(</td>
+          <td class="paramtype">DWORD&#160;</td>
+          <td class="paramname"><em>fvf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#a9dbe602a16c0a7366d39543cb6ac8e01">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a742b997e4c498fa5990c953b3d6dfe35"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::SetMaterial </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_model.html">Model</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>materialIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#a78b74fb57145556e5dd2b58b010448e6">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9bf165a1520c271b7bbfee6a70766a77"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::SetStreamSource </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>stride</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#ab47cf24b00aea70cee4c15a8ce6fade7">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a98a8e7889a9fcbeafc64bbdf6f2412c9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::SetTexture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_texture.html">Texture</a> *&#160;</td>
+          <td class="paramname"><em>texture</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#aeb38155c8f9982e9db98f3c76bc934e4">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab6dd3468007966dd81900ed3c4dd5873"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::SetupProjectionMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#a7195bc2ed7ec550d8d89c3b6e23a3d77">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a872dd40fa890c4bd2b5ef28036e14d75"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::SetupViewMatrix </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#a3d23c1a33f09ac57d71c373d15475215">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac2a5819f123f462f4ed249be9427a228"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::SetupWorldMatrix </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rotX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rotY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rotZ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaleX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaleY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaleZ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_entity_camera.html">EntityCamera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#a40a98a7212cd224b87b950a22911de76">RendererDX9</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a19ed7be341f5468735f9892a55d405f6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::Zenable </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_renderer_d_x9.html#ab926f285ad9f3b088ac0289e555d1df2">RendererDX9</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_renderer_8h_source.html">Renderer.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 5 2013 12:00:20 for 3DEngie by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 7 2013 11:06:50 for 3Dengie by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

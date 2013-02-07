@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>3DEngie: Terrain Class Reference</title>
+<title>3Dengie: Terrain Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">3DEngie
+   <div id="projectname">3Dengie
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,45 +88,181 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Terrain Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_terrain_8h_source.html">Terrain.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1e7ecc7dbe25498c0f08783a6a198db3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e7ecc7dbe25498c0f08783a6a198db3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Terrain</b> (std::string terrainFileName, std::string texturefilename, <a class="el" href="class_renderer.html">Renderer</a> *renderer, <a class="el" href="class_resources_manager.html">ResourcesManager</a> *resourceManager)</td></tr>
-<tr class="separator:a1e7ecc7dbe25498c0f08783a6a198db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d1361617c21885d0d816090faf462b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d1361617c21885d0d816090faf462b9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetVertexBufferIndex</b> ()</td></tr>
+<tr class="memitem:aab136fa00d10b121d9799b0d0a006102"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#aab136fa00d10b121d9799b0d0a006102">Terrain</a> (std::string terrainPath, std::string texturePath, float posX, float posY, float posZ, int scale)</td></tr>
+<tr class="separator:aab136fa00d10b121d9799b0d0a006102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f7f0a2aee54886324ccf48a6f321de0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#a2f7f0a2aee54886324ccf48a6f321de0">~Terrain</a> ()</td></tr>
+<tr class="separator:a2f7f0a2aee54886324ccf48a6f321de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d1361617c21885d0d816090faf462b9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#a7d1361617c21885d0d816090faf462b9">GetVertexBufferIndex</a> ()</td></tr>
 <tr class="separator:a7d1361617c21885d0d816090faf462b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a473bffa58ac32285a843fe952de2f7aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a473bffa58ac32285a843fe952de2f7aa"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetNumberOfVertices</b> ()</td></tr>
-<tr class="separator:a473bffa58ac32285a843fe952de2f7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c65ab5fa6f82c91efbdb62436366a12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c65ab5fa6f82c91efbdb62436366a12"></a>
-<a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetTexture</b> ()</td></tr>
+<tr class="memitem:a1c65ab5fa6f82c91efbdb62436366a12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#a1c65ab5fa6f82c91efbdb62436366a12">GetTexture</a> ()</td></tr>
 <tr class="separator:a1c65ab5fa6f82c91efbdb62436366a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af79a03a5092654b128a994202af33c82"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af79a03a5092654b128a994202af33c82"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RenderTerrain</b> (<a class="el" href="class_renderer.html">Renderer</a> *r)</td></tr>
-<tr class="separator:af79a03a5092654b128a994202af33c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa3ef0a4bc579804a3e3376690b027c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa3ef0a4bc579804a3e3376690b027c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetPositionX</b> (float x)</td></tr>
-<tr class="separator:aaa3ef0a4bc579804a3e3376690b027c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae54d5cbd4fd15c9936119747736df882"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae54d5cbd4fd15c9936119747736df882"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetPositionY</b> (float y)</td></tr>
-<tr class="separator:ae54d5cbd4fd15c9936119747736df882"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37ec6c7ecc5a53d560deffcaad945fb7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37ec6c7ecc5a53d560deffcaad945fb7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetPositionZ</b> (float z)</td></tr>
-<tr class="separator:a37ec6c7ecc5a53d560deffcaad945fb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9418a77fdbf5451d34e810b7d3787fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9418a77fdbf5451d34e810b7d3787fc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Move</b> (int d, float unit)</td></tr>
-<tr class="separator:af9418a77fdbf5451d34e810b7d3787fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f114bc741c5bf09432e973d6d050f58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#a2f114bc741c5bf09432e973d6d050f58">RenderTerrain</a> (<a class="el" href="class_renderer.html">Renderer</a> *renderer, <a class="el" href="class_entity_camera.html">EntityCamera</a> *camera)</td></tr>
+<tr class="separator:a2f114bc741c5bf09432e973d6d050f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe7570ab57a388d9ac9fd7435384fe35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_terrain.html#abe7570ab57a388d9ac9fd7435384fe35">LoadResources</a> (<a class="el" href="class_renderer.html">Renderer</a> *renderer, <a class="el" href="class_resources_manager.html">ResourcesManager</a> *resourceManager)</td></tr>
+<tr class="separator:abe7570ab57a388d9ac9fd7435384fe35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aab136fa00d10b121d9799b0d0a006102"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Terrain::Terrain </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>terrainPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>texturePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>posX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>posY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>posZ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>scale</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2f7f0a2aee54886324ccf48a6f321de0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Terrain::~Terrain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a1c65ab5fa6f82c91efbdb62436366a12"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_texture.html">Texture</a> * Terrain::GetTexture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7d1361617c21885d0d816090faf462b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Terrain::GetVertexBufferIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abe7570ab57a388d9ac9fd7435384fe35"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Terrain::LoadResources </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_renderer.html">Renderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_resources_manager.html">ResourcesManager</a> *&#160;</td>
+          <td class="paramname"><em>resourceManager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2f114bc741c5bf09432e973d6d050f58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Terrain::RenderTerrain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_renderer.html">Renderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_entity_camera.html">EntityCamera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_terrain_8h_source.html">Terrain.h</a></li>
-<li>Terrain.cpp</li>
+<li><a class="el" href="_terrain_8cpp.html">Terrain.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 5 2013 12:00:20 for 3DEngie by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 7 2013 11:06:50 for 3Dengie by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

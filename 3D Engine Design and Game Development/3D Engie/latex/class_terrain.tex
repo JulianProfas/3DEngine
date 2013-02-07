@@ -1,39 +1,83 @@
 \hypertarget{class_terrain}{\section{Terrain Class Reference}
 \label{class_terrain}\index{Terrain@{Terrain}}
 }
+
+
+{\ttfamily \#include $<$Terrain.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_terrain_a1e7ecc7dbe25498c0f08783a6a198db3}{{\bfseries Terrain} (std\-::string terrain\-File\-Name, std\-::string texturefilename, \hyperlink{class_renderer}{Renderer} $\ast$renderer, \hyperlink{class_resources_manager}{Resources\-Manager} $\ast$resource\-Manager)}\label{class_terrain_a1e7ecc7dbe25498c0f08783a6a198db3}
-
+\hyperlink{class_terrain_aab136fa00d10b121d9799b0d0a006102}{Terrain} (std\-::string terrain\-Path, std\-::string texture\-Path, float pos\-X, float pos\-Y, float pos\-Z, int scale)
 \item 
-\hypertarget{class_terrain_a7d1361617c21885d0d816090faf462b9}{int {\bfseries Get\-Vertex\-Buffer\-Index} ()}\label{class_terrain_a7d1361617c21885d0d816090faf462b9}
-
+\hyperlink{class_terrain_a2f7f0a2aee54886324ccf48a6f321de0}{$\sim$\-Terrain} ()
 \item 
-\hypertarget{class_terrain_a473bffa58ac32285a843fe952de2f7aa}{int {\bfseries Get\-Number\-Of\-Vertices} ()}\label{class_terrain_a473bffa58ac32285a843fe952de2f7aa}
-
+int \hyperlink{class_terrain_a7d1361617c21885d0d816090faf462b9}{Get\-Vertex\-Buffer\-Index} ()
 \item 
-\hypertarget{class_terrain_a1c65ab5fa6f82c91efbdb62436366a12}{\hyperlink{class_texture}{Texture} $\ast$ {\bfseries Get\-Texture} ()}\label{class_terrain_a1c65ab5fa6f82c91efbdb62436366a12}
-
+\hyperlink{class_texture}{Texture} $\ast$ \hyperlink{class_terrain_a1c65ab5fa6f82c91efbdb62436366a12}{Get\-Texture} ()
 \item 
-\hypertarget{class_terrain_af79a03a5092654b128a994202af33c82}{void {\bfseries Render\-Terrain} (\hyperlink{class_renderer}{Renderer} $\ast$r)}\label{class_terrain_af79a03a5092654b128a994202af33c82}
-
+void \hyperlink{class_terrain_a2f114bc741c5bf09432e973d6d050f58}{Render\-Terrain} (\hyperlink{class_renderer}{Renderer} $\ast$renderer, \hyperlink{class_entity_camera}{Entity\-Camera} $\ast$camera)
 \item 
-\hypertarget{class_terrain_aaa3ef0a4bc579804a3e3376690b027c6}{void {\bfseries Set\-Position\-X} (float x)}\label{class_terrain_aaa3ef0a4bc579804a3e3376690b027c6}
-
-\item 
-\hypertarget{class_terrain_ae54d5cbd4fd15c9936119747736df882}{void {\bfseries Set\-Position\-Y} (float y)}\label{class_terrain_ae54d5cbd4fd15c9936119747736df882}
-
-\item 
-\hypertarget{class_terrain_a37ec6c7ecc5a53d560deffcaad945fb7}{void {\bfseries Set\-Position\-Z} (float z)}\label{class_terrain_a37ec6c7ecc5a53d560deffcaad945fb7}
-
-\item 
-\hypertarget{class_terrain_af9418a77fdbf5451d34e810b7d3787fc}{void {\bfseries Move} (int d, float unit)}\label{class_terrain_af9418a77fdbf5451d34e810b7d3787fc}
-
+void \hyperlink{class_terrain_abe7570ab57a388d9ac9fd7435384fe35}{Load\-Resources} (\hyperlink{class_renderer}{Renderer} $\ast$renderer, \hyperlink{class_resources_manager}{Resources\-Manager} $\ast$resource\-Manager)
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_terrain_aab136fa00d10b121d9799b0d0a006102}{\index{Terrain@{Terrain}!Terrain@{Terrain}}
+\index{Terrain@{Terrain}!Terrain@{Terrain}}
+\subsubsection[{Terrain}]{\setlength{\rightskip}{0pt plus 5cm}Terrain\-::\-Terrain (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{terrain\-Path, }
+\item[{std\-::string}]{texture\-Path, }
+\item[{float}]{pos\-X, }
+\item[{float}]{pos\-Y, }
+\item[{float}]{pos\-Z, }
+\item[{int}]{scale}
+\end{DoxyParamCaption}
+)}}\label{class_terrain_aab136fa00d10b121d9799b0d0a006102}
+\hypertarget{class_terrain_a2f7f0a2aee54886324ccf48a6f321de0}{\index{Terrain@{Terrain}!$\sim$\-Terrain@{$\sim$\-Terrain}}
+\index{$\sim$\-Terrain@{$\sim$\-Terrain}!Terrain@{Terrain}}
+\subsubsection[{$\sim$\-Terrain}]{\setlength{\rightskip}{0pt plus 5cm}Terrain\-::$\sim$\-Terrain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_terrain_a2f7f0a2aee54886324ccf48a6f321de0}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_terrain_a1c65ab5fa6f82c91efbdb62436366a12}{\index{Terrain@{Terrain}!Get\-Texture@{Get\-Texture}}
+\index{Get\-Texture@{Get\-Texture}!Terrain@{Terrain}}
+\subsubsection[{Get\-Texture}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Texture} $\ast$ Terrain\-::\-Get\-Texture (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_terrain_a1c65ab5fa6f82c91efbdb62436366a12}
+\hypertarget{class_terrain_a7d1361617c21885d0d816090faf462b9}{\index{Terrain@{Terrain}!Get\-Vertex\-Buffer\-Index@{Get\-Vertex\-Buffer\-Index}}
+\index{Get\-Vertex\-Buffer\-Index@{Get\-Vertex\-Buffer\-Index}!Terrain@{Terrain}}
+\subsubsection[{Get\-Vertex\-Buffer\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int Terrain\-::\-Get\-Vertex\-Buffer\-Index (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_terrain_a7d1361617c21885d0d816090faf462b9}
+\hypertarget{class_terrain_abe7570ab57a388d9ac9fd7435384fe35}{\index{Terrain@{Terrain}!Load\-Resources@{Load\-Resources}}
+\index{Load\-Resources@{Load\-Resources}!Terrain@{Terrain}}
+\subsubsection[{Load\-Resources}]{\setlength{\rightskip}{0pt plus 5cm}void Terrain\-::\-Load\-Resources (
+\begin{DoxyParamCaption}
+\item[{{\bf Renderer} $\ast$}]{renderer, }
+\item[{{\bf Resources\-Manager} $\ast$}]{resource\-Manager}
+\end{DoxyParamCaption}
+)}}\label{class_terrain_abe7570ab57a388d9ac9fd7435384fe35}
+\hypertarget{class_terrain_a2f114bc741c5bf09432e973d6d050f58}{\index{Terrain@{Terrain}!Render\-Terrain@{Render\-Terrain}}
+\index{Render\-Terrain@{Render\-Terrain}!Terrain@{Terrain}}
+\subsubsection[{Render\-Terrain}]{\setlength{\rightskip}{0pt plus 5cm}void Terrain\-::\-Render\-Terrain (
+\begin{DoxyParamCaption}
+\item[{{\bf Renderer} $\ast$}]{renderer, }
+\item[{{\bf Entity\-Camera} $\ast$}]{camera}
+\end{DoxyParamCaption}
+)}}\label{class_terrain_a2f114bc741c5bf09432e973d6d050f58}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-Terrain.\-h\item 
-Terrain.\-cpp\end{DoxyCompactItemize}
+\hyperlink{_terrain_8h}{Terrain.\-h}\item 
+\hyperlink{_terrain_8cpp}{Terrain.\-cpp}\end{DoxyCompactItemize}

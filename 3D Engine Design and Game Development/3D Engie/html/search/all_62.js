@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['bmploader',['BMPloader',['../class_b_m_ploader.html',1,'']]],
-  ['bufferedmouse',['BufferedMouse',['../struct_mouse_input_1_1_buffered_mouse.html',1,'MouseInput']]]
+  ['beginscene',['BeginScene',['../class_renderer.html#a32e27baaab853cc2d24605b831bcda75',1,'Renderer::BeginScene()'],['../class_renderer_d_x9.html#a77163ec49875c0584fc849f0f6fa14fa',1,'RendererDX9::BeginScene()']]],
+  ['bmploader',['BMPloader',['../class_b_m_ploader.html',1,'BMPloader'],['../class_b_m_ploader.html#ae1d88e67f72ba888ece029ffd8655643',1,'BMPloader::BMPloader()']]],
+  ['bmploader_2ecpp',['BMPloader.cpp',['../_b_m_ploader_8cpp.html',1,'']]],
+  ['bmploader_2eh',['BMPloader.h',['../_b_m_ploader_8h.html',1,'']]]
 ];

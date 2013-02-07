@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>3DEngie: MouseInput Class Reference</title>
+<title>3Dengie: MouseInput Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">3DEngie
+   <div id="projectname">3Dengie
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,44 +82,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_mouse_input-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MouseInput Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_mouse_input_8h_source.html">MouseInput.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mouse_input_1_1_buffered_mouse.html">BufferedMouse</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aeabc11fe09090864866104a909819530"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeabc11fe09090864866104a909819530"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MouseInput</b> (HWND argHwnd)</td></tr>
-<tr class="separator:aeabc11fe09090864866104a909819530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658d1c14ab590471160988ded246e05c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#a658d1c14ab590471160988ded246e05c">MouseInput</a> (int mouseSensitivity)</td></tr>
+<tr class="separator:a658d1c14ab590471160988ded246e05c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ae61cf479be0245aee4a8fef4b05e90"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#a2ae61cf479be0245aee4a8fef4b05e90">~MouseInput</a> ()</td></tr>
 <tr class="separator:a2ae61cf479be0245aee4a8fef4b05e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26070c27b182194a1f12308b80e90969"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#a26070c27b182194a1f12308b80e90969">InitMouseInput</a> ()</td></tr>
-<tr class="separator:a26070c27b182194a1f12308b80e90969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d5dbe586187445dd0746b42cfb386a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#a5d5dbe586187445dd0746b42cfb386a2">InitMouseInput</a> (HWND hWnd)</td></tr>
+<tr class="separator:a5d5dbe586187445dd0746b42cfb386a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ddf45aec3e8a27c81ccf6f164361346"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#a6ddf45aec3e8a27c81ccf6f164361346">SaveReleaseDevice</a> ()</td></tr>
 <tr class="separator:a6ddf45aec3e8a27c81ccf6f164361346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a336bb5a74324ba0ad9909dd59a3e7c19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#a336bb5a74324ba0ad9909dd59a3e7c19">DoAcquire</a> ()</td></tr>
 <tr class="separator:a336bb5a74324ba0ad9909dd59a3e7c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58dd79ad7c893665d36b167c5f1c8928"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58dd79ad7c893665d36b167c5f1c8928"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CheckKeyPressed</b> ()</td></tr>
-<tr class="separator:a58dd79ad7c893665d36b167c5f1c8928"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d072821a38341f1729b40820af1c254"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d072821a38341f1729b40820af1c254"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ResetMouseStruct</b> ()</td></tr>
-<tr class="separator:a9d072821a38341f1729b40820af1c254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e06109468bcb801260cbff1d9ade09b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#a7e06109468bcb801260cbff1d9ade09b">GetMouseInput</a> (<a class="el" href="class_scene.html">Scene</a> *s)</td></tr>
-<tr class="separator:a7e06109468bcb801260cbff1d9ade09b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab263b4658f8c9852d7a4d40ba6e5064a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#ab263b4658f8c9852d7a4d40ba6e5064a">SetTheMouseBuffer</a> (<a class="el" href="class_scene.html">Scene</a> *s)</td></tr>
-<tr class="separator:ab263b4658f8c9852d7a4d40ba6e5064a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a157e0b5d97f64609ac65c1cfb039a68f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#a157e0b5d97f64609ac65c1cfb039a68f">GetMouseInput</a> ()</td></tr>
+<tr class="separator:a157e0b5d97f64609ac65c1cfb039a68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bd762d2388561a5ad5537124300373c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#a4bd762d2388561a5ad5537124300373c">SetTheMouseData</a> ()</td></tr>
+<tr class="separator:a4bd762d2388561a5ad5537124300373c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7385ac3b4a1faaa5f4a57a3e6027568"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#ab7385ac3b4a1faaa5f4a57a3e6027568">GetRelativeX</a> ()</td></tr>
+<tr class="separator:ab7385ac3b4a1faaa5f4a57a3e6027568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc0863faa6c15bd828acb47b10886c8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mouse_input.html#abbc0863faa6c15bd828acb47b10886c8">GetRelativeY</a> ()</td></tr>
+<tr class="separator:abbc0863faa6c15bd828acb47b10886c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a658d1c14ab590471160988ded246e05c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MouseInput::MouseInput </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mouseSensitivity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a2ae61cf479be0245aee4a8fef4b05e90"></a>
 <div class="memitem">
 <div class="memproto">
@@ -132,7 +141,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ResetMouseStruct</b> 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function: Mouse::~Mouse() Description: destructor of the mouse </p>
 
 </div>
 </div>
@@ -149,40 +157,67 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ResetMouseStruct</b> 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function: Mouse::DoAcquire() Description: function that aquires the mouse object, just to be sure it does it five times </p>
 
 </div>
 </div>
-<a class="anchor" id="a7e06109468bcb801260cbff1d9ade09b"></a>
+<a class="anchor" id="a157e0b5d97f64609ac65c1cfb039a68f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool MouseInput::GetMouseInput </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_scene.html">Scene</a> *&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Function: Mouse::GetMouseInput() Description: Method to see if the mousebuffer can be red or that a aquire is needed </p>
-
-</div>
-</div>
-<a class="anchor" id="a26070c27b182194a1f12308b80e90969"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool MouseInput::InitMouseInput </td>
+          <td class="memname">void MouseInput::GetMouseInput </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function: Mouse::InitMouse() Description: initialisation of the mouse, setting up the mouse and creation a new mouse-object (including aquiring) </p>
+
+</div>
+</div>
+<a class="anchor" id="ab7385ac3b4a1faaa5f4a57a3e6027568"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float MouseInput::GetRelativeX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abbc0863faa6c15bd828acb47b10886c8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float MouseInput::GetRelativeY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5d5dbe586187445dd0746b42cfb386a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MouseInput::InitMouseInput </td>
+          <td>(</td>
+          <td class="paramtype">HWND&#160;</td>
+          <td class="paramname"><em>hWnd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -198,35 +233,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ResetMouseStruct</b> 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function: Mouse::SaveReleaseDevice() Description: Cleaning up the mess left if a mouse device is lost </p>
 
 </div>
 </div>
-<a class="anchor" id="ab263b4658f8c9852d7a4d40ba6e5064a"></a>
+<a class="anchor" id="a4bd762d2388561a5ad5537124300373c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void MouseInput::SetTheMouseBuffer </td>
+          <td class="memname">void MouseInput::SetTheMouseData </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_scene.html">Scene</a> *&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function: Mouse::SetTheMouseBuffer() Description: Setting the buffer for the mouse and getting the device-data </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_mouse_input_8h_source.html">MouseInput.h</a></li>
-<li>MouseInput.cpp</li>
+<li><a class="el" href="_mouse_input_8cpp.html">MouseInput.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 5 2013 12:00:20 for 3DEngie by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 7 2013 11:06:50 for 3Dengie by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

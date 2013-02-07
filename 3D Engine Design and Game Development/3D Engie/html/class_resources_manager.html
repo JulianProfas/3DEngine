@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>3DEngie: ResourcesManager Class Reference</title>
+<title>3Dengie: ResourcesManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">3DEngie
+   <div id="projectname">3Dengie
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,36 +88,182 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ResourcesManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_resources_manager_8h_source.html">ResourcesManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac0baed9d9f8c3918aba6065a9925bc6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0baed9d9f8c3918aba6065a9925bc6e"></a>
-<a class="el" href="class_model.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>LoadModel</b> (LPDIRECT3DDEVICE9 device, std::string filePath)</td></tr>
-<tr class="separator:ac0baed9d9f8c3918aba6065a9925bc6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fb2bc49ca2f3f5ac5e62846ae5285b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fb2bc49ca2f3f5ac5e62846ae5285b5"></a>
-<a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>LoadTexture</b> (LPDIRECT3DDEVICE9 device, std::string filePath)</td></tr>
-<tr class="separator:a8fb2bc49ca2f3f5ac5e62846ae5285b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f33fb87d2bebf862e7e7192c0a4fa48"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f33fb87d2bebf862e7e7192c0a4fa48"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveModel</b> (std::string modelName)</td></tr>
+<tr class="memitem:a7fe5ff24c1df6a60214bea3ca474d155"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resources_manager.html#a7fe5ff24c1df6a60214bea3ca474d155">ResourcesManager</a> ()</td></tr>
+<tr class="separator:a7fe5ff24c1df6a60214bea3ca474d155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa345cbcc786096e2bb918f2f1139d567"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resources_manager.html#aa345cbcc786096e2bb918f2f1139d567">~ResourcesManager</a> ()</td></tr>
+<tr class="separator:aa345cbcc786096e2bb918f2f1139d567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66fc2968d1be10a45d725faacc931ce1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_model.html">Model</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resources_manager.html#a66fc2968d1be10a45d725faacc931ce1">LoadModel</a> (void *device, std::string filePath)</td></tr>
+<tr class="separator:a66fc2968d1be10a45d725faacc931ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be3c24cbfb024a07a91dbd50d9da602"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resources_manager.html#a9be3c24cbfb024a07a91dbd50d9da602">LoadTexture</a> (void *device, std::string filePath)</td></tr>
+<tr class="separator:a9be3c24cbfb024a07a91dbd50d9da602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f33fb87d2bebf862e7e7192c0a4fa48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resources_manager.html#a1f33fb87d2bebf862e7e7192c0a4fa48">RemoveModel</a> (std::string modelName)</td></tr>
 <tr class="separator:a1f33fb87d2bebf862e7e7192c0a4fa48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae351e7f5d9784754dea19acb40f97eed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae351e7f5d9784754dea19acb40f97eed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveTexture</b> (std::string textureName)</td></tr>
+<tr class="memitem:ae351e7f5d9784754dea19acb40f97eed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resources_manager.html#ae351e7f5d9784754dea19acb40f97eed">RemoveTexture</a> (std::string textureName)</td></tr>
 <tr class="separator:ae351e7f5d9784754dea19acb40f97eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18cd7c53246759bb6f11d7fd9df47eaa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18cd7c53246759bb6f11d7fd9df47eaa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearModelMap</b> ()</td></tr>
+<tr class="memitem:a18cd7c53246759bb6f11d7fd9df47eaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resources_manager.html#a18cd7c53246759bb6f11d7fd9df47eaa">ClearModelMap</a> ()</td></tr>
 <tr class="separator:a18cd7c53246759bb6f11d7fd9df47eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4481302d87dfbb5caea6e502e4c7e39a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4481302d87dfbb5caea6e502e4c7e39a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ClearTextureMap</b> ()</td></tr>
+<tr class="memitem:a4481302d87dfbb5caea6e502e4c7e39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resources_manager.html#a4481302d87dfbb5caea6e502e4c7e39a">ClearTextureMap</a> ()</td></tr>
 <tr class="separator:a4481302d87dfbb5caea6e502e4c7e39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a7fe5ff24c1df6a60214bea3ca474d155"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResourcesManager::ResourcesManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa345cbcc786096e2bb918f2f1139d567"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ResourcesManager::~ResourcesManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a18cd7c53246759bb6f11d7fd9df47eaa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ResourcesManager::ClearModelMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4481302d87dfbb5caea6e502e4c7e39a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ResourcesManager::ClearTextureMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a66fc2968d1be10a45d725faacc931ce1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_model.html">Model</a> * ResourcesManager::LoadModel </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filePath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9be3c24cbfb024a07a91dbd50d9da602"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_texture.html">Texture</a> * ResourcesManager::LoadTexture </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>device</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filePath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1f33fb87d2bebf862e7e7192c0a4fa48"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ResourcesManager::RemoveModel </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>modelName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae351e7f5d9784754dea19acb40f97eed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ResourcesManager::RemoveTexture </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>textureName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_resources_manager_8h_source.html">ResourcesManager.h</a></li>
-<li>ResourcesManager.cpp</li>
+<li><a class="el" href="_resources_manager_8cpp.html">ResourcesManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 5 2013 12:00:20 for 3DEngie by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 7 2013 11:06:50 for 3Dengie by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

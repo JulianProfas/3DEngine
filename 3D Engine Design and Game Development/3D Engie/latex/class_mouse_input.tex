@@ -1,38 +1,41 @@
 \hypertarget{class_mouse_input}{\section{Mouse\-Input Class Reference}
 \label{class_mouse_input}\index{Mouse\-Input@{Mouse\-Input}}
 }
-\subsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-struct \hyperlink{struct_mouse_input_1_1_buffered_mouse}{Buffered\-Mouse}
-\end{DoxyCompactItemize}
+
+
+{\ttfamily \#include $<$Mouse\-Input.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_mouse_input_aeabc11fe09090864866104a909819530}{{\bfseries Mouse\-Input} (H\-W\-N\-D arg\-Hwnd)}\label{class_mouse_input_aeabc11fe09090864866104a909819530}
-
+\hyperlink{class_mouse_input_a658d1c14ab590471160988ded246e05c}{Mouse\-Input} (int mouse\-Sensitivity)
 \item 
 \hyperlink{class_mouse_input_a2ae61cf479be0245aee4a8fef4b05e90}{$\sim$\-Mouse\-Input} ()
 \item 
-bool \hyperlink{class_mouse_input_a26070c27b182194a1f12308b80e90969}{Init\-Mouse\-Input} ()
+bool \hyperlink{class_mouse_input_a5d5dbe586187445dd0746b42cfb386a2}{Init\-Mouse\-Input} (H\-W\-N\-D h\-Wnd)
 \item 
 void \hyperlink{class_mouse_input_a6ddf45aec3e8a27c81ccf6f164361346}{Save\-Release\-Device} ()
 \item 
 bool \hyperlink{class_mouse_input_a336bb5a74324ba0ad9909dd59a3e7c19}{Do\-Acquire} ()
 \item 
-\hypertarget{class_mouse_input_a58dd79ad7c893665d36b167c5f1c8928}{void {\bfseries Check\-Key\-Pressed} ()}\label{class_mouse_input_a58dd79ad7c893665d36b167c5f1c8928}
-
+void \hyperlink{class_mouse_input_a157e0b5d97f64609ac65c1cfb039a68f}{Get\-Mouse\-Input} ()
 \item 
-\hypertarget{class_mouse_input_a9d072821a38341f1729b40820af1c254}{void {\bfseries Reset\-Mouse\-Struct} ()}\label{class_mouse_input_a9d072821a38341f1729b40820af1c254}
-
+void \hyperlink{class_mouse_input_a4bd762d2388561a5ad5537124300373c}{Set\-The\-Mouse\-Data} ()
 \item 
-bool \hyperlink{class_mouse_input_a7e06109468bcb801260cbff1d9ade09b}{Get\-Mouse\-Input} (\hyperlink{class_scene}{Scene} $\ast$s)
+float \hyperlink{class_mouse_input_ab7385ac3b4a1faaa5f4a57a3e6027568}{Get\-Relative\-X} ()
 \item 
-void \hyperlink{class_mouse_input_ab263b4658f8c9852d7a4d40ba6e5064a}{Set\-The\-Mouse\-Buffer} (\hyperlink{class_scene}{Scene} $\ast$s)
+float \hyperlink{class_mouse_input_abbc0863faa6c15bd828acb47b10886c8}{Get\-Relative\-Y} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_mouse_input_a658d1c14ab590471160988ded246e05c}{\index{Mouse\-Input@{Mouse\-Input}!Mouse\-Input@{Mouse\-Input}}
+\index{Mouse\-Input@{Mouse\-Input}!MouseInput@{Mouse\-Input}}
+\subsubsection[{Mouse\-Input}]{\setlength{\rightskip}{0pt plus 5cm}Mouse\-Input\-::\-Mouse\-Input (
+\begin{DoxyParamCaption}
+\item[{int}]{mouse\-Sensitivity}
+\end{DoxyParamCaption}
+)}}\label{class_mouse_input_a658d1c14ab590471160988ded246e05c}
 \hypertarget{class_mouse_input_a2ae61cf479be0245aee4a8fef4b05e90}{\index{Mouse\-Input@{Mouse\-Input}!$\sim$\-Mouse\-Input@{$\sim$\-Mouse\-Input}}
 \index{$\sim$\-Mouse\-Input@{$\sim$\-Mouse\-Input}!MouseInput@{Mouse\-Input}}
 \subsubsection[{$\sim$\-Mouse\-Input}]{\setlength{\rightskip}{0pt plus 5cm}Mouse\-Input\-::$\sim$\-Mouse\-Input (
@@ -40,7 +43,7 @@ void \hyperlink{class_mouse_input_ab263b4658f8c9852d7a4d40ba6e5064a}{Set\-The\-M
 {}
 \end{DoxyParamCaption}
 )}}\label{class_mouse_input_a2ae61cf479be0245aee4a8fef4b05e90}
-Function\-: Mouse\-::$\sim$\-Mouse() Description\-: destructor of the mouse 
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_mouse_input_a336bb5a74324ba0ad9909dd59a3e7c19}{\index{Mouse\-Input@{Mouse\-Input}!Do\-Acquire@{Do\-Acquire}}
@@ -50,37 +53,51 @@ Function\-: Mouse\-::$\sim$\-Mouse() Description\-: destructor of the mouse
 {}
 \end{DoxyParamCaption}
 )}}\label{class_mouse_input_a336bb5a74324ba0ad9909dd59a3e7c19}
-Function\-: Mouse\-::\-Do\-Acquire() Description\-: function that aquires the mouse object, just to be sure it does it five times \hypertarget{class_mouse_input_a7e06109468bcb801260cbff1d9ade09b}{\index{Mouse\-Input@{Mouse\-Input}!Get\-Mouse\-Input@{Get\-Mouse\-Input}}
+\hypertarget{class_mouse_input_a157e0b5d97f64609ac65c1cfb039a68f}{\index{Mouse\-Input@{Mouse\-Input}!Get\-Mouse\-Input@{Get\-Mouse\-Input}}
 \index{Get\-Mouse\-Input@{Get\-Mouse\-Input}!MouseInput@{Mouse\-Input}}
-\subsubsection[{Get\-Mouse\-Input}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\-Input\-::\-Get\-Mouse\-Input (
-\begin{DoxyParamCaption}
-\item[{{\bf Scene} $\ast$}]{s}
-\end{DoxyParamCaption}
-)}}\label{class_mouse_input_a7e06109468bcb801260cbff1d9ade09b}
-Function\-: Mouse\-::\-Get\-Mouse\-Input() Description\-: Method to see if the mousebuffer can be red or that a aquire is needed \hypertarget{class_mouse_input_a26070c27b182194a1f12308b80e90969}{\index{Mouse\-Input@{Mouse\-Input}!Init\-Mouse\-Input@{Init\-Mouse\-Input}}
-\index{Init\-Mouse\-Input@{Init\-Mouse\-Input}!MouseInput@{Mouse\-Input}}
-\subsubsection[{Init\-Mouse\-Input}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\-Input\-::\-Init\-Mouse\-Input (
+\subsubsection[{Get\-Mouse\-Input}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\-Input\-::\-Get\-Mouse\-Input (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{class_mouse_input_a26070c27b182194a1f12308b80e90969}
-Function\-: Mouse\-::\-Init\-Mouse() Description\-: initialisation of the mouse, setting up the mouse and creation a new mouse-\/object (including aquiring) \hypertarget{class_mouse_input_a6ddf45aec3e8a27c81ccf6f164361346}{\index{Mouse\-Input@{Mouse\-Input}!Save\-Release\-Device@{Save\-Release\-Device}}
+)}}\label{class_mouse_input_a157e0b5d97f64609ac65c1cfb039a68f}
+\hypertarget{class_mouse_input_ab7385ac3b4a1faaa5f4a57a3e6027568}{\index{Mouse\-Input@{Mouse\-Input}!Get\-Relative\-X@{Get\-Relative\-X}}
+\index{Get\-Relative\-X@{Get\-Relative\-X}!MouseInput@{Mouse\-Input}}
+\subsubsection[{Get\-Relative\-X}]{\setlength{\rightskip}{0pt plus 5cm}float Mouse\-Input\-::\-Get\-Relative\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_mouse_input_ab7385ac3b4a1faaa5f4a57a3e6027568}
+\hypertarget{class_mouse_input_abbc0863faa6c15bd828acb47b10886c8}{\index{Mouse\-Input@{Mouse\-Input}!Get\-Relative\-Y@{Get\-Relative\-Y}}
+\index{Get\-Relative\-Y@{Get\-Relative\-Y}!MouseInput@{Mouse\-Input}}
+\subsubsection[{Get\-Relative\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float Mouse\-Input\-::\-Get\-Relative\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_mouse_input_abbc0863faa6c15bd828acb47b10886c8}
+\hypertarget{class_mouse_input_a5d5dbe586187445dd0746b42cfb386a2}{\index{Mouse\-Input@{Mouse\-Input}!Init\-Mouse\-Input@{Init\-Mouse\-Input}}
+\index{Init\-Mouse\-Input@{Init\-Mouse\-Input}!MouseInput@{Mouse\-Input}}
+\subsubsection[{Init\-Mouse\-Input}]{\setlength{\rightskip}{0pt plus 5cm}bool Mouse\-Input\-::\-Init\-Mouse\-Input (
+\begin{DoxyParamCaption}
+\item[{H\-W\-N\-D}]{h\-Wnd}
+\end{DoxyParamCaption}
+)}}\label{class_mouse_input_a5d5dbe586187445dd0746b42cfb386a2}
+\hypertarget{class_mouse_input_a6ddf45aec3e8a27c81ccf6f164361346}{\index{Mouse\-Input@{Mouse\-Input}!Save\-Release\-Device@{Save\-Release\-Device}}
 \index{Save\-Release\-Device@{Save\-Release\-Device}!MouseInput@{Mouse\-Input}}
 \subsubsection[{Save\-Release\-Device}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\-Input\-::\-Save\-Release\-Device (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}\label{class_mouse_input_a6ddf45aec3e8a27c81ccf6f164361346}
-Function\-: Mouse\-::\-Save\-Release\-Device() Description\-: Cleaning up the mess left if a mouse device is lost \hypertarget{class_mouse_input_ab263b4658f8c9852d7a4d40ba6e5064a}{\index{Mouse\-Input@{Mouse\-Input}!Set\-The\-Mouse\-Buffer@{Set\-The\-Mouse\-Buffer}}
-\index{Set\-The\-Mouse\-Buffer@{Set\-The\-Mouse\-Buffer}!MouseInput@{Mouse\-Input}}
-\subsubsection[{Set\-The\-Mouse\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\-Input\-::\-Set\-The\-Mouse\-Buffer (
+\hypertarget{class_mouse_input_a4bd762d2388561a5ad5537124300373c}{\index{Mouse\-Input@{Mouse\-Input}!Set\-The\-Mouse\-Data@{Set\-The\-Mouse\-Data}}
+\index{Set\-The\-Mouse\-Data@{Set\-The\-Mouse\-Data}!MouseInput@{Mouse\-Input}}
+\subsubsection[{Set\-The\-Mouse\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Mouse\-Input\-::\-Set\-The\-Mouse\-Data (
 \begin{DoxyParamCaption}
-\item[{{\bf Scene} $\ast$}]{s}
+{}
 \end{DoxyParamCaption}
-)}}\label{class_mouse_input_ab263b4658f8c9852d7a4d40ba6e5064a}
-Function\-: Mouse\-::\-Set\-The\-Mouse\-Buffer() Description\-: Setting the buffer for the mouse and getting the device-\/data 
+)}}\label{class_mouse_input_a4bd762d2388561a5ad5537124300373c}
+
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-Mouse\-Input.\-h\item 
-Mouse\-Input.\-cpp\end{DoxyCompactItemize}
+\hyperlink{_mouse_input_8h}{Mouse\-Input.\-h}\item 
+\hyperlink{_mouse_input_8cpp}{Mouse\-Input.\-cpp}\end{DoxyCompactItemize}

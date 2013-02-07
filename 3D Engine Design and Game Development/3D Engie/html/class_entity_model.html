@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>3DEngie: EntityModel Class Reference</title>
+<title>3Dengie: EntityModel Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">3DEngie
+   <div id="projectname">3Dengie
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,81 +89,310 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p><code>#include &lt;<a class="el" href="_entity_model_8h_source.html">EntityModel.h</a>&gt;</code></p>
+
 <p>Inherits <a class="el" href="class_entity.html">Entity</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a58638118c3506ddf4daaa2b312582618"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58638118c3506ddf4daaa2b312582618"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EntityModel</b> (float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string mPath, std::string tPath, <a class="el" href="class_resources_manager.html">ResourcesManager</a> *resMan)</td></tr>
-<tr class="separator:a58638118c3506ddf4daaa2b312582618"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6cd7cf2febc5e17e08205b283cfb72b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6cd7cf2febc5e17e08205b283cfb72b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>renderEntityModel</b> (<a class="el" href="class_renderer.html">Renderer</a> *rd)</td></tr>
-<tr class="separator:af6cd7cf2febc5e17e08205b283cfb72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a413b2bc4db6e472672982bbe28962bf2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a413b2bc4db6e472672982bbe28962bf2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetScaleX</b> (float x)</td></tr>
+<tr class="memitem:a0b116646cca29067e9519402aeb5b188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_model.html#a0b116646cca29067e9519402aeb5b188">EntityModel</a> (float posX, float posY, float posZ, float rotX, float rotY, float rotZ, float scaX, float scaY, float scaZ, std::string modelPath, std::string texturePath)</td></tr>
+<tr class="separator:a0b116646cca29067e9519402aeb5b188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c0f7e027bcbd2af3617724a460a447c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_model.html#a3c0f7e027bcbd2af3617724a460a447c">~EntityModel</a> ()</td></tr>
+<tr class="separator:a3c0f7e027bcbd2af3617724a460a447c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a829fba156b805c1657ca6ce3caf9e8b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_model.html#a829fba156b805c1657ca6ce3caf9e8b5">renderEntityModel</a> (<a class="el" href="class_renderer.html">Renderer</a> *renderer, <a class="el" href="class_entity_camera.html">EntityCamera</a> *camera)</td></tr>
+<tr class="separator:a829fba156b805c1657ca6ce3caf9e8b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a413b2bc4db6e472672982bbe28962bf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_model.html#a413b2bc4db6e472672982bbe28962bf2">SetScaleX</a> (float x)</td></tr>
 <tr class="separator:a413b2bc4db6e472672982bbe28962bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac39ccf2b12f8a63f27a6ffa2ffee9a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac39ccf2b12f8a63f27a6ffa2ffee9a2"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>GetScaleX</b> ()</td></tr>
+<tr class="memitem:aac39ccf2b12f8a63f27a6ffa2ffee9a2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_model.html#aac39ccf2b12f8a63f27a6ffa2ffee9a2">GetScaleX</a> ()</td></tr>
 <tr class="separator:aac39ccf2b12f8a63f27a6ffa2ffee9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3eb6e49cd41eabefc99280ccb414af9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3eb6e49cd41eabefc99280ccb414af9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetScaleY</b> (float y)</td></tr>
+<tr class="memitem:aa3eb6e49cd41eabefc99280ccb414af9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_model.html#aa3eb6e49cd41eabefc99280ccb414af9">SetScaleY</a> (float y)</td></tr>
 <tr class="separator:aa3eb6e49cd41eabefc99280ccb414af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a982369e6e47959fd275c677546473fa2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a982369e6e47959fd275c677546473fa2"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>GetScaleY</b> ()</td></tr>
+<tr class="memitem:a982369e6e47959fd275c677546473fa2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_model.html#a982369e6e47959fd275c677546473fa2">GetScaleY</a> ()</td></tr>
 <tr class="separator:a982369e6e47959fd275c677546473fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bb9038b6bfece059d5a43b7cc6781f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bb9038b6bfece059d5a43b7cc6781f0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetScaleZ</b> (float z)</td></tr>
+<tr class="memitem:a0bb9038b6bfece059d5a43b7cc6781f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_model.html#a0bb9038b6bfece059d5a43b7cc6781f0">SetScaleZ</a> (float z)</td></tr>
 <tr class="separator:a0bb9038b6bfece059d5a43b7cc6781f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1380ee58be0b3747f2c83cdd94cee31b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1380ee58be0b3747f2c83cdd94cee31b"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>GetScaleZ</b> ()</td></tr>
+<tr class="memitem:a1380ee58be0b3747f2c83cdd94cee31b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_model.html#a1380ee58be0b3747f2c83cdd94cee31b">GetScaleZ</a> ()</td></tr>
 <tr class="separator:a1380ee58be0b3747f2c83cdd94cee31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab097a18440f08d0fa67e229f89b0a86c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab097a18440f08d0fa67e229f89b0a86c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Move</b> (int d, float unit)</td></tr>
-<tr class="separator:ab097a18440f08d0fa67e229f89b0a86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa0d89b61e5c3f5db488b9ef900bde04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity_model.html#afa0d89b61e5c3f5db488b9ef900bde04">LoadResources</a> (<a class="el" href="class_resources_manager.html">ResourcesManager</a> *resourceManager, <a class="el" href="class_renderer.html">Renderer</a> *renderer)</td></tr>
+<tr class="separator:afa0d89b61e5c3f5db488b9ef900bde04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:a64e4457add48fc3f3e858668ee58dcee inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64e4457add48fc3f3e858668ee58dcee"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b> (float posX, float posY, float posZ)</td></tr>
+<tr class="memitem:a64e4457add48fc3f3e858668ee58dcee inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a64e4457add48fc3f3e858668ee58dcee">Entity</a> (float posX, float posY, float posZ)</td></tr>
 <tr class="separator:a64e4457add48fc3f3e858668ee58dcee inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf3e06bde1b09426df70a82fd33cda4c inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf3e06bde1b09426df70a82fd33cda4c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetPositionX</b> (float x)</td></tr>
+<tr class="memitem:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a> ()</td></tr>
+<tr class="separator:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf3e06bde1b09426df70a82fd33cda4c inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aaf3e06bde1b09426df70a82fd33cda4c">SetPositionX</a> (float x)</td></tr>
 <tr class="separator:aaf3e06bde1b09426df70a82fd33cda4c inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b45eec5fd1c4bad68c913088fb3a580 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b45eec5fd1c4bad68c913088fb3a580"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>GetPositionX</b> ()</td></tr>
+<tr class="memitem:a7b45eec5fd1c4bad68c913088fb3a580 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a7b45eec5fd1c4bad68c913088fb3a580">GetPositionX</a> ()</td></tr>
 <tr class="separator:a7b45eec5fd1c4bad68c913088fb3a580 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac39410e534d19ddbfb255ccdf758b1b9 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac39410e534d19ddbfb255ccdf758b1b9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetPositionY</b> (float y)</td></tr>
+<tr class="memitem:ac39410e534d19ddbfb255ccdf758b1b9 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac39410e534d19ddbfb255ccdf758b1b9">SetPositionY</a> (float y)</td></tr>
 <tr class="separator:ac39410e534d19ddbfb255ccdf758b1b9 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05a8dc8fba5a84ca55f82a645f71ce69 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05a8dc8fba5a84ca55f82a645f71ce69"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>GetPositionY</b> ()</td></tr>
+<tr class="memitem:a05a8dc8fba5a84ca55f82a645f71ce69 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a05a8dc8fba5a84ca55f82a645f71ce69">GetPositionY</a> ()</td></tr>
 <tr class="separator:a05a8dc8fba5a84ca55f82a645f71ce69 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a096584123b1047c33d253c1985401815 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a096584123b1047c33d253c1985401815"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetPositionZ</b> (float z)</td></tr>
+<tr class="memitem:a096584123b1047c33d253c1985401815 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a096584123b1047c33d253c1985401815">SetPositionZ</a> (float z)</td></tr>
 <tr class="separator:a096584123b1047c33d253c1985401815 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afac94b2a7de43504b1d503e07fbf55df inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afac94b2a7de43504b1d503e07fbf55df"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>GetPositionZ</b> ()</td></tr>
+<tr class="memitem:afac94b2a7de43504b1d503e07fbf55df inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afac94b2a7de43504b1d503e07fbf55df">GetPositionZ</a> ()</td></tr>
 <tr class="separator:afac94b2a7de43504b1d503e07fbf55df inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:a7c0dee96eec0195e0d044431407b6324 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c0dee96eec0195e0d044431407b6324"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>positionX</b></td></tr>
+<tr class="memitem:a7c0dee96eec0195e0d044431407b6324 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a7c0dee96eec0195e0d044431407b6324">positionX</a></td></tr>
 <tr class="separator:a7c0dee96eec0195e0d044431407b6324 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe0759b6ac8aeb85d8beb9292241f769 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe0759b6ac8aeb85d8beb9292241f769"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>positionY</b></td></tr>
+<tr class="memitem:afe0759b6ac8aeb85d8beb9292241f769 inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#afe0759b6ac8aeb85d8beb9292241f769">positionY</a></td></tr>
 <tr class="separator:afe0759b6ac8aeb85d8beb9292241f769 inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70f4db98655aeb2bb3a9ec9dea07db3e inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70f4db98655aeb2bb3a9ec9dea07db3e"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>positionZ</b></td></tr>
+<tr class="memitem:a70f4db98655aeb2bb3a9ec9dea07db3e inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a70f4db98655aeb2bb3a9ec9dea07db3e">positionZ</a></td></tr>
 <tr class="separator:a70f4db98655aeb2bb3a9ec9dea07db3e inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a0b116646cca29067e9519402aeb5b188"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EntityModel::EntityModel </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>posX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>posY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>posZ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rotX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rotY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rotZ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaY</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scaZ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>modelPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>texturePath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3c0f7e027bcbd2af3617724a460a447c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EntityModel::~EntityModel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aac39ccf2b12f8a63f27a6ffa2ffee9a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EntityModel::GetScaleX </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a982369e6e47959fd275c677546473fa2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EntityModel::GetScaleY </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1380ee58be0b3747f2c83cdd94cee31b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float EntityModel::GetScaleZ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afa0d89b61e5c3f5db488b9ef900bde04"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EntityModel::LoadResources </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_resources_manager.html">ResourcesManager</a> *&#160;</td>
+          <td class="paramname"><em>resourceManager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_renderer.html">Renderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a829fba156b805c1657ca6ce3caf9e8b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EntityModel::renderEntityModel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_renderer.html">Renderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_entity_camera.html">EntityCamera</a> *&#160;</td>
+          <td class="paramname"><em>camera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a413b2bc4db6e472672982bbe28962bf2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EntityModel::SetScaleX </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa3eb6e49cd41eabefc99280ccb414af9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EntityModel::SetScaleY </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0bb9038b6bfece059d5a43b7cc6781f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EntityModel::SetScaleZ </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>z</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_entity_model_8h_source.html">EntityModel.h</a></li>
-<li>EntityModel.cpp</li>
+<li><a class="el" href="_entity_model_8cpp.html">EntityModel.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 5 2013 12:00:20 for 3DEngie by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 7 2013 11:06:49 for 3Dengie by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

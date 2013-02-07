@@ -3,58 +3,269 @@
 }
 
 
+{\ttfamily \#include $<$Renderer.\-h$>$}
+
+
+
 Inherited by \hyperlink{class_renderer_d_x9}{Renderer\-D\-X9}.
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_renderer_a6313b523d721e6c2975a669af99a4c2b}{virtual H\-R\-E\-S\-U\-L\-T {\bfseries Init\-Device} (H\-W\-N\-D h\-Wnd)=0}\label{class_renderer_a6313b523d721e6c2975a669af99a4c2b}
-
+\hyperlink{class_renderer_afeee408862d5bd6255a6882d47e6d5cd}{$\sim$\-Renderer} ()
 \item 
-\hypertarget{class_renderer_adfa2a874df852968998c3ee2b50d5bd3}{virtual void {\bfseries Setup\-World\-Matrix} (float x, float y, float z, float rot\-X, float rot\-Y, float rot\-Z, float scale\-X, float scale\-Y, float scale\-Z)=0}\label{class_renderer_adfa2a874df852968998c3ee2b50d5bd3}
-
+virtual H\-R\-E\-S\-U\-L\-T \hyperlink{class_renderer_a6313b523d721e6c2975a669af99a4c2b}{Init\-Device} (H\-W\-N\-D h\-Wnd)=0
 \item 
-\hypertarget{class_renderer_ab6dd3468007966dd81900ed3c4dd5873}{virtual void {\bfseries Setup\-Projection\-Matrix} ()=0}\label{class_renderer_ab6dd3468007966dd81900ed3c4dd5873}
-
+virtual void \hyperlink{class_renderer_ac2a5819f123f462f4ed249be9427a228}{Setup\-World\-Matrix} (float x, float y, float z, float rot\-X, float rot\-Y, float rot\-Z, float scale\-X, float scale\-Y, float scale\-Z, \hyperlink{class_entity_camera}{Entity\-Camera} $\ast$camera)=0
 \item 
-\hypertarget{class_renderer_ab7ed63f63bcc6726d40e2a43cc3a585e}{virtual void {\bfseries Clear\-Scene} ()=0}\label{class_renderer_ab7ed63f63bcc6726d40e2a43cc3a585e}
-
+virtual void \hyperlink{class_renderer_a872dd40fa890c4bd2b5ef28036e14d75}{Setup\-View\-Matrix} (float x, float y, float z)=0
 \item 
-\hypertarget{class_renderer_a32e27baaab853cc2d24605b831bcda75}{virtual bool {\bfseries Begin\-Scene} ()=0}\label{class_renderer_a32e27baaab853cc2d24605b831bcda75}
-
+virtual void \hyperlink{class_renderer_ab6dd3468007966dd81900ed3c4dd5873}{Setup\-Projection\-Matrix} ()=0
 \item 
-\hypertarget{class_renderer_abdf143dedfb79932050c37cf0f4449bd}{virtual void {\bfseries End\-Scene} ()=0}\label{class_renderer_abdf143dedfb79932050c37cf0f4449bd}
-
+virtual void \hyperlink{class_renderer_ab7ed63f63bcc6726d40e2a43cc3a585e}{Clear\-Scene} ()=0
 \item 
-\hypertarget{class_renderer_a9dfa1935125f68f2c169c447a66aaf39}{virtual void {\bfseries Present\-Scene} (H\-W\-N\-D h\-Wnd)=0}\label{class_renderer_a9dfa1935125f68f2c169c447a66aaf39}
-
+virtual bool \hyperlink{class_renderer_a32e27baaab853cc2d24605b831bcda75}{Begin\-Scene} ()=0
 \item 
-\hypertarget{class_renderer_a9bf165a1520c271b7bbfee6a70766a77}{virtual void {\bfseries Set\-Stream\-Source} (int buffer, int stride)=0}\label{class_renderer_a9bf165a1520c271b7bbfee6a70766a77}
-
+virtual void \hyperlink{class_renderer_abdf143dedfb79932050c37cf0f4449bd}{End\-Scene} ()=0
 \item 
-\hypertarget{class_renderer_a16ae452ed8535d6ebada62910699dc11}{virtual void {\bfseries Draw\-Primitive\-Triangle} (int start\-Vertex, int number\-Of\-Triangles)=0}\label{class_renderer_a16ae452ed8535d6ebada62910699dc11}
-
+virtual void \hyperlink{class_renderer_a9dfa1935125f68f2c169c447a66aaf39}{Present\-Scene} (H\-W\-N\-D h\-Wnd)=0
 \item 
-\hypertarget{class_renderer_ae1e5dc6344fe47b849f107b2357267ac}{virtual int {\bfseries Create\-Vertex\-Buffer} (\hyperlink{struct_e_n_g_i_e___v_e_r_t_e_x}{E\-N\-G\-I\-E\-\_\-\-V\-E\-R\-T\-E\-X} vertices\mbox{[}$\,$\mbox{]}, int numberof\-Vertices)=0}\label{class_renderer_ae1e5dc6344fe47b849f107b2357267ac}
-
+virtual void \hyperlink{class_renderer_a9bf165a1520c271b7bbfee6a70766a77}{Set\-Stream\-Source} (int buffer, int stride)=0
 \item 
-\hypertarget{class_renderer_ab99ef0eafcdc306365871c10af2f0689}{virtual void {\bfseries Draw\-Subset} (\hyperlink{class_model}{Model} $\ast$model, D\-W\-O\-R\-D i)=0}\label{class_renderer_ab99ef0eafcdc306365871c10af2f0689}
-
+virtual void \hyperlink{class_renderer_a16ae452ed8535d6ebada62910699dc11}{Draw\-Primitive\-Triangle} (int start\-Vertex, int number\-Of\-Triangles)=0
 \item 
-\hypertarget{class_renderer_a98a8e7889a9fcbeafc64bbdf6f2412c9}{virtual void {\bfseries Set\-Texture} (\hyperlink{class_texture}{Texture} $\ast$texture)=0}\label{class_renderer_a98a8e7889a9fcbeafc64bbdf6f2412c9}
-
+virtual int \hyperlink{class_renderer_ae1e5dc6344fe47b849f107b2357267ac}{Create\-Vertex\-Buffer} (\hyperlink{struct_e_n_g_i_e___v_e_r_t_e_x}{E\-N\-G\-I\-E\-\_\-\-V\-E\-R\-T\-E\-X} vertices\mbox{[}$\,$\mbox{]}, int numberof\-Vertices)=0
 \item 
-\hypertarget{class_renderer_a52c252a28ba213fa18be4bc25055fc48}{virtual void $\ast$ {\bfseries Get\-Device} ()=0}\label{class_renderer_a52c252a28ba213fa18be4bc25055fc48}
-
+virtual void \hyperlink{class_renderer_ab99ef0eafcdc306365871c10af2f0689}{Draw\-Subset} (\hyperlink{class_model}{Model} $\ast$model, D\-W\-O\-R\-D i)=0
 \item 
-\hypertarget{class_renderer_a67e9bbda69173ba4328b26882935cc34}{virtual void {\bfseries Set\-Fv\-F} (D\-W\-O\-R\-D fvf)=0}\label{class_renderer_a67e9bbda69173ba4328b26882935cc34}
-
+virtual void \hyperlink{class_renderer_a98a8e7889a9fcbeafc64bbdf6f2412c9}{Set\-Texture} (\hyperlink{class_texture}{Texture} $\ast$texture)=0
 \item 
-\hypertarget{class_renderer_a19ed7be341f5468735f9892a55d405f6}{virtual void {\bfseries Zenable} (bool enable)=0}\label{class_renderer_a19ed7be341f5468735f9892a55d405f6}
-
+virtual void \hyperlink{class_renderer_a742b997e4c498fa5990c953b3d6dfe35}{Set\-Material} (\hyperlink{class_model}{Model} $\ast$model, int material\-Index)=0
+\item 
+virtual void $\ast$ \hyperlink{class_renderer_a52c252a28ba213fa18be4bc25055fc48}{Get\-Device} ()=0
+\item 
+virtual void \hyperlink{class_renderer_a67e9bbda69173ba4328b26882935cc34}{Set\-Fv\-F} (D\-W\-O\-R\-D fvf)=0
+\item 
+virtual void \hyperlink{class_renderer_a19ed7be341f5468735f9892a55d405f6}{Zenable} (bool enable)=0
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_renderer_afeee408862d5bd6255a6882d47e6d5cd}{\index{Renderer@{Renderer}!$\sim$\-Renderer@{$\sim$\-Renderer}}
+\index{$\sim$\-Renderer@{$\sim$\-Renderer}!Renderer@{Renderer}}
+\subsubsection[{$\sim$\-Renderer}]{\setlength{\rightskip}{0pt plus 5cm}Renderer\-::$\sim$\-Renderer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_renderer_afeee408862d5bd6255a6882d47e6d5cd}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_renderer_a32e27baaab853cc2d24605b831bcda75}{\index{Renderer@{Renderer}!Begin\-Scene@{Begin\-Scene}}
+\index{Begin\-Scene@{Begin\-Scene}!Renderer@{Renderer}}
+\subsubsection[{Begin\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Renderer\-::\-Begin\-Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a32e27baaab853cc2d24605b831bcda75}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_a77163ec49875c0584fc849f0f6fa14fa}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_ab7ed63f63bcc6726d40e2a43cc3a585e}{\index{Renderer@{Renderer}!Clear\-Scene@{Clear\-Scene}}
+\index{Clear\-Scene@{Clear\-Scene}!Renderer@{Renderer}}
+\subsubsection[{Clear\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Clear\-Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_ab7ed63f63bcc6726d40e2a43cc3a585e}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_affe5d73baddc5ee719a2b29a811007b6}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_ae1e5dc6344fe47b849f107b2357267ac}{\index{Renderer@{Renderer}!Create\-Vertex\-Buffer@{Create\-Vertex\-Buffer}}
+\index{Create\-Vertex\-Buffer@{Create\-Vertex\-Buffer}!Renderer@{Renderer}}
+\subsubsection[{Create\-Vertex\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}virtual int Renderer\-::\-Create\-Vertex\-Buffer (
+\begin{DoxyParamCaption}
+\item[{{\bf E\-N\-G\-I\-E\-\_\-\-V\-E\-R\-T\-E\-X}}]{vertices\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{numberof\-Vertices}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_ae1e5dc6344fe47b849f107b2357267ac}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_adf76b988cc846b89c54a3b28976b9a9d}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_a16ae452ed8535d6ebada62910699dc11}{\index{Renderer@{Renderer}!Draw\-Primitive\-Triangle@{Draw\-Primitive\-Triangle}}
+\index{Draw\-Primitive\-Triangle@{Draw\-Primitive\-Triangle}!Renderer@{Renderer}}
+\subsubsection[{Draw\-Primitive\-Triangle}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Draw\-Primitive\-Triangle (
+\begin{DoxyParamCaption}
+\item[{int}]{start\-Vertex, }
+\item[{int}]{number\-Of\-Triangles}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a16ae452ed8535d6ebada62910699dc11}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_aaafcf651470404e9d177f659c051ab0c}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_ab99ef0eafcdc306365871c10af2f0689}{\index{Renderer@{Renderer}!Draw\-Subset@{Draw\-Subset}}
+\index{Draw\-Subset@{Draw\-Subset}!Renderer@{Renderer}}
+\subsubsection[{Draw\-Subset}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Draw\-Subset (
+\begin{DoxyParamCaption}
+\item[{{\bf Model} $\ast$}]{model, }
+\item[{D\-W\-O\-R\-D}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_ab99ef0eafcdc306365871c10af2f0689}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_ae9656f2589ffb2e0c90d1f09d4435e85}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_abdf143dedfb79932050c37cf0f4449bd}{\index{Renderer@{Renderer}!End\-Scene@{End\-Scene}}
+\index{End\-Scene@{End\-Scene}!Renderer@{Renderer}}
+\subsubsection[{End\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-End\-Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_abdf143dedfb79932050c37cf0f4449bd}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_a712e654baa65e8e05163a2a336a677eb}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_a52c252a28ba213fa18be4bc25055fc48}{\index{Renderer@{Renderer}!Get\-Device@{Get\-Device}}
+\index{Get\-Device@{Get\-Device}!Renderer@{Renderer}}
+\subsubsection[{Get\-Device}]{\setlength{\rightskip}{0pt plus 5cm}virtual void$\ast$ Renderer\-::\-Get\-Device (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a52c252a28ba213fa18be4bc25055fc48}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_a9431af486dd19440d02a6bdeeea7658b}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_a6313b523d721e6c2975a669af99a4c2b}{\index{Renderer@{Renderer}!Init\-Device@{Init\-Device}}
+\index{Init\-Device@{Init\-Device}!Renderer@{Renderer}}
+\subsubsection[{Init\-Device}]{\setlength{\rightskip}{0pt plus 5cm}virtual H\-R\-E\-S\-U\-L\-T Renderer\-::\-Init\-Device (
+\begin{DoxyParamCaption}
+\item[{H\-W\-N\-D}]{h\-Wnd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a6313b523d721e6c2975a669af99a4c2b}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_a691a441a358c841dc5189325b8e0b086}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_a9dfa1935125f68f2c169c447a66aaf39}{\index{Renderer@{Renderer}!Present\-Scene@{Present\-Scene}}
+\index{Present\-Scene@{Present\-Scene}!Renderer@{Renderer}}
+\subsubsection[{Present\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Present\-Scene (
+\begin{DoxyParamCaption}
+\item[{H\-W\-N\-D}]{h\-Wnd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a9dfa1935125f68f2c169c447a66aaf39}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_aae9ac91351b19ee6e77d9e1d7d5c3570}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_a67e9bbda69173ba4328b26882935cc34}{\index{Renderer@{Renderer}!Set\-Fv\-F@{Set\-Fv\-F}}
+\index{Set\-Fv\-F@{Set\-Fv\-F}!Renderer@{Renderer}}
+\subsubsection[{Set\-Fv\-F}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Set\-Fv\-F (
+\begin{DoxyParamCaption}
+\item[{D\-W\-O\-R\-D}]{fvf}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a67e9bbda69173ba4328b26882935cc34}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_a9dbe602a16c0a7366d39543cb6ac8e01}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_a742b997e4c498fa5990c953b3d6dfe35}{\index{Renderer@{Renderer}!Set\-Material@{Set\-Material}}
+\index{Set\-Material@{Set\-Material}!Renderer@{Renderer}}
+\subsubsection[{Set\-Material}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Set\-Material (
+\begin{DoxyParamCaption}
+\item[{{\bf Model} $\ast$}]{model, }
+\item[{int}]{material\-Index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a742b997e4c498fa5990c953b3d6dfe35}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_a78b74fb57145556e5dd2b58b010448e6}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_a9bf165a1520c271b7bbfee6a70766a77}{\index{Renderer@{Renderer}!Set\-Stream\-Source@{Set\-Stream\-Source}}
+\index{Set\-Stream\-Source@{Set\-Stream\-Source}!Renderer@{Renderer}}
+\subsubsection[{Set\-Stream\-Source}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Set\-Stream\-Source (
+\begin{DoxyParamCaption}
+\item[{int}]{buffer, }
+\item[{int}]{stride}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a9bf165a1520c271b7bbfee6a70766a77}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_ab47cf24b00aea70cee4c15a8ce6fade7}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_a98a8e7889a9fcbeafc64bbdf6f2412c9}{\index{Renderer@{Renderer}!Set\-Texture@{Set\-Texture}}
+\index{Set\-Texture@{Set\-Texture}!Renderer@{Renderer}}
+\subsubsection[{Set\-Texture}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Set\-Texture (
+\begin{DoxyParamCaption}
+\item[{{\bf Texture} $\ast$}]{texture}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a98a8e7889a9fcbeafc64bbdf6f2412c9}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_aeb38155c8f9982e9db98f3c76bc934e4}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_ab6dd3468007966dd81900ed3c4dd5873}{\index{Renderer@{Renderer}!Setup\-Projection\-Matrix@{Setup\-Projection\-Matrix}}
+\index{Setup\-Projection\-Matrix@{Setup\-Projection\-Matrix}!Renderer@{Renderer}}
+\subsubsection[{Setup\-Projection\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Setup\-Projection\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_ab6dd3468007966dd81900ed3c4dd5873}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_a7195bc2ed7ec550d8d89c3b6e23a3d77}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_a872dd40fa890c4bd2b5ef28036e14d75}{\index{Renderer@{Renderer}!Setup\-View\-Matrix@{Setup\-View\-Matrix}}
+\index{Setup\-View\-Matrix@{Setup\-View\-Matrix}!Renderer@{Renderer}}
+\subsubsection[{Setup\-View\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Setup\-View\-Matrix (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a872dd40fa890c4bd2b5ef28036e14d75}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_a3d23c1a33f09ac57d71c373d15475215}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_ac2a5819f123f462f4ed249be9427a228}{\index{Renderer@{Renderer}!Setup\-World\-Matrix@{Setup\-World\-Matrix}}
+\index{Setup\-World\-Matrix@{Setup\-World\-Matrix}!Renderer@{Renderer}}
+\subsubsection[{Setup\-World\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Setup\-World\-Matrix (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{y, }
+\item[{float}]{z, }
+\item[{float}]{rot\-X, }
+\item[{float}]{rot\-Y, }
+\item[{float}]{rot\-Z, }
+\item[{float}]{scale\-X, }
+\item[{float}]{scale\-Y, }
+\item[{float}]{scale\-Z, }
+\item[{{\bf Entity\-Camera} $\ast$}]{camera}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_ac2a5819f123f462f4ed249be9427a228}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_a40a98a7212cd224b87b950a22911de76}{Renderer\-D\-X9}.
+
+\hypertarget{class_renderer_a19ed7be341f5468735f9892a55d405f6}{\index{Renderer@{Renderer}!Zenable@{Zenable}}
+\index{Zenable@{Zenable}!Renderer@{Renderer}}
+\subsubsection[{Zenable}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Renderer\-::\-Zenable (
+\begin{DoxyParamCaption}
+\item[{bool}]{enable}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_renderer_a19ed7be341f5468735f9892a55d405f6}
+
+
+Implemented in \hyperlink{class_renderer_d_x9_ab926f285ad9f3b088ac0289e555d1df2}{Renderer\-D\-X9}.
+
 
 
 The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-Renderer.\-h\end{DoxyCompactItemize}
+\hyperlink{_renderer_8h}{Renderer.\-h}\end{DoxyCompactItemize}

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3.1"/>
-<title>3DEngie: Scene Class Reference</title>
+<title>3Dengie: Scene Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">3DEngie
+   <div id="projectname">3Dengie
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,30 +88,165 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Scene Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_scene_8h_source.html">Scene.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5697fbceb61496683804758312cca023"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5697fbceb61496683804758312cca023"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Scene</b> (<a class="el" href="class_renderer.html">Renderer</a> *r, <a class="el" href="class_resources_manager.html">ResourcesManager</a> *rm, std::string sceneName)</td></tr>
-<tr class="separator:a5697fbceb61496683804758312cca023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a575e7cc7d0333362979cdd0be76db889"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a575e7cc7d0333362979cdd0be76db889"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadScene</b> (std::string filePath)</td></tr>
-<tr class="separator:a575e7cc7d0333362979cdd0be76db889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8ad077509db46397cdd25de2c9ec771"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa8ad077509db46397cdd25de2c9ec771"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RenderScene</b> (HWND hWnd)</td></tr>
-<tr class="separator:aa8ad077509db46397cdd25de2c9ec771"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae906c883bc1ef85741c8843baee1c4aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae906c883bc1ef85741c8843baee1c4aa"></a>
-<a class="el" href="class_entity_camera.html">EntityCamera</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetCamera</b> ()</td></tr>
+<tr class="memitem:a7b12367f5cd8d6b11ac4b06609a003d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a7b12367f5cd8d6b11ac4b06609a003d6">Scene</a> (std::string scenePath)</td></tr>
+<tr class="separator:a7b12367f5cd8d6b11ac4b06609a003d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b8cec2e32546713915f8c6303c951f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a3b8cec2e32546713915f8c6303c951f1">~Scene</a> ()</td></tr>
+<tr class="separator:a3b8cec2e32546713915f8c6303c951f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2338f5b2e5f8a49a053cb5aa5f68bdff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a2338f5b2e5f8a49a053cb5aa5f68bdff">LoadScene</a> (std::string scenePath)</td></tr>
+<tr class="separator:a2338f5b2e5f8a49a053cb5aa5f68bdff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae886662a576f5590e96a720f8c91139c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ae886662a576f5590e96a720f8c91139c">RenderScene</a> (<a class="el" href="class_renderer.html">Renderer</a> *renderer, HWND hWnd)</td></tr>
+<tr class="separator:ae886662a576f5590e96a720f8c91139c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8874dfdc9b24a9f1363b48bde2f94b98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a8874dfdc9b24a9f1363b48bde2f94b98">PrepareScene</a> (<a class="el" href="class_renderer.html">Renderer</a> *renderer, <a class="el" href="class_resources_manager.html">ResourcesManager</a> *resourceManager)</td></tr>
+<tr class="separator:a8874dfdc9b24a9f1363b48bde2f94b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a882579bd3a7d678172cfd702fb50c899"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a882579bd3a7d678172cfd702fb50c899">ClearEntityList</a> ()</td></tr>
+<tr class="separator:a882579bd3a7d678172cfd702fb50c899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae906c883bc1ef85741c8843baee1c4aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_entity_camera.html">EntityCamera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ae906c883bc1ef85741c8843baee1c4aa">GetCamera</a> ()</td></tr>
 <tr class="separator:ae906c883bc1ef85741c8843baee1c4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a7b12367f5cd8d6b11ac4b06609a003d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Scene::Scene </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>scenePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3b8cec2e32546713915f8c6303c951f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Scene::~Scene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a882579bd3a7d678172cfd702fb50c899"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::ClearEntityList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae906c883bc1ef85741c8843baee1c4aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_entity_camera.html">EntityCamera</a> * Scene::GetCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2338f5b2e5f8a49a053cb5aa5f68bdff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::LoadScene </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>scenePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8874dfdc9b24a9f1363b48bde2f94b98"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::PrepareScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_renderer.html">Renderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_resources_manager.html">ResourcesManager</a> *&#160;</td>
+          <td class="paramname"><em>resourceManager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae886662a576f5590e96a720f8c91139c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::RenderScene </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_renderer.html">Renderer</a> *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HWND&#160;</td>
+          <td class="paramname"><em>hWnd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_scene_8h_source.html">Scene.h</a></li>
-<li>Scene.cpp</li>
+<li><a class="el" href="_scene_8cpp.html">Scene.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 5 2013 12:00:20 for 3DEngie by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 7 2013 11:06:50 for 3Dengie by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.3.1
 </small></address>

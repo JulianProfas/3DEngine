@@ -1,30 +1,76 @@
 \hypertarget{class_scene_manager}{\section{Scene\-Manager Class Reference}
 \label{class_scene_manager}\index{Scene\-Manager@{Scene\-Manager}}
 }
+
+
+{\ttfamily \#include $<$Scene\-Manager.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_scene_manager_ac3d666d894a8d50b595beffbac6863d1}{{\bfseries Scene\-Manager} (\hyperlink{class_resources_manager}{Resources\-Manager} $\ast$resource\-Manager, \hyperlink{class_renderer}{Renderer} $\ast$renderer)}\label{class_scene_manager_ac3d666d894a8d50b595beffbac6863d1}
-
+\hyperlink{class_scene_manager_a52085e6737c23b491c228e86781af808}{Scene\-Manager} ()
 \item 
-\hypertarget{class_scene_manager_a3c75e6a3e33ce869961dcd0f19b4d096}{void {\bfseries Add\-Scene} (std\-::string scene\-Name)}\label{class_scene_manager_a3c75e6a3e33ce869961dcd0f19b4d096}
-
+\hyperlink{class_scene_manager_a2bb376a85d29e85f47753e26c7539229}{$\sim$\-Scene\-Manager} ()
 \item 
-\hypertarget{class_scene_manager_abd662dc0303a2d5e2408cf806e64376b}{void {\bfseries Remove\-Scene} (std\-::string scene\-Name)}\label{class_scene_manager_abd662dc0303a2d5e2408cf806e64376b}
-
+void \hyperlink{class_scene_manager_aa0d20dd9271f3dff208e63b9b14ca013}{Add\-Scene} (std\-::string scene\-Path)
 \item 
-\hypertarget{class_scene_manager_a144b0ee91bcd4bcb528128ce06804571}{void {\bfseries Clear\-Scene\-Map} ()}\label{class_scene_manager_a144b0ee91bcd4bcb528128ce06804571}
-
+void \hyperlink{class_scene_manager_a1b4f1f708705bd5de0f37777cba70cee}{Remove\-Scene} (std\-::string scene\-Path)
 \item 
-\hypertarget{class_scene_manager_a88d0e3b9c580f95ef6b054a993f26958}{std\-::map$<$ std\-::string, \hyperlink{class_scene}{Scene} $\ast$ $>$ $\ast$ {\bfseries Get\-Scene\-Map} ()}\label{class_scene_manager_a88d0e3b9c580f95ef6b054a993f26958}
-
+void \hyperlink{class_scene_manager_a144b0ee91bcd4bcb528128ce06804571}{Clear\-Scene\-Map} ()
 \item 
-\hypertarget{class_scene_manager_a6cca5d4f056f1d5acf17ac324a81f513}{\hyperlink{class_scene}{Scene} $\ast$ {\bfseries Get\-Scene} (std\-::string scene\-Name)}\label{class_scene_manager_a6cca5d4f056f1d5acf17ac324a81f513}
-
+\hyperlink{class_scene}{Scene} $\ast$ \hyperlink{class_scene_manager_a0511f632052fe1ed3623aabd47dd557b}{Get\-Scene} (std\-::string scene\-Path)
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_scene_manager_a52085e6737c23b491c228e86781af808}{\index{Scene\-Manager@{Scene\-Manager}!Scene\-Manager@{Scene\-Manager}}
+\index{Scene\-Manager@{Scene\-Manager}!SceneManager@{Scene\-Manager}}
+\subsubsection[{Scene\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Scene\-Manager\-::\-Scene\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_scene_manager_a52085e6737c23b491c228e86781af808}
+\hypertarget{class_scene_manager_a2bb376a85d29e85f47753e26c7539229}{\index{Scene\-Manager@{Scene\-Manager}!$\sim$\-Scene\-Manager@{$\sim$\-Scene\-Manager}}
+\index{$\sim$\-Scene\-Manager@{$\sim$\-Scene\-Manager}!SceneManager@{Scene\-Manager}}
+\subsubsection[{$\sim$\-Scene\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Scene\-Manager\-::$\sim$\-Scene\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_scene_manager_a2bb376a85d29e85f47753e26c7539229}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scene_manager_aa0d20dd9271f3dff208e63b9b14ca013}{\index{Scene\-Manager@{Scene\-Manager}!Add\-Scene@{Add\-Scene}}
+\index{Add\-Scene@{Add\-Scene}!SceneManager@{Scene\-Manager}}
+\subsubsection[{Add\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\-Manager\-::\-Add\-Scene (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{scene\-Path}
+\end{DoxyParamCaption}
+)}}\label{class_scene_manager_aa0d20dd9271f3dff208e63b9b14ca013}
+\hypertarget{class_scene_manager_a144b0ee91bcd4bcb528128ce06804571}{\index{Scene\-Manager@{Scene\-Manager}!Clear\-Scene\-Map@{Clear\-Scene\-Map}}
+\index{Clear\-Scene\-Map@{Clear\-Scene\-Map}!SceneManager@{Scene\-Manager}}
+\subsubsection[{Clear\-Scene\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\-Manager\-::\-Clear\-Scene\-Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_scene_manager_a144b0ee91bcd4bcb528128ce06804571}
+\hypertarget{class_scene_manager_a0511f632052fe1ed3623aabd47dd557b}{\index{Scene\-Manager@{Scene\-Manager}!Get\-Scene@{Get\-Scene}}
+\index{Get\-Scene@{Get\-Scene}!SceneManager@{Scene\-Manager}}
+\subsubsection[{Get\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Scene} $\ast$ Scene\-Manager\-::\-Get\-Scene (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{scene\-Path}
+\end{DoxyParamCaption}
+)}}\label{class_scene_manager_a0511f632052fe1ed3623aabd47dd557b}
+\hypertarget{class_scene_manager_a1b4f1f708705bd5de0f37777cba70cee}{\index{Scene\-Manager@{Scene\-Manager}!Remove\-Scene@{Remove\-Scene}}
+\index{Remove\-Scene@{Remove\-Scene}!SceneManager@{Scene\-Manager}}
+\subsubsection[{Remove\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\-Manager\-::\-Remove\-Scene (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{scene\-Path}
+\end{DoxyParamCaption}
+)}}\label{class_scene_manager_a1b4f1f708705bd5de0f37777cba70cee}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-Scene\-Manager.\-h\item 
-Scene\-Manager.\-cpp\end{DoxyCompactItemize}
+\hyperlink{_scene_manager_8h}{Scene\-Manager.\-h}\item 
+\hyperlink{_scene_manager_8cpp}{Scene\-Manager.\-cpp}\end{DoxyCompactItemize}

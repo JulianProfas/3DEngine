@@ -1,24 +1,87 @@
 \hypertarget{class_scene}{\section{Scene Class Reference}
 \label{class_scene}\index{Scene@{Scene}}
 }
+
+
+{\ttfamily \#include $<$Scene.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_scene_a5697fbceb61496683804758312cca023}{{\bfseries Scene} (\hyperlink{class_renderer}{Renderer} $\ast$r, \hyperlink{class_resources_manager}{Resources\-Manager} $\ast$rm, std\-::string scene\-Name)}\label{class_scene_a5697fbceb61496683804758312cca023}
-
+\hyperlink{class_scene_a7b12367f5cd8d6b11ac4b06609a003d6}{Scene} (std\-::string scene\-Path)
 \item 
-\hypertarget{class_scene_a575e7cc7d0333362979cdd0be76db889}{void {\bfseries Load\-Scene} (std\-::string file\-Path)}\label{class_scene_a575e7cc7d0333362979cdd0be76db889}
-
+\hyperlink{class_scene_a3b8cec2e32546713915f8c6303c951f1}{$\sim$\-Scene} ()
 \item 
-\hypertarget{class_scene_aa8ad077509db46397cdd25de2c9ec771}{void {\bfseries Render\-Scene} (H\-W\-N\-D h\-Wnd)}\label{class_scene_aa8ad077509db46397cdd25de2c9ec771}
-
+void \hyperlink{class_scene_a2338f5b2e5f8a49a053cb5aa5f68bdff}{Load\-Scene} (std\-::string scene\-Path)
 \item 
-\hypertarget{class_scene_ae906c883bc1ef85741c8843baee1c4aa}{\hyperlink{class_entity_camera}{Entity\-Camera} $\ast$ {\bfseries Get\-Camera} ()}\label{class_scene_ae906c883bc1ef85741c8843baee1c4aa}
-
+void \hyperlink{class_scene_ae886662a576f5590e96a720f8c91139c}{Render\-Scene} (\hyperlink{class_renderer}{Renderer} $\ast$renderer, H\-W\-N\-D h\-Wnd)
+\item 
+void \hyperlink{class_scene_a8874dfdc9b24a9f1363b48bde2f94b98}{Prepare\-Scene} (\hyperlink{class_renderer}{Renderer} $\ast$renderer, \hyperlink{class_resources_manager}{Resources\-Manager} $\ast$resource\-Manager)
+\item 
+void \hyperlink{class_scene_a882579bd3a7d678172cfd702fb50c899}{Clear\-Entity\-List} ()
+\item 
+\hyperlink{class_entity_camera}{Entity\-Camera} $\ast$ \hyperlink{class_scene_ae906c883bc1ef85741c8843baee1c4aa}{Get\-Camera} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_scene_a7b12367f5cd8d6b11ac4b06609a003d6}{\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\subsubsection[{Scene}]{\setlength{\rightskip}{0pt plus 5cm}Scene\-::\-Scene (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{scene\-Path}
+\end{DoxyParamCaption}
+)}}\label{class_scene_a7b12367f5cd8d6b11ac4b06609a003d6}
+\hypertarget{class_scene_a3b8cec2e32546713915f8c6303c951f1}{\index{Scene@{Scene}!$\sim$\-Scene@{$\sim$\-Scene}}
+\index{$\sim$\-Scene@{$\sim$\-Scene}!Scene@{Scene}}
+\subsubsection[{$\sim$\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}Scene\-::$\sim$\-Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_scene_a3b8cec2e32546713915f8c6303c951f1}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_scene_a882579bd3a7d678172cfd702fb50c899}{\index{Scene@{Scene}!Clear\-Entity\-List@{Clear\-Entity\-List}}
+\index{Clear\-Entity\-List@{Clear\-Entity\-List}!Scene@{Scene}}
+\subsubsection[{Clear\-Entity\-List}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\-::\-Clear\-Entity\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_scene_a882579bd3a7d678172cfd702fb50c899}
+\hypertarget{class_scene_ae906c883bc1ef85741c8843baee1c4aa}{\index{Scene@{Scene}!Get\-Camera@{Get\-Camera}}
+\index{Get\-Camera@{Get\-Camera}!Scene@{Scene}}
+\subsubsection[{Get\-Camera}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity\-Camera} $\ast$ Scene\-::\-Get\-Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_scene_ae906c883bc1ef85741c8843baee1c4aa}
+\hypertarget{class_scene_a2338f5b2e5f8a49a053cb5aa5f68bdff}{\index{Scene@{Scene}!Load\-Scene@{Load\-Scene}}
+\index{Load\-Scene@{Load\-Scene}!Scene@{Scene}}
+\subsubsection[{Load\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\-::\-Load\-Scene (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{scene\-Path}
+\end{DoxyParamCaption}
+)}}\label{class_scene_a2338f5b2e5f8a49a053cb5aa5f68bdff}
+\hypertarget{class_scene_a8874dfdc9b24a9f1363b48bde2f94b98}{\index{Scene@{Scene}!Prepare\-Scene@{Prepare\-Scene}}
+\index{Prepare\-Scene@{Prepare\-Scene}!Scene@{Scene}}
+\subsubsection[{Prepare\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\-::\-Prepare\-Scene (
+\begin{DoxyParamCaption}
+\item[{{\bf Renderer} $\ast$}]{renderer, }
+\item[{{\bf Resources\-Manager} $\ast$}]{resource\-Manager}
+\end{DoxyParamCaption}
+)}}\label{class_scene_a8874dfdc9b24a9f1363b48bde2f94b98}
+\hypertarget{class_scene_ae886662a576f5590e96a720f8c91139c}{\index{Scene@{Scene}!Render\-Scene@{Render\-Scene}}
+\index{Render\-Scene@{Render\-Scene}!Scene@{Scene}}
+\subsubsection[{Render\-Scene}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\-::\-Render\-Scene (
+\begin{DoxyParamCaption}
+\item[{{\bf Renderer} $\ast$}]{renderer, }
+\item[{H\-W\-N\-D}]{h\-Wnd}
+\end{DoxyParamCaption}
+)}}\label{class_scene_ae886662a576f5590e96a720f8c91139c}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-Scene.\-h\item 
-Scene.\-cpp\end{DoxyCompactItemize}
+\hyperlink{_scene_8h}{Scene.\-h}\item 
+\hyperlink{_scene_8cpp}{Scene.\-cpp}\end{DoxyCompactItemize}

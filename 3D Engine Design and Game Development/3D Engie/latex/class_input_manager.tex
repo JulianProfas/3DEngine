@@ -1,24 +1,94 @@
 \hypertarget{class_input_manager}{\section{Input\-Manager Class Reference}
 \label{class_input_manager}\index{Input\-Manager@{Input\-Manager}}
 }
+
+
+{\ttfamily \#include $<$Input\-Manager.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_input_manager_ad37c9defa531918e2e990dad9d719584}{void {\bfseries Add\-Keyboard\-Input} (H\-W\-N\-D hwnd)}\label{class_input_manager_ad37c9defa531918e2e990dad9d719584}
-
+\hyperlink{class_input_manager_a8be46886da639b26d67181c29dab6d6c}{Input\-Manager} ()
 \item 
-\hypertarget{class_input_manager_a65b15a6ebdad0cc1a72f0b6e81640296}{void {\bfseries Add\-Mouse\-Input} (H\-W\-N\-D hwnd)}\label{class_input_manager_a65b15a6ebdad0cc1a72f0b6e81640296}
-
+\hyperlink{class_input_manager_af518290877dd183606709d5852db5491}{$\sim$\-Input\-Manager} ()
 \item 
-\hypertarget{class_input_manager_a01789f6350560c18a10f01847a200d39}{void {\bfseries Release} ()}\label{class_input_manager_a01789f6350560c18a10f01847a200d39}
-
+void \hyperlink{class_input_manager_ab3067ae0173779882fe90fc6a4ed8091}{Add\-Keyboard\-Input} ()
 \item 
-\hypertarget{class_input_manager_ae8618cf33262a21563e30dff2eac4456}{void {\bfseries Check\-States} (\hyperlink{class_scene}{Scene} $\ast$s)}\label{class_input_manager_ae8618cf33262a21563e30dff2eac4456}
-
+void \hyperlink{class_input_manager_a23e209e8a72132187eeb238a8b205dd4}{Add\-Mouse\-Input} ()
+\item 
+void \hyperlink{class_input_manager_a01789f6350560c18a10f01847a200d39}{Release} ()
+\item 
+void \hyperlink{class_input_manager_a0c1dc308a646b8fcdbdae7f9feea9287}{Update\-States} ()
+\item 
+\hyperlink{class_keyboard_input}{Keyboard\-Input} $\ast$ \hyperlink{class_input_manager_a6207e9e1fe4ae693262d33d2dd302635}{Get\-Keyboard} ()
+\item 
+\hyperlink{class_mouse_input}{Mouse\-Input} $\ast$ \hyperlink{class_input_manager_a0b5d413555ee81e05f74c7eb21ad50d3}{Get\-Mouse} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_input_manager_a8be46886da639b26d67181c29dab6d6c}{\index{Input\-Manager@{Input\-Manager}!Input\-Manager@{Input\-Manager}}
+\index{Input\-Manager@{Input\-Manager}!InputManager@{Input\-Manager}}
+\subsubsection[{Input\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Input\-Manager\-::\-Input\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_input_manager_a8be46886da639b26d67181c29dab6d6c}
+\hypertarget{class_input_manager_af518290877dd183606709d5852db5491}{\index{Input\-Manager@{Input\-Manager}!$\sim$\-Input\-Manager@{$\sim$\-Input\-Manager}}
+\index{$\sim$\-Input\-Manager@{$\sim$\-Input\-Manager}!InputManager@{Input\-Manager}}
+\subsubsection[{$\sim$\-Input\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Input\-Manager\-::$\sim$\-Input\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_input_manager_af518290877dd183606709d5852db5491}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_input_manager_ab3067ae0173779882fe90fc6a4ed8091}{\index{Input\-Manager@{Input\-Manager}!Add\-Keyboard\-Input@{Add\-Keyboard\-Input}}
+\index{Add\-Keyboard\-Input@{Add\-Keyboard\-Input}!InputManager@{Input\-Manager}}
+\subsubsection[{Add\-Keyboard\-Input}]{\setlength{\rightskip}{0pt plus 5cm}void Input\-Manager\-::\-Add\-Keyboard\-Input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_input_manager_ab3067ae0173779882fe90fc6a4ed8091}
+\hypertarget{class_input_manager_a23e209e8a72132187eeb238a8b205dd4}{\index{Input\-Manager@{Input\-Manager}!Add\-Mouse\-Input@{Add\-Mouse\-Input}}
+\index{Add\-Mouse\-Input@{Add\-Mouse\-Input}!InputManager@{Input\-Manager}}
+\subsubsection[{Add\-Mouse\-Input}]{\setlength{\rightskip}{0pt plus 5cm}void Input\-Manager\-::\-Add\-Mouse\-Input (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_input_manager_a23e209e8a72132187eeb238a8b205dd4}
+\hypertarget{class_input_manager_a6207e9e1fe4ae693262d33d2dd302635}{\index{Input\-Manager@{Input\-Manager}!Get\-Keyboard@{Get\-Keyboard}}
+\index{Get\-Keyboard@{Get\-Keyboard}!InputManager@{Input\-Manager}}
+\subsubsection[{Get\-Keyboard}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Keyboard\-Input} $\ast$ Input\-Manager\-::\-Get\-Keyboard (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_input_manager_a6207e9e1fe4ae693262d33d2dd302635}
+\hypertarget{class_input_manager_a0b5d413555ee81e05f74c7eb21ad50d3}{\index{Input\-Manager@{Input\-Manager}!Get\-Mouse@{Get\-Mouse}}
+\index{Get\-Mouse@{Get\-Mouse}!InputManager@{Input\-Manager}}
+\subsubsection[{Get\-Mouse}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mouse\-Input} $\ast$ Input\-Manager\-::\-Get\-Mouse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_input_manager_a0b5d413555ee81e05f74c7eb21ad50d3}
+\hypertarget{class_input_manager_a01789f6350560c18a10f01847a200d39}{\index{Input\-Manager@{Input\-Manager}!Release@{Release}}
+\index{Release@{Release}!InputManager@{Input\-Manager}}
+\subsubsection[{Release}]{\setlength{\rightskip}{0pt plus 5cm}void Input\-Manager\-::\-Release (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_input_manager_a01789f6350560c18a10f01847a200d39}
+\hypertarget{class_input_manager_a0c1dc308a646b8fcdbdae7f9feea9287}{\index{Input\-Manager@{Input\-Manager}!Update\-States@{Update\-States}}
+\index{Update\-States@{Update\-States}!InputManager@{Input\-Manager}}
+\subsubsection[{Update\-States}]{\setlength{\rightskip}{0pt plus 5cm}void Input\-Manager\-::\-Update\-States (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_input_manager_a0c1dc308a646b8fcdbdae7f9feea9287}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-Input\-Manager.\-h\item 
-Input\-Manager.\-cpp\end{DoxyCompactItemize}
+\hyperlink{_input_manager_8h}{Input\-Manager.\-h}\item 
+\hyperlink{_input_manager_8cpp}{Input\-Manager.\-cpp}\end{DoxyCompactItemize}

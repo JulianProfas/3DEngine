@@ -1,25 +1,24 @@
 \hypertarget{class_keyboard_input}{\section{Keyboard\-Input Class Reference}
 \label{class_keyboard_input}\index{Keyboard\-Input@{Keyboard\-Input}}
 }
+
+
+{\ttfamily \#include $<$Keyboard\-Input.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_keyboard_input_a92d9c25232e73f2d9319c79df028cc69}{Keyboard\-Input} ()
 \item 
-\hyperlink{class_keyboard_input_a720b46c79dacb78a98f687d6bf96d8db}{Keyboard\-Input} (H\-W\-N\-D arg\-Hwnd)
-\item 
 \hyperlink{class_keyboard_input_a2aa6da03ad4f06f93a2a940ee59d05f9}{$\sim$\-Keyboard\-Input} ()
 \item 
-bool \hyperlink{class_keyboard_input_a003c3bec8752a73d19f42c25e27568d4}{Init\-Keyboard\-Input} ()
+bool \hyperlink{class_keyboard_input_ada63fe59a1946c5af73ba79dc6422646}{Init\-Keyboard\-Input} (H\-W\-N\-D arg\-Hwnd)
 \item 
 void \hyperlink{class_keyboard_input_a2b4b64f62cf405d182b0d368586f299c}{Save\-Release\-Device} ()
 \item 
 bool \hyperlink{class_keyboard_input_a00765a4bfa891e8d6e44433d6479571c}{Process\-K\-B\-Input} (byte arg\-Key\-Is\-Pressed)
 \item 
 bool \hyperlink{class_keyboard_input_a099ea8a6c5012b458483719473167d98}{Do\-Acquire} ()
-\item 
-\hypertarget{class_keyboard_input_a57f25c7d587c69f63c114fea28c407f9}{void {\bfseries Check\-Key\-Pressed} (\hyperlink{class_scene}{Scene} $\ast$s)}\label{class_keyboard_input_a57f25c7d587c69f63c114fea28c407f9}
-
 \end{DoxyCompactItemize}
 
 
@@ -31,21 +30,14 @@ bool \hyperlink{class_keyboard_input_a099ea8a6c5012b458483719473167d98}{Do\-Acqu
 {}
 \end{DoxyParamCaption}
 )}}\label{class_keyboard_input_a92d9c25232e73f2d9319c79df028cc69}
-Function\-: Keyboard\-::\-Keyboard() Description\-: Empty keyboard constructor \hypertarget{class_keyboard_input_a720b46c79dacb78a98f687d6bf96d8db}{\index{Keyboard\-Input@{Keyboard\-Input}!Keyboard\-Input@{Keyboard\-Input}}
-\index{Keyboard\-Input@{Keyboard\-Input}!KeyboardInput@{Keyboard\-Input}}
-\subsubsection[{Keyboard\-Input}]{\setlength{\rightskip}{0pt plus 5cm}Keyboard\-Input\-::\-Keyboard\-Input (
-\begin{DoxyParamCaption}
-\item[{H\-W\-N\-D}]{arg\-Hwnd}
-\end{DoxyParamCaption}
-)}}\label{class_keyboard_input_a720b46c79dacb78a98f687d6bf96d8db}
-Function\-: Keyboard\-::\-Keyboard(...) Description\-: Keyboard constructor @ param h\-Wnd\-: Pointer to window\-Handle, used to set the \char`\"{}\-Set\-Cooperative\-Level\char`\"{} \hypertarget{class_keyboard_input_a2aa6da03ad4f06f93a2a940ee59d05f9}{\index{Keyboard\-Input@{Keyboard\-Input}!$\sim$\-Keyboard\-Input@{$\sim$\-Keyboard\-Input}}
+\hypertarget{class_keyboard_input_a2aa6da03ad4f06f93a2a940ee59d05f9}{\index{Keyboard\-Input@{Keyboard\-Input}!$\sim$\-Keyboard\-Input@{$\sim$\-Keyboard\-Input}}
 \index{$\sim$\-Keyboard\-Input@{$\sim$\-Keyboard\-Input}!KeyboardInput@{Keyboard\-Input}}
 \subsubsection[{$\sim$\-Keyboard\-Input}]{\setlength{\rightskip}{0pt plus 5cm}Keyboard\-Input\-::$\sim$\-Keyboard\-Input (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}\label{class_keyboard_input_a2aa6da03ad4f06f93a2a940ee59d05f9}
-Function\-: Keyboard\-::$\sim$\-Keyboard() Description\-: Keyboard destructor 
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_keyboard_input_a099ea8a6c5012b458483719473167d98}{\index{Keyboard\-Input@{Keyboard\-Input}!Do\-Acquire@{Do\-Acquire}}
@@ -55,30 +47,30 @@ Function\-: Keyboard\-::$\sim$\-Keyboard() Description\-: Keyboard destructor
 {}
 \end{DoxyParamCaption}
 )}}\label{class_keyboard_input_a099ea8a6c5012b458483719473167d98}
-Function\-: Keyboard\-::\-Do\-Acquire() Description\-: Aquiring the device, multiple times to make sure it gets it \hypertarget{class_keyboard_input_a003c3bec8752a73d19f42c25e27568d4}{\index{Keyboard\-Input@{Keyboard\-Input}!Init\-Keyboard\-Input@{Init\-Keyboard\-Input}}
+\hypertarget{class_keyboard_input_ada63fe59a1946c5af73ba79dc6422646}{\index{Keyboard\-Input@{Keyboard\-Input}!Init\-Keyboard\-Input@{Init\-Keyboard\-Input}}
 \index{Init\-Keyboard\-Input@{Init\-Keyboard\-Input}!KeyboardInput@{Keyboard\-Input}}
 \subsubsection[{Init\-Keyboard\-Input}]{\setlength{\rightskip}{0pt plus 5cm}bool Keyboard\-Input\-::\-Init\-Keyboard\-Input (
 \begin{DoxyParamCaption}
-{}
+\item[{H\-W\-N\-D}]{arg\-Hwnd}
 \end{DoxyParamCaption}
-)}}\label{class_keyboard_input_a003c3bec8752a73d19f42c25e27568d4}
-Function\-: Keyboard\-::\-Init\-Keyboard() Description\-: initializing the keyboard (creating the device and setting the coopertive level) \hypertarget{class_keyboard_input_a00765a4bfa891e8d6e44433d6479571c}{\index{Keyboard\-Input@{Keyboard\-Input}!Process\-K\-B\-Input@{Process\-K\-B\-Input}}
+)}}\label{class_keyboard_input_ada63fe59a1946c5af73ba79dc6422646}
+\hypertarget{class_keyboard_input_a00765a4bfa891e8d6e44433d6479571c}{\index{Keyboard\-Input@{Keyboard\-Input}!Process\-K\-B\-Input@{Process\-K\-B\-Input}}
 \index{Process\-K\-B\-Input@{Process\-K\-B\-Input}!KeyboardInput@{Keyboard\-Input}}
 \subsubsection[{Process\-K\-B\-Input}]{\setlength{\rightskip}{0pt plus 5cm}bool Keyboard\-Input\-::\-Process\-K\-B\-Input (
 \begin{DoxyParamCaption}
 \item[{byte}]{arg\-Key\-Is\-Pressed}
 \end{DoxyParamCaption}
 )}}\label{class_keyboard_input_a00765a4bfa891e8d6e44433d6479571c}
-Function\-: Keyboard\-::\-Process\-K\-B\-Input(...) Description\-: Method to see if the keyboardbuffer can be red or that a aquire is needed @ param arg\-Is\-Toggle Boolean to see if the key that is pressed a togglebutton is @ param arg\-Key\-Is\-Pressed Byte containing the key that must be checked \hypertarget{class_keyboard_input_a2b4b64f62cf405d182b0d368586f299c}{\index{Keyboard\-Input@{Keyboard\-Input}!Save\-Release\-Device@{Save\-Release\-Device}}
+\hypertarget{class_keyboard_input_a2b4b64f62cf405d182b0d368586f299c}{\index{Keyboard\-Input@{Keyboard\-Input}!Save\-Release\-Device@{Save\-Release\-Device}}
 \index{Save\-Release\-Device@{Save\-Release\-Device}!KeyboardInput@{Keyboard\-Input}}
 \subsubsection[{Save\-Release\-Device}]{\setlength{\rightskip}{0pt plus 5cm}void Keyboard\-Input\-::\-Save\-Release\-Device (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )}}\label{class_keyboard_input_a2b4b64f62cf405d182b0d368586f299c}
-Function\-: Keyboard\-::save\-Release\-Device() Description\-: Cleaning up the mess left if a keyboard is lost 
+
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-Keyboard\-Input.\-h\item 
-Keyboard\-Input.\-cpp\end{DoxyCompactItemize}
+\hyperlink{_keyboard_input_8h}{Keyboard\-Input.\-h}\item 
+\hyperlink{_keyboard_input_8cpp}{Keyboard\-Input.\-cpp}\end{DoxyCompactItemize}
